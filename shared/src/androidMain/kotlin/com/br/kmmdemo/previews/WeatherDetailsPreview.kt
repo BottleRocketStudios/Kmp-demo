@@ -21,6 +21,9 @@ import com.br.kmmdemo.ui.weatherDetails.sunrise_sunset.SunriseSunsetWidget
 import com.br.kmmdemo.ui.weatherDetails.uvIndex.UVIndexEnum
 import com.br.kmmdemo.ui.weatherDetails.uvIndex.UvIndexWidget
 import com.br.kmmdemo.ui.weatherDetails.visibility.VisibilityState
+import com.br.kmmdemo.ui.weatherDetails.wind.WindDirection
+import com.br.kmmdemo.ui.weatherDetails.wind.WindState
+import com.br.kmmdemo.ui.weatherDetails.wind.WindWidget
 
 @Composable
 @Preview
@@ -129,5 +132,26 @@ fun BarometricPressurePreview() {
             }
         }
 
+    }
+}
+
+@Composable
+@Preview
+fun WindPreview() {
+    KMMTheme {
+        Column {
+            Row {
+                WindWidget(WindState(windDirection = WindDirection.N, windSpeed = "9.7"))
+                WindWidget(WindState(windDirection = WindDirection.ESE, windSpeed = "3.2"))
+            }
+            Row {
+                WindWidget(WindState(windDirection = WindDirection.W, windSpeed = "9.7"))
+                WindWidget(WindState(windDirection = WindDirection.WNW, windSpeed = "3.2"))
+            }
+            Row {
+                WindWidget(WindState(windDirection = WindDirection.SSE, windSpeed = "9.7"))
+                WindWidget(WindState(windDirection = WindDirection.N))
+            }
+        }
     }
 }

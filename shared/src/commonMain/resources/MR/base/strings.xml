@@ -58,6 +58,8 @@
     <string name="input_sunset">Sunset: %s PM</string>
 
     <string name="wind">WIND</string>
+    <string name="wind_kmh">km/h</string>
+    <string name="wind_mph">mp/h</string>
 
     <string name="rainfall">RAINFALL</string>
     <string name="in_last_hour">in last hour</string>
