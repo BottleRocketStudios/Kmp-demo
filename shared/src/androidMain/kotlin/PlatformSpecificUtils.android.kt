@@ -1,8 +1,6 @@
 import androidx.compose.material3.ColorScheme
-import com.br.kmmdemo.compose.resources.theme.Dimensions
-import com.br.kmmdemo.compose.resources.theme.kmpDarkColors
-import com.br.kmmdemo.compose.resources.theme.kmpLightColors
-import com.br.kmmdemo.compose.resources.theme.sw360Dimensions
+import com.br.kmpdemo.compose.resources.theme.kmpDarkColors
+import com.br.kmpdemo.compose.resources.theme.kmpLightColors
 
 actual fun getSystemDimensions(): Dimensions {
     // Return iOS-specific dimensions

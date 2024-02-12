@@ -32,7 +32,7 @@ target-sdk = "34"
 min-sdk = "30"
 version-code = "1"
 version-name = "1.0"
-application-id = "com.br.kmmdemo"
+application-id = "com.br.kmpdemo"
 
 [libraries]
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }

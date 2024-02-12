@@ -8,7 +8,7 @@ plugins {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "com.br.kmmdemo.compose.resources"
+    multiplatformResourcesPackage = "com.br.kmpdemo.compose.resources"
     multiplatformResourcesClassName = "SharedRes"
 }
 

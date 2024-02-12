@@ -10,7 +10,7 @@ plugins {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "com.br.kmmdemo.resources"
+    multiplatformResourcesPackage = "com.br.kmpdemo.resources"
     multiplatformResourcesClassName = "SharedRes"
 }
 

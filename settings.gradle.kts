@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KMM_Demo"
+rootProject.name = "KMP_Demo"
 include(":androidApp")
 include(":shared")
 include(":domain")
