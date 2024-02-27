@@ -91,3 +91,6 @@ android {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
 }
+dependencies {
+    implementation(libs.androidx.material3.android)
+}

@@ -33,6 +33,7 @@ min-sdk = "30"
 version-code = "1"
 version-name = "1.0"
 application-id = "com.br.kmpdemo"
+material3-android = "1.2.0"
 
 [libraries]
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
@@ -70,6 +71,7 @@ precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
 ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "ui-tooling-preview-android" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3-android" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
