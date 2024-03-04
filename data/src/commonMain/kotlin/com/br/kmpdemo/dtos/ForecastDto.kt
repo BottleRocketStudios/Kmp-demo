@@ -1,7 +1,5 @@
 package com.br.kmpdemo.dtos
 
-import LocationDto
-import TimelinesDto
 import com.br.kmpdemo.network.dtos.Dto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

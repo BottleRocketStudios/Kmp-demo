@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 
 @main
-class KmmApp {
+class KmpApp {
     init() {
         HelperKt.doInitKoin()
     }
