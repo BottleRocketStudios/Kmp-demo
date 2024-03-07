@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DailyDto(
+data class RealTimeDataDto(
     val time: String?,
-    @SerialName("values") val dailyValues: DailyDataPointValuesDto?
-): Dto
+    @SerialName("values") val realTimeValues: RealTimeValuesDto?
+):Dto

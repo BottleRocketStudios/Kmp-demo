@@ -3,6 +3,8 @@ package com.br.kmpdemo.compose.ui.home
 import WeatherDetails
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.br.kmpdemo.compose.resources.SharedRes
@@ -24,15 +26,33 @@ fun HomeBottomSheet(state: HomeState, sheetState: Boolean) {
                         listOf(
                             ForecastTabState(
                                 itemTitle = stringResource(SharedRes.strings.hourly_forecast),
-                                content = { HourlyChipList(hourlyForecasts) }
+                                content = {
+                                    if (hourlyForecasts.value != null) {
+                                        HourlyChipList(hourlyForecasts.value!!)
+                                    } else {
+                                        Text(
+                                            text = stringResource(SharedRes.strings.forecasts_unavailable),
+                                            style = MaterialTheme.typography.bodySmall,
+                                        )
+                                    }
+                                }
                             ),
                             ForecastTabState(
                                 itemTitle = stringResource(SharedRes.strings.weekly_forecast),
-                                content = { WeeklyChipList(weeklyForecasts) }
+                                content = {
+                                    if (dailyForecasts.value != null) {
+                                        WeeklyChipList(dailyForecasts.value!!)
+                                    } else {
+                                        Text(
+                                            text = stringResource(SharedRes.strings.forecasts_unavailable),
+                                            style = MaterialTheme.typography.bodySmall,
+                                        )
+                                    }
+                                }
                             )
                         )
                     )
-                    WeatherDetails(state.weatherDetailsState)
+                    WeatherDetails(state)
                 }
             )
         }

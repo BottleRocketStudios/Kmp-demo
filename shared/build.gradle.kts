@@ -59,6 +59,9 @@ kotlin {
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.koin.core)
 
+                implementation(libs.kotlinx.date.time)
+                implementation(libs.androidx.core.i18n)
+
                 // Logger
                 implementation(libs.kermit.logger)
 

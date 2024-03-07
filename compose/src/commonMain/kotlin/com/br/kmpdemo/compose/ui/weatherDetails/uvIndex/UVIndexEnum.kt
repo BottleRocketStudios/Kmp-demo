@@ -16,9 +16,9 @@ enum class UVIndexEnum(
     UNKNOWN(0f, SharedRes.strings.uv_index_unknown, SharedRes.strings.unknown_uv)
 }
 
-fun Double.getUvIndex() =
-    when (this) {
-        in Double.MIN_VALUE..2.9 -> UVIndexEnum.LOW
+fun Double?.getUvIndex() =
+    when (this ?: Double.MIN_VALUE) {
+        in 0.0..2.9 -> UVIndexEnum.LOW
         in 3.0..5.9 -> UVIndexEnum.MODERATE
         in 6.0..7.9 -> UVIndexEnum.HIGH
         in 8.0..10.9 -> UVIndexEnum.VERY_HIGH

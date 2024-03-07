@@ -27,7 +27,7 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
             content = {
                 // Location Name
                 Text(
-                    location ?: stringResource(SharedRes.strings.locationError),
+                    location.value ?: stringResource(SharedRes.strings.locationError),
                     style = MaterialTheme.typography.titleLarge,
                     color = Colors.onPrimary,
                     textAlign = TextAlign.Center,
@@ -36,8 +36,8 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 AnimatedVisibility(visible = !isExpanded) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            currentTemp?.let {
-                                stringResource(SharedRes.strings.input_degrees, currentTemp)
+                            temperature.value?.let {
+                                stringResource(SharedRes.strings.input_degrees, it)
                             } ?: stringResource(SharedRes.strings.tempError),
                             color = Colors.onPrimary,
                             style = MaterialTheme.typography.displayLarge.size(84.sp).light(),
@@ -45,8 +45,10 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                         )
                         // Weather Description
                         Text(
-                            weatherDescription
-                                ?: stringResource(SharedRes.strings.description_error),
+                            stringResource(
+                                weatherDescription.value?.weather
+                                    ?: SharedRes.strings.description_error
+                            ),
                             style = MaterialTheme.typography.titleMedium,
                             color = Colors.onPrimary.copy(alpha = 0.5F),
                             textAlign = TextAlign.Center,
@@ -56,9 +58,13 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 // Location, temp, and description when sheet is expanded
                 AnimatedVisibility(visible = isExpanded) {
                     Text(
-                        currentTemp?.let { temp ->
-                            weatherDescription?.let { desc ->
-                                stringResource(SharedRes.strings.input_collapsed_details, temp, desc)
+                        temperature.value?.let { temp ->
+                            weatherDescription.value?.let { desc ->
+                                stringResource(
+                                    SharedRes.strings.input_collapsed_details,
+                                    temp,
+                                    stringResource(desc.weather),
+                                )
                             }
                         } ?: stringResource(SharedRes.strings.input_collapsed_error),
                         modifier = Modifier.padding(top = Dimens.grid_1_5),
@@ -70,9 +76,9 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 // Temp high and Low
                 AnimatedVisibility(visible = !isExpanded) {
                     Text(
-                        tempHigh?.let {
-                            tempLow?.let {
-                                stringResource(SharedRes.strings.temp_high_low, tempHigh, tempLow)
+                        temperatureHi.value?.let { max ->
+                            temperatureLow.value?.let { min ->
+                                stringResource(SharedRes.strings.temp_high_low, max, min)
                             }
                         } ?: stringResource(SharedRes.strings.highLowTempError),
                         style = MaterialTheme.typography.titleMedium.bold(),

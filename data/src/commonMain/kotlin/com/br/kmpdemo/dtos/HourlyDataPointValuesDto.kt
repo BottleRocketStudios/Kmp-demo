@@ -1,5 +1,6 @@
-package com.br.kmpdemo.network.dtos
+package com.br.kmpdemo.dtos
 
+import com.br.kmpdemo.network.dtos.Dto
 import kotlinx.serialization.Serializable
 
 @Serializable

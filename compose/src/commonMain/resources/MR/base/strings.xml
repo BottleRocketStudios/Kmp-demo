@@ -13,6 +13,8 @@
     <string name="temp_high_low">H:%1s°   L:%2s°</string>
     <string name="hourly_forecast">Hourly Forecast</string>
     <string name="weekly_forecast">Weekly Forecast</string>
+    <string name="pref_metric">metric</string>
+    <string name="pref_imperial">imperial</string>
 
     <!-- Weather Enum Icon Descriptions -->
     <string name="fog">Fog</string>
@@ -31,7 +33,7 @@
 
     <!-- Weather Details Components -->
     <string name="input_degrees">%s°</string>
-    <string name="input_collapsed_details">%s1° | %s2</string>
+    <string name="input_collapsed_details">%s° | %s</string>
     <string name="input_percentage">%s%%</string>
     <string name="air_quality">AIR QUALITY</string>
     <string name="aqi_1">1-No Health Risk</string>
@@ -64,8 +66,27 @@
     <string name="wind">WIND</string>
     <string name="wind_kmh">km/h</string>
     <string name="wind_mph">mp/h</string>
+    <string name="direction_n">North</string>
+    <string name="direction_nne">North-Northeast</string>
+    <string name="direction_ne">Northeast</string>
+    <string name="direction_ene">East-Northeast</string>
+    <string name="direction_e">East</string>
+    <string name="direction_ese">East-Southeast</string>
+    <string name="direction_se">Southeast</string>
+    <string name="direction_sse">South-Southeast</string>
+    <string name="direction_s">South</string>
+    <string name="direction_ssw">South-Southwest</string>
+    <string name="direction_sw">Southwest</string>
+    <string name="direction_wsw">West-Southwest</string>
+    <string name="direction_w">West</string>
+    <string name="direction_wnw">West-Northwest</string>
+    <string name="direction_nw">Northwest</string>
+    <string name="direction_nnw">North-Northwest</string>
+    <string name="direction_unknown"> </string>
 
     <string name="rainfall">RAINFALL</string>
+    <string name="input_rainfall_mm">%s mm</string>
+    <string name="input_rainfall_in">%s in</string>
     <string name="in_last_hour">in last hour</string>
     <string name="input_expected_rainfall">%s expected in next 24h</string>
 
@@ -79,6 +100,8 @@
     <string name="humidity_dew_description">The dew point is %s right now</string>
 
     <string name="visibility">VISIBILITY</string>
+    <string name="input_visibility_km">%s km</string>
+    <string name="input_visibility_mph">%s mph</string>
     <string name="visibility_miles">Clear day visibility average 10 mi</string>
     <string name="visibility_km">Clear day visibility average 16 km</string>
 
@@ -106,4 +129,5 @@
     <string name="unknown_number">unknown</string>
     <string name="empty_string"> </string>
     <string name="input_collapsed_error">--° | Unknown Weather</string>
+    <string name="forecasts_unavailable">Forecasts Unavailable</string>
 </resources>

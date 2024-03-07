@@ -1,5 +1,6 @@
 package com.br.kmpdemo.android
 
+import MeasurementPreference
 import android.app.Application
 import com.br.kmpdemo.android.di.androidModule
 import com.br.kmpdemo.di.appModule
@@ -15,5 +16,6 @@ class KmpDemoApplication: Application() {
             androidLogger()
             modules(appModule() + androidModule)
         }
+        MeasurementPreference.init(this)
     }
 }

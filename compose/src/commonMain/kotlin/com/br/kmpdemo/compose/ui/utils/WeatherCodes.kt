@@ -1,4 +1,4 @@
-package com.br.kmpdemo.utils
+package com.br.kmpdemo.compose.ui.utils
 
 import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
 import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum.DAY_CLOUDY

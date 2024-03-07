@@ -10,16 +10,14 @@ package com.br.kmpdemo.network
  *      Must use [DAILY_FORECAST] to access some fields like sunriseTime and sunsetTime
  *      Use [HOURLY_FORECAST] to access hourly forecast data
  *      Use [REALTIME_FORECAST] to access current weather data for WeatherWidget
- * - For UNITS (optional), use [METRIC] or [IMPERIAL]
  **/
 object NetworkRoutes {
     const val BASE_URL = "https://api.tomorrow.io/v4/weather"
     const val BASE_HOST = "api.tomorrow.io/v4/weather"
-    const val FORECAST = "${BASE_URL}/forecast"
-    const val API_KEY = "64JPsK8f3qpZkvaqAlToKoi0HMIv3ydf"
+    const val FORECAST_URL = "/forecast"
+    const val REALTIME_URL = "/realtime"
+    const val KEY = "64JPsK8f3qpZkvaqAlToKoi0HMIv3ydf"
     const val DAILY_FORECAST = "1d"
     const val HOURLY_FORECAST = "1h"
     const val REALTIME_FORECAST = "current"
-    const val METRIC = "metric"
-    const val IMPERIAL = "imperial"
 }

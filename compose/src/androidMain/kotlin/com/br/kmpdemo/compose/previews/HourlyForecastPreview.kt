@@ -10,8 +10,8 @@ import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
 
 val hourlyForecast = ForecastState(
     dayTime = "12 PM",
-    precipProbability = "30%",
-    temperature = "29\u00B0",
+    precipProbability = 30,
+    temperature = 29,
     weatherIcon = WeatherEnum.DAY_SNOW,
 )
 

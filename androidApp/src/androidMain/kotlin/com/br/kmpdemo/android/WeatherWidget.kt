@@ -2,7 +2,6 @@ package com.br.kmpdemo.android
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.TextUnit
@@ -63,18 +62,18 @@ object WeatherWidget : GlanceAppWidget(), KoinComponent {
 
             val threeHourForecastState = remember { mutableStateOf(ThreeHourForecastState()) }
 
-            LaunchedEffect(cityPosition) {
-                forecastForCityUseCase.invoke(ForecastForCityUseCase.Request(widgetLocations[cityPosition]))
-                    .onSuccess { response ->
-                        threeHourForecastState.value = ThreeHourForecastState(
-                            currentHourlyValues = response.forecast?.timelines?.hourly?.first()?.hourlyValues,
-                            todayDailyValue = response.forecast?.timelines?.daily?.first()?.dailyValues,
-                            futureHourlyValues1 = response.forecast?.timelines?.hourly?.get(1)?.hourlyValues,
-                            futureHourlyValues2 = response.forecast?.timelines?.hourly?.get(2)?.hourlyValues,
-                            futureHourlyValues3 = response.forecast?.timelines?.hourly?.get(3)?.hourlyValues,
-                        )
-                    }
-            }
+//            LaunchedEffect(cityPosition) {
+//                forecastForCityUseCase.invoke(ForecastForCityUseCase.Request(widgetLocations[cityPosition]))
+//                    .onSuccess { response ->
+//                        threeHourForecastState.value = ThreeHourForecastState(
+//                            currentHourlyValues = response.forecast?.timelines?.hourly?.first()?.hourlyValues,
+//                            todayDailyValue = response.forecast?.timelines?.daily?.first()?.dailyValues,
+//                            futureHourlyValues1 = response.forecast?.timelines?.hourly?.get(1)?.hourlyValues,
+//                            futureHourlyValues2 = response.forecast?.timelines?.hourly?.get(2)?.hourlyValues,
+//                            futureHourlyValues3 = response.forecast?.timelines?.hourly?.get(3)?.hourlyValues,
+//                        )
+//                    }
+//            }
 
             GlanceTheme {
                 Column(

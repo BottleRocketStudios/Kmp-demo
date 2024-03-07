@@ -1,5 +1,4 @@
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
@@ -8,18 +7,23 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.br.kmpdemo.compose.resources.theme.Dimens
+import com.br.kmpdemo.compose.ui.home.HomeState
 import com.br.kmpdemo.compose.ui.weatherDetails.WeatherDetailsRow
-import com.br.kmpdemo.compose.ui.weatherDetails.WeatherDetailsState
+import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityWidget
+import com.br.kmpdemo.compose.ui.weatherDetails.feelsLike.FeelsLikeState
+import com.br.kmpdemo.compose.ui.weatherDetails.humidity.HumidityState
 import com.br.kmpdemo.compose.ui.weatherDetails.humidity.HumidityWidget
+import com.br.kmpdemo.compose.ui.weatherDetails.pressure.BarometricPressureState
 import com.br.kmpdemo.compose.ui.weatherDetails.rainFall.RainFallWidget
+import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetState
 import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetWidget
+import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UVIndexEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UvIndexWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindWidget
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun WeatherDetails(state: WeatherDetailsState) {
+fun WeatherDetails(state: HomeState) {
     with(state) {
         Column(
             modifier = Modifier
@@ -31,26 +35,26 @@ fun WeatherDetails(state: WeatherDetailsState) {
                     end = Dimens.grid_2_5,
                 ),
         ) {
-            AirQualityWidget(airQuality)
+            AirQualityWidget(airQuality.value ?: AirQualityEnum.UNKNOWN) /// TODO: ASAA-177
 
             WeatherDetailsRow {
-                UvIndexWidget(uvIndexState)
-                SunriseSunsetWidget(sunriseSunsetState)
+                UvIndexWidget(uvIndexState.value ?: UVIndexEnum.UNKNOWN)
+                SunriseSunsetWidget(sunriseSunsetState.value ?: SunriseSunsetState())
             }
 
             WeatherDetailsRow {
-                WindWidget(windState)
-                RainFallWidget(rainFallState)
+                WindWidget(state)
+                RainFallWidget(state)
             }
 
             WeatherDetailsRow {
-                FeelsLikeWidget(feelsLikeState)
-                HumidityWidget(humidityState)
+                FeelsLikeWidget(feelsLikeState.value ?: FeelsLikeState())
+                HumidityWidget(humidityState.value ?: HumidityState())
             }
 
             WeatherDetailsRow {
-                VisibilityWidget(visibilityState)
-                BarometricPressureWidget(pressureState)
+                VisibilityWidget(state)
+                BarometricPressureWidget(pressureState.value ?: BarometricPressureState())
             }
         }
     }

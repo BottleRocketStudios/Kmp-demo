@@ -1,9 +1,8 @@
 package com.br.kmpdemo.di
 
 import ForecastForCityInteractor
-import com.br.kmpdemo.TomorrowIoService
-import com.br.kmpdemo.TomorrowIoServiceImpl
 import com.br.kmpdemo.network.ktorClient
+import com.br.kmpdemo.network.service.TomorrowIoService
 import com.br.kmpdemo.repositories.WeatherRepository
 import com.br.kmpdemo.repository.WeatherRepoImplementation
 import com.br.kmpdemo.usecases.forecastusecase.ForecastForCityUseCase
@@ -18,7 +17,7 @@ val domainModule = module {
     single<WeatherRepository> { WeatherRepoImplementation() }
 
     // Services
-    single<TomorrowIoService> { TomorrowIoServiceImpl() }
+    single<TomorrowIoService> { TomorrowIoService() }
 
     // Clients
     single<HttpClient> { ktorClient() }
@@ -32,4 +31,8 @@ val viewModelModule = module {
     single { ForecastViewModel() }
     single { HomeViewModel() }
     single { MainActivityViewModel() }
+}
+
+val repositoryModule = module {
+    single<WeatherRepository> { WeatherRepoImplementation() }
 }

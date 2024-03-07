@@ -14,7 +14,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
-import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindDirection
+import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindDirectionEnum
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -138,7 +138,7 @@ fun DrawScope.drawWindSpeedText(
     drawText(
         textMeasurer = textMeasurer,
         text = currentWindSpeed,
-        topLeft = Offset(center.x - speedLayoutResult.size.width / 2, (center.y - speedLayoutResult.size.height / 2) - 22),
+        topLeft = Offset(center.x - speedLayoutResult.size.width / 2, (center.y - speedLayoutResult.size.height / 2) - 28),
         style = windSpeedStyle
     )
 
@@ -148,14 +148,14 @@ fun DrawScope.drawWindSpeedText(
     drawText(
         textMeasurer = textMeasurer,
         text = speedPerHour,
-        topLeft = Offset(center.x - perHourLayoutResult.size.width / 2, (center.y - perHourLayoutResult.size.height / 2) + 22),
+        topLeft = Offset(center.x - perHourLayoutResult.size.width / 2, (center.y - perHourLayoutResult.size.height / 2) + 28),
         style = perHourStyle
     )
 }
 
 fun DrawScope.drawCompassNeedle(
     gaugeWidth: Float = com.br.kmpdemo.compose.ui.utils.GAUGE_WIDTH,
-    windDirection: WindDirection = WindDirection.N,
+    windDirection: WindDirectionEnum = WindDirectionEnum.N,
     density: Density,
 ) {
     val radius = size.width / 2

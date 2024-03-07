@@ -143,11 +143,10 @@ fun String?.adjustSunsetTime(): String {
     return if (parts[0].toInt() > 12) "${parts[0].toInt() - 12}:${parts[1]}" else this!!
 }
 
-fun splitTimeString(time: String?): List<String> {
-    if (time.isNullOrBlank()) return listOf()
-    val parts = time.split(":")
-    if (parts.size != 2) {
-        throw IllegalArgumentException("Invalid time format. Expected HH:mm")
-    }
-    return parts
-}
+fun splitTimeString(time: String?): List<String> =
+    time?.split(":")?.let { parts ->
+        if (parts.size != 2) {
+            throw IllegalArgumentException("Invalid time format. Expected HH:mm; Found $time")
+        }
+        listOf(parts[0], parts[1])
+    } ?: emptyList()

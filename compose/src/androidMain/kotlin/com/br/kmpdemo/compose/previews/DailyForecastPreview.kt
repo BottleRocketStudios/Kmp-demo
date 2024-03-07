@@ -11,8 +11,8 @@ import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
 
 private val dailyForecast = ForecastState(
     dayTime = "TUE",
-    precipProbability = "30%",
-    temperature = "63\u00B0",
+    precipProbability = 30,
+    temperature = 63,
     weatherIcon = WeatherEnum.DAY_FOG,
 )
 
