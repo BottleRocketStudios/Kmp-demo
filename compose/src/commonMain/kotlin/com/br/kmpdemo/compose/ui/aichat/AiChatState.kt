@@ -1,9 +1,13 @@
 package com.br.kmpdemo.compose.ui.aichat
 
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+
 data class AiChatState(
-    val isLoading: Boolean = false,
-    val errorMessage: String = "",
-    val messages: List<ChatMessage> = emptyList(),
+    val isLoading: State<Boolean> = mutableStateOf(false),
+    val errorMessage: State<String> = mutableStateOf(""),
+    val messages: State<List<ChatMessage>> = mutableStateOf(emptyList()),
+    val userInput: (String) -> Unit = {},
 )
 
 sealed class ChatMessage {

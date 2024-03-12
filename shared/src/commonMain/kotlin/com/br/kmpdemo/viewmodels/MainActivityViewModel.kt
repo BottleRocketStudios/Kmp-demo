@@ -1,6 +1,6 @@
 package com.br.kmpdemo.viewmodels
 
-import BaseViewModel
+import com.br.kmpdemo.BaseViewModel
 import com.br.kmpdemo.compose.resources.SharedRes
 import kotlinx.coroutines.flow.MutableStateFlow
 

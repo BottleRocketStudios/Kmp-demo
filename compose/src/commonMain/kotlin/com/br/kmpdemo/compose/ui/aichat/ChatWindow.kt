@@ -21,8 +21,8 @@ fun ChatWindow(
 ) {
     Column(modifier = modifier.fillMaxSize()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(aiChatState.messages.size) {
-                when (val message = aiChatState.messages[it]) {
+            items(aiChatState.messages.value.size) {
+                when (val message = aiChatState.messages.value[it]) {
                     is ChatMessage.UserMessage -> Box(
                         contentAlignment = Alignment.CenterEnd,
                         modifier = Modifier.fillMaxWidth()

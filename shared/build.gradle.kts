@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-//    alias(libs.plugins.buildKonfig)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.ktLint)
     alias(libs.plugins.multiplatformResources)
@@ -69,6 +68,7 @@ kotlin {
                 implementation(libs.kmp.launchpad.compose)
                 implementation(libs.kmp.launchpad.domain)
                 implementation(libs.kmp.launchpad.utils)
+                implementation(libs.kmp.launchpad.ai)
             }
         }
         val androidMain by getting {

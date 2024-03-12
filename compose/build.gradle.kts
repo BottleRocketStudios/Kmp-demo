@@ -82,7 +82,6 @@ android {
         }
     }
 
-
     // Needed for Preview Pane in IDE
     buildFeatures {
         compose = true
@@ -90,7 +89,4 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
-}
-dependencies {
-    implementation(libs.androidx.material3.android)
 }
