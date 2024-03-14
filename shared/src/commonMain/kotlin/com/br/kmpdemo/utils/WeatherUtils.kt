@@ -1,4 +1,4 @@
-package com.br.kmpdemo.viewmodels
+package com.br.kmpdemo.utils
 
 import com.br.kmpdemo.compose.ui.forecasts.ForecastState
 import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
@@ -11,7 +11,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
-object HomeViewModelUtils {
+object WeatherUtils {
     /// Use this function to translate the API return to a Float for the Barometric Pressure widget
     fun Double?.getPressureFloat(): Float? = this?.let {
         val normalizedValue = ((it - 27.0) / 5.0).toFloat()

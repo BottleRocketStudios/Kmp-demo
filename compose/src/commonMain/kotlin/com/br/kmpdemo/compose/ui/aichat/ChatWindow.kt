@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import com.br.kmpdemo.compose.resources.theme.Dimens
 
 @Composable
-fun ChatWindow(
+fun AiChatScreen(
     aiChatState: AiChatState,
     modifier: Modifier = Modifier
 ) {

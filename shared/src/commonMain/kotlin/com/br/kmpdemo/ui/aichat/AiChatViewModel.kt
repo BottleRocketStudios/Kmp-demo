@@ -1,10 +1,8 @@
 package com.br.kmpdemo.ui.aichat
 
-import androidx.compose.runtime.mutableStateOf
-import com.br.kmpdemo.BaseViewModel
+import com.br.kmpdemo.ui.BaseViewModel
 import com.br.kmplaunchpadai.domain.mediator.GeminiMediator
 import kotlinx.coroutines.flow.MutableStateFlow
-import moe.tlaster.precompose.viewmodel.viewModel
 import moe.tlaster.precompose.viewmodel.viewModelScope
 import org.koin.core.component.inject
 import org.koin.core.parameter.parametersOf
@@ -19,7 +17,7 @@ class AiChatViewModel: BaseViewModel() {
     //region UI
     val isLoading = MutableStateFlow(false)
     val errorMessage = MutableStateFlow("")
-    val messages = geminiMediator.conversationFlow
+    val messages = geminiMediator.conversation
     //endregion
 
     init {

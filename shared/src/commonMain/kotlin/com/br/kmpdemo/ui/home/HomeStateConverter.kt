@@ -1,10 +1,10 @@
-package com.br.kmpdemo.viewmodels.converters
+package com.br.kmpdemo.ui.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import com.br.kmpdemo.compose.ui.home.HomeState
 import com.br.kmpdemo.utils.MeasurementType
-import com.br.kmpdemo.viewmodels.HomeViewModel
+import com.br.kmpdemo.ui.home.HomeViewModel
 
 @Composable
 fun HomeViewModel.toState() = HomeState(

@@ -10,10 +10,12 @@ import com.bottlerocketstudios.launchpad.compose.navigation.util.getWindowWidthS
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.app.KmpNavBar
+import com.br.kmpdemo.nav.NavRoutes
 import com.br.kmpdemo.ui.app.KMPDemoApp
 import com.br.kmpdemo.ui.app.kmpDemoAppNavItems
 import kotlinx.coroutines.flow.StateFlow
 import moe.tlaster.precompose.PreComposeApp
+import moe.tlaster.precompose.navigation.NavOptions
 import org.koin.core.component.KoinComponent
 
 class MainActivity : FragmentActivity(), KoinComponent {
@@ -32,7 +34,14 @@ class MainActivity : FragmentActivity(), KoinComponent {
                             widthSize = getWindowWidthSize(this),
                             navigator = navigator,
                             devicePosture = devicePostureFlow.collectAsState().value,
-                            bottomBar = { KmpNavBar() }
+                            bottomBar = { KmpNavBar(
+                                onAddClick = {
+                                    navigator?.navigate(
+                                        route = NavRoutes.AICHAT,
+                                        options = NavOptions(launchSingleTop = true)
+                                    )
+                                }
+                            ) }
                         )
                     }
                 }

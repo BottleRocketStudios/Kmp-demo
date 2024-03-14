@@ -1,9 +1,8 @@
-package com.br.kmpdemo
+package com.br.kmpdemo.ui
 
-import com.br.kmpdemo.MainWindowControls.Companion.EMPTY_TOOLBAR_TITLE
+import com.br.kmpdemo.ui.MainWindowControls.Companion.EMPTY_TOOLBAR_TITLE
 import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.utils.MutableStateFlowDelegate
-import com.br.kmpdemo.viewmodels.MainActivityViewModel
 import dev.icerock.moko.resources.StringResource
 
 interface MainWindowControls {
