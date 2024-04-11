@@ -1,5 +1,6 @@
 package com.br.kmpdemo.ui.app
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -30,9 +31,10 @@ fun KMPDemoApp(
     Scaffold(
         topBar = {},
         bottomBar = {
+//            TODO - don't show this if keyboard
             if (!windowControls.hideNavBar && navigator != null) bottomBar()
         },
-    ) {
+    ) { it: PaddingValues ->
         navigator?.let { navController ->
             NavHost(
                 // Assign the navigator to the NavHost

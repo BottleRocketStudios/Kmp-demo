@@ -13,5 +13,5 @@ val commonModule = module {
 
     // Utils
     single<DispatcherProvider> { DispatcherProviderImpl() }
-    single<GeminiMediator> { params -> GeminiMediator(params.get()) }
+    single<GeminiMediator> { params -> GeminiMediator(params.get(), params.get()) }
 }

@@ -24,20 +24,6 @@ fun ktorClient(): HttpClient = HttpClient {
         })
     }
 
-    HttpResponseValidator {
-        validateResponse { response ->
-            if (!response.status.isSuccess()) {
-                val error: Error = response.body()
-                throw ApiException(
-                    code = response.status.value,
-                    message = error.message.toString(),
-                    subCode = 0,
-                    subMessage = "",
-                    errorNumber = 0
-                )
-            }
-        }
-    }
 
     defaultRequest {
         url {

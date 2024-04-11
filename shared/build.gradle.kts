@@ -108,6 +108,8 @@ kotlin {
             implementation(libs.moko.resources.test)
         }
     }
+
+    task("testClasses")
 }
 
 android {

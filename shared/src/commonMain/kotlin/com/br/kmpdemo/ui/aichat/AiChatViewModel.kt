@@ -9,8 +9,9 @@ import org.koin.core.parameter.parametersOf
 
 class AiChatViewModel: BaseViewModel() {
     //region DI
+//    TODO - Add this as build config or something.
     private val geminiMediator: GeminiMediator by inject {
-        parametersOf(viewModelScope)
+        parametersOf(viewModelScope, "AIzaSyCiul-P41STf7v8thUYzm-CGZPvLjkr0YU")
     }
     //endregion
 
@@ -28,7 +29,9 @@ class AiChatViewModel: BaseViewModel() {
 
     //region: Callbacks
     fun userInput(input: String) {
-        geminiMediator.user.value = input
+        launchIO {
+            geminiMediator.user.emit(input)
+        }
     }
     //endregion
 
