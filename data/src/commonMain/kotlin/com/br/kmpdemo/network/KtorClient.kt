@@ -21,6 +21,7 @@ fun ktorClient(): HttpClient = HttpClient {
             isLenient = true
             ignoreUnknownKeys = true
             encodeDefaults = true
+            explicitNulls = false
         })
     }
 
