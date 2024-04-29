@@ -24,6 +24,7 @@ val domainModule = module {
 
     // Clients
     single<HttpClient> { ktorClient() }
+    single { KmpLocationProvider() }
 }
 
 val useCaseModule = module {
@@ -31,10 +32,9 @@ val useCaseModule = module {
 }
 
 val viewModelModule = module {
-    single { ForecastViewModel() }
+//    single { ForecastViewModel() }
     single { HomeViewModel() }
     single { MainActivityViewModel() }
-    single { KmpLocationProvider() }
 }
 
 val repositoryModule = module {
