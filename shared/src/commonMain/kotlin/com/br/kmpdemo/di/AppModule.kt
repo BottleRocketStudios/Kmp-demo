@@ -1,3 +1,3 @@
 package com.br.kmpdemo.di
 
-fun appModule() = listOf(commonModule, domainModule, useCaseModule, viewModelModule, repositoryModule)
+fun appModule() = listOf(commonModule, domainModule, useCaseModule, repositoryModule)

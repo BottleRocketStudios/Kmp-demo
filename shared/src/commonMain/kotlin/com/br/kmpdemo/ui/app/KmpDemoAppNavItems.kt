@@ -2,7 +2,7 @@ package com.br.kmpdemo.ui.app
 
 import androidx.compose.material3.Text
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.NavigationItem
-import com.br.kmpdemo.NavRoutes
+import com.br.kmpdemo.nav.NavRoutes
 val kmpDemoAppNavItems = listOf<NavigationItem>(
     NavigationItem(
         route = NavRoutes.HOME,

@@ -27,6 +27,7 @@ import dev.icerock.moko.permissions.compose.rememberPermissionsControllerFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+//  TODO _ This is more the whole screen and hosts the scaffold : rename this MICHEAL !!! GAWD
 fun HomeBottomSheetScaffold(state: HomeState) {
     val sheetState = rememberBottomSheetScaffoldState()
     val isExpanded = sheetState.bottomSheetState.currentValue == SheetValue.Expanded

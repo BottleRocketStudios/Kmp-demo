@@ -19,7 +19,7 @@ import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.heatmaps.WeightedLatLng
 
 @Composable
-actual fun WeatherMapScreen() {
+fun WeatherMapScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
         var uiSettings by remember { mutableStateOf(MapUiSettings()) }
         var properties by remember {

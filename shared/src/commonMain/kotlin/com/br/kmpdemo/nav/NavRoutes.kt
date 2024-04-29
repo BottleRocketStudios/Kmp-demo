@@ -1,4 +1,4 @@
-package com.br.kmpdemo
+package com.br.kmpdemo.nav
 
 // Destination names may need to change
 object NavRoutes {
@@ -6,4 +6,5 @@ object NavRoutes {
     const val MAP = "/map"
     const val ADD = "/add"
     const val LIST = "/list"
+    const val AICHAT = "/aichat"
 }

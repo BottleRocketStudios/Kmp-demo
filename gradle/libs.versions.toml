@@ -3,7 +3,7 @@ agp = "8.2.2"
 androidx-appcompat = "1.6.1"
 buildkonfig = "0.15.1"
 compose-activity = "1.8.2"
-compose-plugin = "1.5.11"
+compose-plugin = "1.6.0"
 core-i18n = "1.0.0-alpha01"
 core-ktx = "1.12.0"
 glance = "1.0.0"
@@ -12,9 +12,9 @@ google-places = "3.3.0"
 google-secrets = "2.0.1"
 google-services = "4.4.0"
 kermit-logger = "2.0.2"
-kmp-launchpad-compose = "0.0.3"
-kmp-launchpad-domain = "0.0.3"
 kmp-launchpad-google-utils = "0.0.2"
+kmp-launchpad-compose = "0.0.4"
+kmp-launchpad-domain = "0.0.4"
 kmp-launchpad-utils = "0.0.2"
 koin = "3.5.3"
 koin-compose = "3.5.3"
@@ -54,6 +54,7 @@ kmp-launchpad-compose = { group = "com.github.bottlerocketstudios", name = "kmp-
 kmp-launchpad-domain = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-utils-domain", version.ref = "kmp-launchpad-domain" }
 kmp-launchpad-google-utils = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-google-utils", version.ref = "kmp-launchpad-google-utils" }
 kmp-launchpad-utils = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-utils", version.ref = "kmp-launchpad-utils" }
+kmp-launchpad-ai = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-ai", version.ref = "kmp-launchpad-ai" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }

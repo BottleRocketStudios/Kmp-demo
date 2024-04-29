@@ -1,4 +1,4 @@
-package com.br.kmpdemo.viewmodels
+package com.br.kmpdemo.ui.home
 
 import BaseViewModel
 import KmpLocationProvider
@@ -29,6 +29,12 @@ import com.br.kmpdemo.viewmodels.HomeViewModelUtils.getPressureFloat
 import com.br.kmpdemo.viewmodels.HomeViewModelUtils.toCoordinates
 import com.br.kmpdemo.viewmodels.HomeViewModelUtils.toDailyForecastState
 import com.br.kmpdemo.viewmodels.HomeViewModelUtils.toHourlyForecastState
+import com.br.kmpdemo.ui.BaseViewModel
+import com.br.kmpdemo.utils.WeatherUtils.convertUtcTimeForSunriseSunset
+import com.br.kmpdemo.utils.WeatherUtils.extractCityName
+import com.br.kmpdemo.utils.WeatherUtils.getPressureFloat
+import com.br.kmpdemo.utils.WeatherUtils.toDailyForecastState
+import com.br.kmpdemo.utils.WeatherUtils.toHourlyForecastState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
