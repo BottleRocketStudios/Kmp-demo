@@ -24,5 +24,5 @@ rootProject.name = "KMP_Demo"
 include(":androidApp")
 include(":shared")
 include(":domain")
-include(":compose")
+include(":composeApp")
 include(":data")

@@ -4,12 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.location.Geocoder
 import android.os.Looper
-import androidx.compose.material3.ColorScheme
 import co.touchlab.kermit.Logger
-import com.br.kmpdemo.compose.resources.theme.Dimensions
-import com.br.kmpdemo.compose.resources.theme.kmpDarkColors
-import com.br.kmpdemo.compose.resources.theme.kmpLightColors
-import com.br.kmpdemo.compose.resources.theme.sw360Dimensions
 import com.br.kmpdemo.utils.Constants.IS_METRIC
 import com.br.kmpdemo.utils.Constants.MEASUREMENT_PREFS
 import com.br.kmpdemo.utils.MeasurementType
@@ -21,19 +16,6 @@ import com.google.android.gms.location.LocationServices
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-actual fun getSystemDimensions(): Dimensions {
-    // Return iOS-specific dimensions
-    return sw360Dimensions
-}
-
-actual fun getSystemColorScheme(darkTheme: Boolean): ColorScheme {
-    // Return iOS-specific color scheme
-    return if (darkTheme) {
-        kmpDarkColors
-    } else {
-        kmpLightColors
-    }
-}
 
 actual object MeasurementPreference {
     private lateinit var preferences: SharedPreferences

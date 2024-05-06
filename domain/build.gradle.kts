@@ -23,10 +23,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
-//                implementation(libs.ktor.client.core)
-//                implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.koin.core)
+                implementation(libs.kotlinx.date.time)
             }
         }
         val commonTest by getting {

@@ -102,5 +102,5 @@ data class DailyValues(
     val windGustMin: Double? = null,
     val windSpeedAvg: Double? = null,
     val windSpeedMax: Double? = null,
-    val windSpeedMin: Double?
+    val windSpeedMin: Double? = null,
 ): DomainModel

@@ -32,7 +32,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":domain"))
-                implementation(project(":compose"))
+//                implementation(project(":compose"))
                 implementation(project(":data"))
                 // Put your multiplatform dependencies here
 

@@ -6,5 +6,5 @@ import com.br.kmpdemo.models.Timelines
 fun TimelinesDto?.toTimelinesModel() = Timelines(
     hourly = this?.hourly?.map { it.toHourlyModel() },
     minutely = this?.minutely?.map { it.toMinutelyModel() },
-    daily = this?.daily?.map { it.toDailyModel() }
+    daily = this?.daily?.map { it?.toDailyModel() }
 )
