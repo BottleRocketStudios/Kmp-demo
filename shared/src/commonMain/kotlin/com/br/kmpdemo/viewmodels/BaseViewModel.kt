@@ -1,4 +1,4 @@
-package com.br.kmpdemo.ui
+package com.br.kmpdemo.viewmodels
 
 import com.bottlerocketstudios.launchpad.utils.coroutine.DispatcherProvider
 import kotlinx.coroutines.CoroutineScope

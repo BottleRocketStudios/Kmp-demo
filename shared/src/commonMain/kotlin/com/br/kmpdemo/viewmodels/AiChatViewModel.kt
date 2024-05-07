@@ -1,6 +1,5 @@
-package com.br.kmpdemo.ui.aichat
+package com.br.kmpdemo.viewmodels
 
-import com.br.kmpdemo.ui.BaseViewModel
 import com.br.kmplaunchpadai.domain.mediator.GeminiMediator
 import com.br.kmplaunchpadai.domain.mediator.GeminiParametersType
 import com.br.kmplaunchpadai.domain.mediator.GeminiResponseType

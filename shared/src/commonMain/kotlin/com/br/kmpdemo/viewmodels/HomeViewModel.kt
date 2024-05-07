@@ -1,4 +1,4 @@
-package com.br.kmpdemo.ui.home
+package com.br.kmpdemo.viewmodels
 
 import KmpLocationProvider
 import LastKnownLocation
@@ -13,7 +13,6 @@ import com.br.kmpdemo.models.Hourly
 import com.br.kmpdemo.models.HourlyValues
 import com.br.kmpdemo.models.RealTime
 import com.br.kmpdemo.repositories.WeatherRepository
-import com.br.kmpdemo.ui.BaseViewModel
 import com.br.kmpdemo.utils.isHour
 import com.br.kmpdemo.utils.isToday
 import kotlinx.coroutines.flow.Flow

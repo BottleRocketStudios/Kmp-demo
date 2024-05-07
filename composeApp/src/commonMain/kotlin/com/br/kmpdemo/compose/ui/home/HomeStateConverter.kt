@@ -10,7 +10,7 @@ import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.getAirQualityEnum
 import com.br.kmpdemo.models.Daily
 import com.br.kmpdemo.models.Hourly
 import com.br.kmpdemo.models.PermissionsDialogState
-import com.br.kmpdemo.ui.home.HomeViewModel
+import com.br.kmpdemo.viewmodels.HomeViewModel
 import com.br.kmpdemo.utils.MeasurementType
 import com.br.kmpdemo.utils.date
 import com.br.kmpdemo.utils.isHour

@@ -1,18 +1,19 @@
-package com.br.kmpdemo.ui
+package com.br.kmpdemo.compose.ui
 
-import com.br.kmpdemo.ui.MainWindowControls.Companion.EMPTY_TOOLBAR_TITLE
-import com.br.kmpdemo.compose.resources.SharedRes
+import com.br.kmpdemo.compose.ui.MainWindowControls.Companion.EMPTY_TOOLBAR_TITLE
+import com.br.kmpdemo.viewmodels.MainActivityViewModel
 import com.br.kmpdemo.utils.MutableStateFlowDelegate
-import dev.icerock.moko.resources.StringResource
+
+// TODO - Move this to compose app module
 
 interface MainWindowControls {
-    var title: StringResource
+    var title: String
     var hideNavBar: Boolean
 
     fun reset()
 
     companion object {
-        val EMPTY_TOOLBAR_TITLE = SharedRes.strings.empty_string
+        const val EMPTY_TOOLBAR_TITLE = ""
     }
 }
 

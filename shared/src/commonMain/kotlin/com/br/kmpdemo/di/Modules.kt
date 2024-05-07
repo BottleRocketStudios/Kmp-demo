@@ -9,8 +9,8 @@ import com.br.kmpdemo.network.service.TomorrowIoService.Companion.GOOGLE_MAPS_AP
 import com.br.kmpdemo.repositories.WeatherRepository
 import com.br.kmpdemo.repository.WeatherRepoImplementation
 import com.br.kmpdemo.usecases.forecastusecase.ForecastForCityUseCase
-import com.br.kmpdemo.ui.home.HomeViewModel
-import com.br.kmpdemo.ui.MainActivityViewModel
+import com.br.kmpdemo.viewmodels.HomeViewModel
+import com.br.kmpdemo.viewmodels.MainActivityViewModel
 import io.ktor.client.HttpClient
 import org.koin.dsl.module
 

@@ -21,8 +21,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KMP_Demo"
-include(":androidApp")
-include(":shared")
-include(":domain")
-include(":composeApp")
 include(":data")
+include(":domain")
+include(":shared")
+include(":composeApp")

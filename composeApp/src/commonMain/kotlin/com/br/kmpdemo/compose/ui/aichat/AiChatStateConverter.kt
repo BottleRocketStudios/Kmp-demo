@@ -2,9 +2,7 @@ package com.br.kmpdemo.compose.ui.aichat
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import com.br.kmpdemo.compose.ui.aichat.AiChatState
-import com.br.kmpdemo.compose.ui.aichat.ChatMessage
-import com.br.kmpdemo.ui.aichat.AiChatViewModel
+import com.br.kmpdemo.viewmodels.AiChatViewModel
 import com.br.kmplaunchpadai.domain.mediator.GeminiContent
 import com.br.kmplaunchpadai.domain.mediator.GeminiMediator.Companion.MODEL
 import com.br.kmplaunchpadai.domain.mediator.GeminiMediator.Companion.STATUS

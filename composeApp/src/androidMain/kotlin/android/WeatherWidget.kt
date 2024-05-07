@@ -1,4 +1,4 @@
-package com.br.kmpdemo.android
+package android
 
 import android.content.Context
 import androidx.compose.runtime.Composable

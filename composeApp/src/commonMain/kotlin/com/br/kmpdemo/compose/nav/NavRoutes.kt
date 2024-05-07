@@ -1,4 +1,4 @@
-package com.br.kmpdemo.nav
+package com.br.kmpdemo.compose.nav
 
 // Destination names may need to change
 object NavRoutes {

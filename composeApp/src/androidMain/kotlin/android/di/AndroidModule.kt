@@ -1,4 +1,4 @@
-package com.br.kmpdemo.android.di
+package android.di
 
 import org.koin.dsl.module
 

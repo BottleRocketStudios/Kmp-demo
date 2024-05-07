@@ -1,4 +1,4 @@
-package com.br.kmpdemo.ui.app
+package com.br.kmpdemo.compose.ui.app
 
 import androidx.compose.material3.Text
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.NavigationItem

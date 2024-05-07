@@ -1,4 +1,4 @@
-package com.br.kmpdemo.ui.app
+package com.br.kmpdemo.compose.ui.app
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -7,10 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
-import com.br.kmpdemo.ui.MainWindowControlsImplementation
-import com.br.kmpdemo.nav.NavRoutes
-import com.br.kmpdemo.nav.mainNavGraph
-import com.br.kmpdemo.ui.MainActivityViewModel
+import com.br.kmpdemo.compose.ui.MainWindowControlsImplementation
+import com.br.kmpdemo.viewmodels.MainActivityViewModel
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.transition.NavTransition

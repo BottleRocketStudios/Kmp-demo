@@ -1,10 +1,8 @@
-package com.br.kmpdemo.nav
+package com.br.kmpdemo.compose.nav
 
-import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
-import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
-import com.br.kmpdemo.ui.MainWindowControls
-import com.br.kmpdemo.ui.aichat.aiChatComposable
-import com.br.kmpdemo.ui.home.homeComposable
+import com.br.kmpdemo.compose.ui.MainWindowControls
+import com.br.kmpdemo.compose.ui.aichat.aiChatComposable
+import com.br.kmpdemo.compose.ui.home.homeComposable
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.RouteBuilder
 

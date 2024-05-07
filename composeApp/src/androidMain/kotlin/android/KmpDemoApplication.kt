@@ -1,8 +1,8 @@
-package com.br.kmpdemo.android
+package android
 
 import MeasurementPreference
 import android.app.Application
-import com.br.kmpdemo.android.di.androidModule
+import android.di.androidModule
 import com.br.kmpdemo.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger

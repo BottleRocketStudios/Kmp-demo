@@ -1,4 +1,3 @@
-import com.br.kmpdemo.ui.app.KMPDemoApp
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.autoreleasepool

@@ -1,7 +1,7 @@
 package com.br.kmpdemo.compose.ui.home
 
-import com.br.kmpdemo.nav.NavRoutes
-import com.br.kmpdemo.ui.home.HomeViewModel
+import com.br.kmpdemo.compose.nav.NavRoutes
+import com.br.kmpdemo.viewmodels.HomeViewModel
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.RouteBuilder
 import moe.tlaster.precompose.navigation.transition.NavTransition
