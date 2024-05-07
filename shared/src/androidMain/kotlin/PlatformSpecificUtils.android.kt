@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.location.Geocoder
 import android.os.Looper
-import co.touchlab.kermit.Logger
+//import co.touchlab.kermit.Logger
 import com.br.kmpdemo.utils.Constants.IS_METRIC
 import com.br.kmpdemo.utils.Constants.MEASUREMENT_PREFS
 import com.br.kmpdemo.utils.MeasurementType
@@ -62,7 +62,8 @@ actual class KmpLocationProvider: KoinComponent {
                 Looper.getMainLooper()
             )
         } catch (e: Exception) {
-            Logger.e("[getLastKnownLocation]") { "Last Location Failure: ${e.message}" }
+//            FIXME - Get logging working again
+//            Logger.e("[getLastKnownLocation]") { "Last Location Failure: ${e.message}" }
         }
     }
 
@@ -75,7 +76,8 @@ actual class KmpLocationProvider: KoinComponent {
                 LastKnownLocation.setLocation(UserLocation(lat, lon, it.locality))
             }
         } catch (e: Exception) {
-            Logger.e("[reverseGeoCode]") { "Reverse Geocoding Failed: ${e.message}" }
+//            FIXME - Get logging working again
+//            Logger.e("[reverseGeoCode]") { "Reverse Geocoding Failed: ${e.message}" }
         }
     }
 }

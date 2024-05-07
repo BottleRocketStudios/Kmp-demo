@@ -17,6 +17,8 @@ kotlin {
     applyDefaultHierarchyTemplate()
     androidTarget()
 
+    jvmToolchain(17)
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -62,9 +64,6 @@ kotlin {
 
                 implementation(libs.kotlinx.date.time)
                 implementation(libs.androidx.core.i18n)
-
-                // Logger
-                implementation(libs.kermit.logger)
 
                 // KMP
                 implementation(libs.kmp.launchpad.compose)
@@ -137,11 +136,5 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlin {
-        jvmToolchain(17)
-    }
+
 }

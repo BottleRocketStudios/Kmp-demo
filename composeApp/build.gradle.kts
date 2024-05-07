@@ -16,13 +16,7 @@ multiplatformResources {
 
 kotlin {
     applyDefaultHierarchyTemplate()
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
-        }
-    }
+    androidTarget()
 
     jvmToolchain(17)
 
@@ -63,8 +57,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.animation)
                 implementation(compose.material3)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
+//                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+//                implementation(compose.components.resources)
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
                 api(libs.precompose)
@@ -74,10 +68,10 @@ kotlin {
                 api(libs.moko.resources.compose)
 
                 // Launchpad
+                implementation(libs.kmp.launchpad.compose)
                 implementation(libs.kmp.launchpad.ai)
-
-                // Logger
-                implementation(libs.kermit.logger)
+                implementation(libs.kmp.launchpad.domain)
+                implementation(libs.kmp.launchpad.utils)
 
                 // KotlinX
                 implementation(libs.kotlinx.date.time)
@@ -86,6 +80,16 @@ kotlin {
 //        commonTest.dependencies {
 //            implementation(libs.kotlin.test)
 //        }
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by getting {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+        }
+
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
@@ -100,35 +104,34 @@ kotlin {
                 // Preview Utils need to be implemented in platform code as they use platform renderers
                 implementation(compose.preview)
                 implementation(compose.uiTooling)
+                implementation(compose.foundation)
+                implementation(compose.animation)
+                implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
+                implementation(compose.runtime)
+                implementation(compose.ui)
+
+                // Glance
+                implementation(libs.glance)
+                implementation(libs.glance.appwidget)
+                implementation(libs.glance.material3)
+
+
 
                 //  TODO - check to see if these deps are needed from this point down
-//                api(compose.foundation)
-//                api(compose.animation)
 //                api(libs.precompose)
 //                api(libs.precompose.viewmodel)
 //                api(libs.precompose.koin)
 //                api(libs.moko.resources)
 //                api(libs.moko.resources.compose)
 //
-//                implementation(compose.foundation)
-//                implementation(compose.material3)
-//                implementation(compose.materialIconsExtended)
-//                implementation(compose.runtime)
-//                implementation(compose.ui)
 //
-//                // KMP
-//                implementation(libs.kmp.launchpad.compose)
-//                implementation(libs.kmp.launchpad.domain)
-//                implementation(libs.kmp.launchpad.utils)
 //
 //                // Utility
 //                implementation(libs.google.maps)
 //                implementation(libs.google.maps.utils)
 //                implementation(libs.google.places)
 //                implementation(libs.play.services.maps)
-//                implementation(libs.glance)
-//                implementation(libs.glance.appwidget)
-//                implementation(libs.glance.material3)
 //                implementation(libs.kermit.logger)
 
             }
@@ -160,16 +163,17 @@ android {
         }
     }
 
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
+
 
     // Needed for Preview Pane in IDE
     buildFeatures {

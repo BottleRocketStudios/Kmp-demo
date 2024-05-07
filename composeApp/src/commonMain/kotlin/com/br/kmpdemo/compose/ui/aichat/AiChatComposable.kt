@@ -1,6 +1,6 @@
 package com.br.kmpdemo.compose.ui.aichat
 
-import com.br.kmpdemo.nav.NavRoutes
+import com.br.kmpdemo.compose.nav.NavRoutes
 import com.br.kmpdemo.viewmodels.AiChatViewModel
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.RouteBuilder

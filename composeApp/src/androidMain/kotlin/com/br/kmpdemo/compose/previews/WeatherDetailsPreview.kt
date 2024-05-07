@@ -14,13 +14,13 @@ import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.feelsLike.FeelsLikeState
 import com.br.kmpdemo.compose.ui.weatherDetails.humidity.HumidityState
 import com.br.kmpdemo.compose.ui.weatherDetails.humidity.HumidityWidget
-import com.br.kmpdemo.compose.ui.weatherDetails.pressure.BarometricPressureState
 import com.br.kmpdemo.compose.ui.weatherDetails.rainFall.RainFallWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetState
 import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UVIndexEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UvIndexWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindWidget
+import com.br.kmpdemo.utils.MeasurementType
 
 @Composable
 @Preview
@@ -72,8 +72,14 @@ fun HumidityPreview() {
 fun RainFallPreview() {
     KmpDemoTheme {
         Row {
-            RainFallWidget(MockData.getMockHomeState())
-            RainFallWidget(MockData.getMockHomeState(isError = true))
+            RainFallWidget(
+                MockData.getMockHomeState().getRainFallState(),
+                MeasurementType.IMPERIAL
+            )
+            RainFallWidget(
+                MockData.getMockHomeState(isError = true).getRainFallState(),
+                MeasurementType.IMPERIAL
+            )
         }
     }
 }
@@ -83,8 +89,14 @@ fun RainFallPreview() {
 fun VisibilityPreview() {
     KmpDemoTheme {
         Row {
-            VisibilityWidget(MockData.getMockHomeState())
-            VisibilityWidget(MockData.getMockHomeState(isError = true))
+            VisibilityWidget(
+                MockData.getMockHomeState().getVisibility(),
+                MeasurementType.METRIC
+            )
+            VisibilityWidget(
+                MockData.getMockHomeState(isError = true).getVisibility(),
+                MeasurementType.METRIC
+            )
         }
     }
 }
@@ -116,16 +128,16 @@ fun BarometricPressurePreview() {
     KmpDemoTheme {
         Column {
             Row {
-                BarometricPressureWidget(state = BarometricPressureState(pressure = 0.2F))
-                BarometricPressureWidget(state = BarometricPressureState(pressure = 0.4F))
+                BarometricPressureWidget(0.2F)
+                BarometricPressureWidget(0.4F)
             }
             Row {
-                BarometricPressureWidget(state = BarometricPressureState(pressure = 0.6F))
-                BarometricPressureWidget(state = BarometricPressureState(pressure = 0.8F))
+                BarometricPressureWidget(0.6F)
+                BarometricPressureWidget(0.8F)
             }
             Row {
-                BarometricPressureWidget(state = BarometricPressureState(pressure = 1F))
-                BarometricPressureWidget(state = BarometricPressureState(pressure = 0.0F))
+                BarometricPressureWidget(1F)
+                BarometricPressureWidget(0.0F)
             }
         }
 
@@ -138,8 +150,14 @@ fun WindPreview() {
     KmpDemoTheme {
         Column {
             Row {
-                WindWidget(MockData.getMockHomeState(isError = true))
-                WindWidget(MockData.getMockHomeState())
+                WindWidget(
+                    MockData.getMockHomeState(isError = true).getWindState(),
+                    MeasurementType.IMPERIAL
+                )
+                WindWidget(
+                    MockData.getMockHomeState().getWindState(),
+                    MeasurementType.IMPERIAL
+                )
             }
         }
     }

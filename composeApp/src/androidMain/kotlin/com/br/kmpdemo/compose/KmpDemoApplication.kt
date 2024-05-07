@@ -1,8 +1,7 @@
-package android
+package com.br.kmpdemo.compose
 
 import MeasurementPreference
 import android.app.Application
-import android.di.androidModule
 import com.br.kmpdemo.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,7 +13,7 @@ class KmpDemoApplication: Application() {
         startKoin {
             androidContext(this@KmpDemoApplication)
             androidLogger()
-            modules(appModule() + androidModule)
+            modules(appModule())
         }
         MeasurementPreference.init(this)
     }

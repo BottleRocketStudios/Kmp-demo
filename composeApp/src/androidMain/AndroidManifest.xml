@@ -9,13 +9,13 @@
         android:protectionLevel="signature" />
 
     <application
-        android:name=".android.KmpDemoApplication"
+        android:name="KmpDemoApplication"
         android:allowBackup="true"
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".android.MainActivity"
+            android:name="MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
 
         <receiver
-            android:name=".android.WeatherWidgetReceiver"
+            android:name="WeatherWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

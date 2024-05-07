@@ -49,7 +49,6 @@ glance-material3 = { group = "androidx.glance", name = "glance-material3", versi
 google-maps = { group = "com.google.maps.android", name = "maps-compose", version.ref = "google-maps-utils" }
 google-maps-utils = { group = "com.google.maps.android", name = "maps-compose-utils", version.ref = "google-maps-utils" }
 google-places = { group = "com.google.android.libraries.places", name = "places", version.ref = "google-places" }
-kermit-logger = { group = "co.touchlab", name = "kermit", version.ref = "kermit-logger" }
 kmp-launchpad-compose = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-compose", version.ref = "kmp-launchpad-compose" }
 kmp-launchpad-domain = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-utils-domain", version.ref = "kmp-launchpad-domain" }
 kmp-launchpad-google-utils = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-google-utils", version.ref = "kmp-launchpad-google-utils" }

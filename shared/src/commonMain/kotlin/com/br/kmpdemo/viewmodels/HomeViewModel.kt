@@ -4,7 +4,6 @@ import KmpLocationProvider
 import LastKnownLocation
 import MeasurementPreference
 import UserLocation
-import co.touchlab.kermit.Logger
 import com.bottlerocketstudios.launchpad.google.utils.network.service.airquality.AirQualityApiService
 import com.br.kmpdemo.models.Daily
 import com.br.kmpdemo.models.DailyValues
@@ -60,21 +59,21 @@ class HomeViewModel : BaseViewModel() {
        launchIO {
             weatherRepo.getDailyForecast(location = location, units = measurementPref.value.type)
                 .onSuccess { dailyResponse.value = it }
-                .onFailure { Logger.e("[getDailyForecasts]") { "Failure: ${it.message}" } }
+                .onFailure { log.e("[getDailyForecasts]", "Failure: ${it.message}") }
         }
 
     private fun getHourlyForecasts(location: String) =
         launchIO {
             weatherRepo.getHourlyForecast(location = location, units = measurementPref.value.type)
                 .onSuccess { hourlyResponse.value = it }
-                .onFailure { Logger.e("[getHourlyForecasts]") { "Failure: ${it.message}" } }
+                .onFailure { log.e("[getHourlyForecasts]",  "Failure: ${it.message}" ) }
         }
 
     private fun getRealTimeForecasts(location: String) =
         launchIO {
             weatherRepo.getRealTimeForecast(location, units = measurementPref.value.type)
                 .onSuccess { realTimeWeather.value = it }
-                .onFailure { Logger.e("[getRealTimeForecasts]") { "Failure: ${it.message}" } }
+                .onFailure { log.e("[getRealTimeForecasts]",  "Failure: ${it.message}" ) }
         }
 
     // TODO: ASAA-196 Add details for AirQualityWidget "See More" navigation
@@ -86,7 +85,7 @@ class HomeViewModel : BaseViewModel() {
                     .aqiConditions?.find { it.code == "usa_epa" }
                     ?.aqi
             } catch (e: Exception) {
-                Logger.e("[onLocationPermissionsGranted]") { "Failure: ${e.message}" }
+                log.e("[onLocationPermissionsGranted]",  "Failure: ${e.message}" )
             }
         }
     //endregion

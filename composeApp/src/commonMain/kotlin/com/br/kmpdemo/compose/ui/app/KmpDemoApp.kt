@@ -7,6 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
+import com.br.kmpdemo.compose.nav.NavRoutes
+import com.br.kmpdemo.compose.nav.mainNavGraph
 import com.br.kmpdemo.compose.ui.MainWindowControlsImplementation
 import com.br.kmpdemo.viewmodels.MainActivityViewModel
 import moe.tlaster.precompose.navigation.NavHost

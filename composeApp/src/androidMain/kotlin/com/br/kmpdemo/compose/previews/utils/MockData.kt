@@ -20,6 +20,7 @@ import com.br.kmpdemo.models.RealTimeValues
 import com.br.kmpdemo.utils.MeasurementType
 import kotlin.random.Random
 
+// FIXME - Move this to common Main
 object MockData {
     private fun getMockPrecipProbability() = Random.nextInt(from = 0, until = 99)
     private fun getMockTemp() = Random.nextInt(from = 0, until = 115)

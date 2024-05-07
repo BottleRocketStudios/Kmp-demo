@@ -1,6 +1,8 @@
 package com.br.kmpdemo.compose.ui.weatherDetails.wind
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -11,6 +13,7 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.compose.resources.theme.Colors
 import com.br.kmpdemo.compose.resources.theme.Dimens
+import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.resources.theme.bold
 import com.br.kmpdemo.compose.ui.home.HomeState
 import com.br.kmpdemo.compose.ui.utils.drawCardinalLabels
