@@ -1,3 +1,4 @@
+package com.br.kmpdemo.useCases
 
 import com.br.kmpdemo.usecases.forecastusecase.ForecastForCityUseCase
 

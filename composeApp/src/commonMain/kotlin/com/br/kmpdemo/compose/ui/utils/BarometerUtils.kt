@@ -1,3 +1,5 @@
+package com.br.kmpdemo.compose.ui.utils
+
 import androidx.compose.ui.geometry.Offset
 import kotlin.math.PI
 import kotlin.math.cos

@@ -19,5 +19,6 @@ object NetworkRoutes {
     const val KEY = "64JPsK8f3qpZkvaqAlToKoi0HMIv3ydf"
     const val DAILY_FORECAST = "1d"
     const val HOURLY_FORECAST = "1h"
+    @Suppress("MemberVisibilityCanBePrivate")
     const val REALTIME_FORECAST = "current"
 }

@@ -1,6 +1,5 @@
 package com.br.kmpdemo.compose.ui.home
 
-import PermissionsDialog
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,6 +18,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import com.br.kmpdemo.compose.resources.theme.Colors
 import com.br.kmpdemo.compose.resources.theme.largeCardCorner
+import com.br.kmpdemo.compose.ui.utils.PermissionsDialog
 import com.br.kmpdemo.compose.ui.utils.SHEET_PEEK_HEIGHT
 import dev.icerock.moko.permissions.Permission
 import dev.icerock.moko.permissions.PermissionsController

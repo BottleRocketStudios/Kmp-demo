@@ -12,7 +12,6 @@ import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.drawText
-import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindDirectionEnum
 import kotlin.math.PI
@@ -34,7 +33,7 @@ const val NEEDLE_LINE_LENGTH = 70F
 
 fun DrawScope.drawCompassGauge(
     gaugeColor: Color,
-    gaugeWidth: Float = com.br.kmpdemo.compose.ui.utils.GAUGE_WIDTH
+    gaugeWidth: Float = GAUGE_WIDTH
 ) {
     val radius = size.width / 2
     val topLeftOffset = Offset(size.width / 2 - radius, size.height / 2 - radius)
@@ -84,8 +83,8 @@ fun DrawScope.drawCardinalLines(lineColor: Color) {
 
 fun DrawScope.drawNorthArrow() {
     val radius = size.width / 2
-    val windDirectionRadians = com.br.kmpdemo.compose.ui.utils.RADIANS_OFFSET * (PI / 180)
-    val northArrow = Path().drawNeedleArrowHead(
+    val windDirectionRadians = RADIANS_OFFSET * (PI / 180)
+    val northArrow = drawNeedleArrowHead(
         startPoint = Offset(center.x, center.y - radius),
         windDirectionRadians = windDirectionRadians,
         arrowWidth = 8F,
@@ -100,10 +99,10 @@ fun DrawScope.drawCardinalLabels(
 ) {
     val radius = size.width / 2
     val positions = mapOf(
-        com.br.kmpdemo.compose.ui.utils.NORTH to Offset(center.x, center.y - radius + 32),
-        com.br.kmpdemo.compose.ui.utils.EAST to Offset(center.x + radius - 32, center.y),
-        com.br.kmpdemo.compose.ui.utils.SOUTH to Offset(center.x, center.y + radius - 36),
-        com.br.kmpdemo.compose.ui.utils.WEST to Offset(center.x - radius + 36, center.y)
+        NORTH to Offset(center.x, center.y - radius + 32),
+        EAST to Offset(center.x + radius - 32, center.y),
+        SOUTH to Offset(center.x, center.y + radius - 36),
+        WEST to Offset(center.x - radius + 36, center.y)
     )
 
     positions.forEach { (text, position) ->
@@ -154,7 +153,7 @@ fun DrawScope.drawWindSpeedText(
 }
 
 fun DrawScope.drawCompassNeedle(
-    gaugeWidth: Float = com.br.kmpdemo.compose.ui.utils.GAUGE_WIDTH,
+    gaugeWidth: Float = GAUGE_WIDTH,
     windDirection: WindDirectionEnum = WindDirectionEnum.N,
 ) {
     val radius = size.width / 2
@@ -163,7 +162,7 @@ fun DrawScope.drawCompassNeedle(
 
     // Wind direction in radians. Degrees adjusted by subtracting 90
     // degrees to align correctly with the gauge that has been rotated for `Phase`
-    val windDirectionRadians = (windDirection.degrees + com.br.kmpdemo.compose.ui.utils.RADIANS_OFFSET) * (PI / 180)
+    val windDirectionRadians = (windDirection.degrees + RADIANS_OFFSET) * (PI / 180)
 
     // Calculate start and end points for arrow needle
     val needlePointStart = center + Offset(
@@ -172,8 +171,8 @@ fun DrawScope.drawCompassNeedle(
     )
 
     val needlePointEnd = center + Offset(
-        x = (radius - com.br.kmpdemo.compose.ui.utils.NEEDLE_LINE_LENGTH) * cos(windDirectionRadians).toFloat(),
-        y = (radius - com.br.kmpdemo.compose.ui.utils.NEEDLE_LINE_LENGTH) * sin(windDirectionRadians).toFloat()
+        x = (radius - NEEDLE_LINE_LENGTH) * cos(windDirectionRadians).toFloat(),
+        y = (radius - NEEDLE_LINE_LENGTH) * sin(windDirectionRadians).toFloat()
     )
 
     // Calculate start and end points for circle needle
@@ -183,8 +182,8 @@ fun DrawScope.drawCompassNeedle(
     )
 
     val needleCircleEnd = center - Offset(
-        x = (radius - com.br.kmpdemo.compose.ui.utils.NEEDLE_LINE_LENGTH) * cos(windDirectionRadians).toFloat(),
-        y = (radius - com.br.kmpdemo.compose.ui.utils.NEEDLE_LINE_LENGTH) * sin(windDirectionRadians).toFloat()
+        x = (radius - NEEDLE_LINE_LENGTH) * cos(windDirectionRadians).toFloat(),
+        y = (radius - NEEDLE_LINE_LENGTH) * sin(windDirectionRadians).toFloat()
     )
 
     // Draw needle lines -- Point for line with arrow, Circle for line with circle
@@ -201,7 +200,7 @@ fun DrawScope.drawCompassNeedle(
         strokeWidth = needleStrokeWidthPx
     )
 
-    val arrowHeadPath = Path().drawNeedleArrowHead(needlePointStart, windDirectionRadians)
+    val arrowHeadPath = drawNeedleArrowHead(needlePointStart, windDirectionRadians)
 
     // Draw arrowhead point of the needle
     drawPath(path = arrowHeadPath, color = Color.White, style = Fill)
@@ -218,11 +217,11 @@ fun DrawScope.drawCompassNeedle(
     )
 }
 
-fun Path.drawNeedleArrowHead(
+fun drawNeedleArrowHead(
     startPoint: Offset,
     windDirectionRadians: Double,
-    arrowLength: Float = com.br.kmpdemo.compose.ui.utils.ARROW_LENGTH,
-    arrowWidth: Float = com.br.kmpdemo.compose.ui.utils.ARROW_WIDTH
+    arrowLength: Float = ARROW_LENGTH,
+    arrowWidth: Float = ARROW_WIDTH
 ): Path = Path().apply {
     moveTo(startPoint.x, startPoint.y)
     lineTo(

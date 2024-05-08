@@ -1,3 +1,4 @@
+package com.br.kmpdemo.compose.ui.forecasts
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,8 +24,6 @@ import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.compose.resources.theme.Colors
 import com.br.kmpdemo.compose.resources.theme.Dimens
 import com.br.kmpdemo.compose.resources.theme.Gradients
-import com.br.kmpdemo.compose.ui.forecasts.SlantedShape
-import com.br.kmpdemo.compose.ui.forecasts.WeatherWidgetState
 import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource
 

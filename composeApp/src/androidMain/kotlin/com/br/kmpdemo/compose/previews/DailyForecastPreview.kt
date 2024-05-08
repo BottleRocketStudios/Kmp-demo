@@ -1,10 +1,10 @@
 package com.br.kmpdemo.compose.previews
 
-import ForecastChip
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.forecasts.DailyForecastChip
+import com.br.kmpdemo.compose.ui.forecasts.ForecastChip
 import com.br.kmpdemo.compose.ui.forecasts.ForecastState
 import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
 

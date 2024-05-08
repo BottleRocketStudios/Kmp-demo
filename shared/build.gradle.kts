@@ -34,7 +34,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":domain"))
-//                implementation(project(":compose"))
                 implementation(project(":data"))
                 // Put your multiplatform dependencies here
 
@@ -61,6 +60,10 @@ kotlin {
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.koin.core)
+
+//           https://github.com/cashapp/sqldelight/issues/4357
+//                This fixes issue in  version of Koin which is pulling older version of Stately
+                implementation(libs.stately.common)
 
                 implementation(libs.kotlinx.date.time)
                 implementation(libs.androidx.core.i18n)

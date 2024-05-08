@@ -1,7 +1,5 @@
 package com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset
 
-import SunriseBezierCurve
-import adjustSunsetTime
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,8 +13,10 @@ import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.compose.resources.theme.Dimens
 import com.br.kmpdemo.compose.resources.theme.bold
 import com.br.kmpdemo.compose.resources.theme.letterSpacing
+import com.br.kmpdemo.compose.ui.utils.SunriseBezierCurve
+import com.br.kmpdemo.compose.ui.utils.adjustSunsetTime
+import com.br.kmpdemo.compose.ui.utils.timeToFractionOfDay
 import dev.icerock.moko.resources.compose.stringResource
-import timeToFractionOfDay
 
 @Composable
 fun SunriseSunsetWidget(state: SunriseSunsetState) {

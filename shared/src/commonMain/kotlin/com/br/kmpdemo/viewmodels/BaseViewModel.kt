@@ -12,7 +12,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 abstract class BaseViewModel: ViewModel(), Loggable, KoinComponent {
-    protected val dispatcherProvider: DispatcherProvider by inject();
+    private val dispatcherProvider: DispatcherProvider by inject()
     fun launchIO(block: suspend CoroutineScope.() -> Unit): Job = viewModelScope.launch(dispatcherProvider.IO, block = block)
 
     override val log: LoggingManager by inject()

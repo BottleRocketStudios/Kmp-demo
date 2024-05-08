@@ -7,6 +7,8 @@ import dev.icerock.moko.resources.StringResource
  * "degrees" slightly adjusted from normal to better match up with
  * Cardinal and Intermediate Lines.
  */
+
+// FIXME - check to see if direction is ever used?
 enum class WindDirectionEnum(val direction: StringResource, val degrees: Double) {
     N(SharedRes.strings.direction_n, 0.0),
     NNE(SharedRes.strings.direction_nne, 29.5),

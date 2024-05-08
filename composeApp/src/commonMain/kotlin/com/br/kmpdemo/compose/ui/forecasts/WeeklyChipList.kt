@@ -1,6 +1,5 @@
 package com.br.kmpdemo.compose.ui.forecasts
 
-import ForecastChip
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

@@ -1,4 +1,3 @@
-package com.br.kmpdemo.network.dtos
+package com.br.kmpdemo.dtos
 
-interface Dto {
-}
+interface Dto

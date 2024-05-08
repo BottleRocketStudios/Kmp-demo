@@ -42,6 +42,8 @@ import java.time.format.DateTimeFormatter
 
 object WeatherWidget : GlanceAppWidget(), KoinComponent {
 
+    // FIXME - Reconnect to use case
+    @Suppress("unused")
     private val forecastForCityUseCase: ForecastForCityUseCase by inject()
 
     val cityKey = intPreferencesKey("cityKey")

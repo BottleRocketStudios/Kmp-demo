@@ -1,3 +1,4 @@
+package com.br.kmpdemo.compose.ui.weatherDetails.pressure
 
 import androidx.compose.runtime.Composable
 import com.br.kmpdemo.compose.resources.SharedRes
@@ -15,7 +16,7 @@ fun BarometricPressureWidget(pressure: Float) {
                 label = SharedRes.strings.pressure,
             )
 
-            BarometerGauge(pressure ?: 0F)
+            BarometerGauge(pressure)
         }
     )
 }

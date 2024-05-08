@@ -1,14 +1,10 @@
 package com.br.kmpdemo.network
 
-import com.br.kmpdemo.models.ApiException
 import com.br.kmpdemo.network.service.TomorrowIoService
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.URLProtocol
-import io.ktor.http.isSuccess
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 

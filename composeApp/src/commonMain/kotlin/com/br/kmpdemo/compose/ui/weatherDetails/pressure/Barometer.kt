@@ -1,3 +1,4 @@
+package com.br.kmpdemo.compose.ui.weatherDetails.pressure
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import com.br.kmpdemo.compose.resources.theme.Colors
 import com.br.kmpdemo.compose.resources.theme.Dimens
+import com.br.kmpdemo.compose.ui.utils.getBarometerLineOffset
 
 @Composable
 fun BarometerGauge(pressure: Float) {

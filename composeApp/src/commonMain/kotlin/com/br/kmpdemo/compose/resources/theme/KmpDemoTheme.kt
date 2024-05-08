@@ -24,6 +24,8 @@ fun ProvideColors(
 private val LocalAppColors = staticCompositionLocalOf {
     lightColorScheme()
 }
+
+// FIXME - need to use small dimens by checking this constant
 const val SMALL_SCREEN_WIDTH_DP = 360
 
 @Composable

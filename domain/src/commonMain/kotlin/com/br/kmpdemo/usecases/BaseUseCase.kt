@@ -9,6 +9,7 @@ interface BaseUseCase<Request : BaseRequest, Response : BaseResponse> : KoinComp
 
     suspend operator fun invoke(request: Request? = null): Result<Response>
 
+    @Suppress("unused")
     suspend infix fun Request?.assertNotNull(block: suspend (Request) -> Result<Response>): Result<Response> =
         (this?.let { block(it) }) ?: Result.failure(IllegalArgumentException("Request required"))
 }

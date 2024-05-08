@@ -1,3 +1,4 @@
+package com.br.kmpdemo.compose.ui.forecasts
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.br.kmpdemo.compose.resources.theme.Colors
 import com.br.kmpdemo.compose.resources.theme.Dimens
-import com.br.kmpdemo.compose.ui.forecasts.ForecastState
 
 @Composable
 fun ForecastChip(

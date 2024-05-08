@@ -10,7 +10,6 @@ import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.compose.resources.theme.Dimens
 import com.br.kmpdemo.compose.resources.theme.bold
 import com.br.kmpdemo.compose.resources.theme.letterSpacing
-import com.br.kmpdemo.compose.ui.home.HomeState
 import com.br.kmpdemo.compose.ui.weatherDetails.DetailsWidgetLabel
 import com.br.kmpdemo.compose.ui.weatherDetails.WeatherDetailsSurface
 import com.br.kmpdemo.utils.MeasurementType

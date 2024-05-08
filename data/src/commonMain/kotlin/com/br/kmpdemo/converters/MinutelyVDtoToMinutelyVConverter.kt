@@ -1,7 +1,7 @@
 package com.br.kmpdemo.converters
 
 import com.br.kmpdemo.models.MinutelyValues
-import com.br.kmpdemo.network.dtos.MinutelyDataPointValuesDto
+import com.br.kmpdemo.dtos.MinutelyDataPointValuesDto
 
 fun MinutelyDataPointValuesDto?.toMinutelyValuesModel() = MinutelyValues(
     cloudBase = this?.cloudBase,

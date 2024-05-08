@@ -1,4 +1,3 @@
-
 import com.br.kmpdemo.utils.MeasurementType
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.koin.core.component.KoinComponent

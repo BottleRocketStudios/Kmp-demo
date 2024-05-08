@@ -1,6 +1,5 @@
 package com.br.kmpdemo.compose.ui.home
 
-import WeatherDetails
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material3.MaterialTheme
@@ -13,6 +12,7 @@ import com.br.kmpdemo.compose.ui.forecasts.ForecastTabs
 import com.br.kmpdemo.compose.ui.forecasts.HourlyChipList
 import com.br.kmpdemo.compose.ui.forecasts.WeeklyChipList
 import com.br.kmpdemo.compose.ui.shared.GradientCard
+import com.br.kmpdemo.compose.ui.weatherDetails.WeatherDetails
 import dev.icerock.moko.resources.compose.stringResource
 
 @Composable

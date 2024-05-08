@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
  * create composables specifically to take advantage of the extra space more efficiently.
  */
 
+@Suppress("PropertyName", "unused")
 class Dimensions(
     val grid_0_25: Dp,
     val grid_0_5: Dp,

@@ -1,6 +1,5 @@
 package com.br.kmpdemo.dtos
 
-import com.br.kmpdemo.network.dtos.Dto
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -25,4 +24,4 @@ data class RealTimeValuesDto(
     val windDirection: Double?,
     val windGust: Double?,
     val windSpeed: Double?,
-):Dto
+): Dto

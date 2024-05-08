@@ -1,8 +1,5 @@
 package com.br.kmpdemo.compose.previews
 
-import BarometricPressureWidget
-import FeelsLikeWidget
-import VisibilityWidget
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
@@ -12,13 +9,16 @@ import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.feelsLike.FeelsLikeState
+import com.br.kmpdemo.compose.ui.weatherDetails.feelsLike.FeelsLikeWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.humidity.HumidityState
 import com.br.kmpdemo.compose.ui.weatherDetails.humidity.HumidityWidget
+import com.br.kmpdemo.compose.ui.weatherDetails.pressure.BarometricPressureWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.rainFall.RainFallWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetState
 import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UVIndexEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UvIndexWidget
+import com.br.kmpdemo.compose.ui.weatherDetails.visibility.VisibilityWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindWidget
 import com.br.kmpdemo.utils.MeasurementType
 

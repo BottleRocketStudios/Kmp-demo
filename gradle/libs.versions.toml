@@ -29,6 +29,7 @@ moko-permissions = "0.17.0"
 play-services-coroutines = "1.7.3"
 play-services-maps = "18.2.0"
 precompose = "1.5.10"
+stately-common = "2.0.5"
 ui-tooling-preview-android = "1.5.4"
 
 compile-sdk = "34"
@@ -78,6 +79,7 @@ play-services-maps = { group = "com.google.android.gms", name = "play-services-m
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
+stately-common = { module = "co.touchlab:stately-common", version.ref = "stately-common" }
 ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "ui-tooling-preview-android" }
 
 [plugins]

@@ -84,6 +84,7 @@ data class GradientColors(
     val indicatorGradient: List<Color>
 )
 
+@Suppress("FunctionName")
 fun KmpGradientColors(
     weatherWidgetGradient: List<Color> = listOf(lightPurple, darkPurple),
     sliderTrackGradient: List<Color> = listOf(sliderBlue, sliderPink, sliderPurple),

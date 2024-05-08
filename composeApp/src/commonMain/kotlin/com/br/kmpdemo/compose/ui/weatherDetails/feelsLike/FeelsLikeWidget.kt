@@ -1,3 +1,4 @@
+package com.br.kmpdemo.compose.ui.weatherDetails.feelsLike
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -8,7 +9,6 @@ import androidx.compose.ui.unit.sp
 import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.compose.ui.weatherDetails.DetailsWidgetLabel
 import com.br.kmpdemo.compose.ui.weatherDetails.WeatherDetailsSurface
-import com.br.kmpdemo.compose.ui.weatherDetails.feelsLike.FeelsLikeState
 import com.br.kmpdemo.compose.resources.theme.Dimens
 import com.br.kmpdemo.compose.resources.theme.letterSpacing
 import dev.icerock.moko.resources.compose.stringResource

@@ -22,7 +22,8 @@ import com.google.maps.android.heatmaps.WeightedLatLng
 fun WeatherMapScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
         var uiSettings by remember { mutableStateOf(MapUiSettings()) }
-        var properties by remember {
+        // FIXME - Can we get rid of this remember?
+        val properties by remember {
             mutableStateOf(MapProperties(mapType = MapType.SATELLITE))
         }
 //        var tileState by rememberTileOverlayState {

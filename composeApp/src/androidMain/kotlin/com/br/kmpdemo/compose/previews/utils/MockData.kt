@@ -5,12 +5,6 @@ import com.br.kmpdemo.compose.ui.forecasts.ForecastState
 import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
 import com.br.kmpdemo.compose.ui.home.HomeState
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityEnum
-import com.br.kmpdemo.compose.ui.weatherDetails.rainFall.RainFallState
-import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetState
-import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UVIndexEnum
-import com.br.kmpdemo.compose.ui.weatherDetails.visibility.VisibilityState
-import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindDirectionEnum
-import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindState
 import com.br.kmpdemo.models.DailyValues
 import com.br.kmpdemo.models.HourlyValues
 import com.br.kmpdemo.models.PermissionsDialogState
@@ -24,7 +18,7 @@ import kotlin.random.Random
 object MockData {
     private fun getMockPrecipProbability() = Random.nextInt(from = 0, until = 99)
     private fun getMockTemp() = Random.nextInt(from = 0, until = 115)
-    private fun getMockRandomIcon() = WeatherEnum.values().random()
+    private fun getMockRandomIcon() = WeatherEnum.entries.random()
 
     private val weekdays = listOf("MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN")
     private val hours = (1..12).map { "$it AM" }.toMutableList()
@@ -112,7 +106,7 @@ object MockData {
             )),
 
             measurementPref = mutableStateOf(MeasurementType.IMPERIAL),
-            locationPermissionsDialog = PermissionsDialogState("", {})
+            locationPermissionsDialog = PermissionsDialogState("") {}
         )
     }
 
