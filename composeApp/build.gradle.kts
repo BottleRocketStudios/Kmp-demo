@@ -62,6 +62,10 @@ kotlin {
 //                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 //                implementation(compose.components.resources)
 
+                implementation(compose.components.uiToolingPreview)
+
+
+
                 // PreCompose - https://github.com/Tlaster/PreCompose
                 implementation(libs.precompose)
                 implementation(libs.precompose.viewmodel)
@@ -96,8 +100,8 @@ kotlin {
                 // Koin
                 implementation(libs.koin.android)
 
-                // Preview Utils need to be implemented in platform code as they use platform renderers
-                implementation(libs.ui.tooling.preview.android)
+                // For Android Studio, preview Utils need to be implemented in platform code as they use platform renderers
+                implementation(libs.ui.tooling.preview)
 
                 // Google maps
                 implementation(libs.play.services.maps)
@@ -159,6 +163,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
+}
+dependencies {
+    debugImplementation(libs.androidx.ui.tooling)
 }
 
 // TODO - uncomment to enable desktop

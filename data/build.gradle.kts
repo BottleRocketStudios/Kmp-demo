@@ -9,6 +9,8 @@ kotlin {
     androidTarget()
     jvmToolchain(17)
 
+//    jvm()
+
     listOf(
         iosX64(),
         iosArm64(),

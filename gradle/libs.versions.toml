@@ -16,6 +16,8 @@ kmp-launchpad-google-utils = "0.0.2"
 kmp-launchpad-compose = "0.0.4"
 kmp-launchpad-domain = "0.0.4"
 kmp-launchpad-utils = "0.0.2"
+#kmp-launchpad-ai = "0.0.2"
+kmp-launchpad-ai = "snapshot"
 koin = "3.5.3"
 koin-compose = "3.5.3"
 kotlin = "1.9.21"
@@ -31,6 +33,7 @@ play-services-maps = "18.2.0"
 precompose = "1.5.10"
 stately-common = "2.0.5"
 ui-tooling-preview-android = "1.5.4"
+ui-tooling-preview = "1.6.0"
 
 compile-sdk = "34"
 target-sdk = "34"
@@ -38,6 +41,7 @@ min-sdk = "30"
 version-code = "1"
 version-name = "1.0"
 application-id = "com.br.kmpdemo"
+ui-tooling = "1.6.7"
 
 [libraries]
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
@@ -80,7 +84,9 @@ precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
 stately-common = { module = "co.touchlab:stately-common", version.ref = "stately-common" }
-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "ui-tooling-preview-android" }
+#ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "ui-tooling-preview-android" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "ui-tooling-preview" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

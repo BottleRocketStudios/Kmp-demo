@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.br.kmpdemo.compose.previews.utils.MockData
+import com.br.kmpdemo.compose.ui.utils.MockData
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityWidget

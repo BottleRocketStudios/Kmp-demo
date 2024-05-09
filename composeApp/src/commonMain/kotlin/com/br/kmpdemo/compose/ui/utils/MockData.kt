@@ -1,4 +1,4 @@
-package com.br.kmpdemo.compose.previews.utils
+package com.br.kmpdemo.compose.ui.utils
 
 import androidx.compose.runtime.mutableStateOf
 import com.br.kmpdemo.compose.ui.forecasts.ForecastState

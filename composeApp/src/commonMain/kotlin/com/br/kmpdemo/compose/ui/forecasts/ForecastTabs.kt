@@ -23,7 +23,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.br.kmpdemo.compose.resources.theme.Colors
 import com.br.kmpdemo.compose.resources.theme.Gradients
+import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.resources.theme.bold
+import com.br.kmpdemo.compose.ui.utils.MockData
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun ForecastTabs(forecasts: List<ForecastTabState>) {
@@ -81,5 +84,22 @@ fun ForecastTabs(forecasts: List<ForecastTabState>) {
                 .background(Color.Transparent),
             content = { forecasts[tabIndex].content() }
         )
+    }
+}
+
+@Preview
+@Composable
+fun ForecastTabsPreview() {
+    KmpDemoTheme {
+        ForecastTabs(listOf(
+            ForecastTabState(
+                itemTitle = "Hourly Forecast",
+                content = { HourlyChipList(MockData.getMockHourlyForecast()) }
+            ),
+            ForecastTabState(
+                itemTitle = "Weekly Forecast",
+                content = { WeeklyChipList(MockData.getMockWeeklyForecast()) }
+            )
+        ))
     }
 }
