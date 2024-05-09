@@ -35,25 +35,13 @@ kotlin {
             dependencies {
                 implementation(project(":domain"))
                 implementation(project(":data"))
-                // Put your multiplatform dependencies here
-
-                // Jetpack Compose
-                implementation(compose.runtime)
-                implementation(compose.ui)
-                implementation(compose.foundation)
-                implementation(compose.animation)
-                implementation(compose.material3)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
-                api(libs.precompose)
-                api(libs.precompose.viewmodel)
-                api(libs.precompose.koin)
+                implementation(libs.precompose.viewmodel)
+
+                // Moko
                 api(libs.moko.resources)
                 api(libs.moko.resources.compose)
-                api(libs.moko.permissions)
-                api(libs.moko.permissions.compose)
 
                 // KTOR Networking and Serialization
                 implementation(libs.ktor.client.core)
@@ -61,15 +49,15 @@ kotlin {
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.koin.core)
 
-//           https://github.com/cashapp/sqldelight/issues/4357
-//                This fixes issue in  version of Koin which is pulling older version of Stately
+                //  https://github.com/cashapp/sqldelight/issues/4357
+                //    This fixes issue in  version of Koin which is pulling older version of Stately
                 implementation(libs.stately.common)
 
+                // Date Time
                 implementation(libs.kotlinx.date.time)
                 implementation(libs.androidx.core.i18n)
 
                 // KMP
-                implementation(libs.kmp.launchpad.compose)
                 implementation(libs.kmp.launchpad.domain)
                 implementation(libs.kmp.launchpad.utils)
                 implementation(libs.kmp.launchpad.google.utils)
@@ -79,13 +67,8 @@ kotlin {
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
-                api(libs.activity.compose)
-                api(libs.androidx.appcompat)
-                api(libs.androidx.core.ktx)
-                implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.ktor.client.android)
                 implementation(libs.koin.android)
-                implementation(libs.koin.androidx.compose)
 
                 // Utility
                 implementation(libs.google.maps)
@@ -93,9 +76,6 @@ kotlin {
                 implementation(libs.google.places)
                 implementation(libs.play.services.maps)
 
-                // Preview Utils need to be implemented in platform code as they use platform renderers
-                implementation(compose.preview)
-                implementation(compose.uiTooling)
             }
         }
         val iosX64Main by getting

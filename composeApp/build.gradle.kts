@@ -47,9 +47,11 @@ kotlin {
                 // Koin
                 implementation(libs.koin.core)
 
-                // Moko permissions
-                api(libs.moko.permissions)
-                api(libs.moko.permissions.compose)
+                // Moko
+                implementation(libs.moko.permissions)
+                implementation(libs.moko.permissions.compose)
+                api(libs.moko.resources)
+                api(libs.moko.resources.compose)
 
                 // Jetpack Compose
                 implementation(compose.runtime)
@@ -61,11 +63,9 @@ kotlin {
 //                implementation(compose.components.resources)
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
-                api(libs.precompose)
-                api(libs.precompose.viewmodel)
-                api(libs.precompose.koin)
-                api(libs.moko.resources)
-                api(libs.moko.resources.compose)
+                implementation(libs.precompose)
+                implementation(libs.precompose.viewmodel)
+                implementation(libs.precompose.koin)
 
                 // Launchpad
                 implementation(libs.kmp.launchpad.compose)
@@ -93,47 +93,23 @@ kotlin {
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
+                // Koin
                 implementation(libs.koin.android)
 
-
+                // Preview Utils need to be implemented in platform code as they use platform renderers
                 implementation(libs.ui.tooling.preview.android)
-                implementation(libs.play.services.coroutines)
+
+                // Google maps
                 implementation(libs.play.services.maps)
                 implementation(libs.google.maps.utils)
-
-                // Preview Utils need to be implemented in platform code as they use platform renderers
-                implementation(compose.preview)
-                implementation(compose.uiTooling)
-                implementation(compose.foundation)
-                implementation(compose.animation)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
-                implementation(compose.runtime)
-                implementation(compose.ui)
 
                 // Glance
                 implementation(libs.glance)
                 implementation(libs.glance.appwidget)
                 implementation(libs.glance.material3)
 
-
-
-                //  TODO - check to see if these deps are needed from this point down
-//                api(libs.precompose)
-//                api(libs.precompose.viewmodel)
-//                api(libs.precompose.koin)
-//                api(libs.moko.resources)
-//                api(libs.moko.resources.compose)
-//
-//
-//
-//                // Utility
-//                implementation(libs.google.maps)
-//                implementation(libs.google.maps.utils)
-//                implementation(libs.google.places)
-//                implementation(libs.play.services.maps)
-//                implementation(libs.kermit.logger)
-
+                // MainActivity - setContent
+                implementation(libs.activity.compose)
             }
         }
     }
