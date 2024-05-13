@@ -42,7 +42,7 @@ kotlin {
     }
 
     sourceSets {
-        val desktopMain by getting
+
 
         val commonMain by getting {
             dependencies {
@@ -79,6 +79,15 @@ kotlin {
 
                 // KotlinX
                 implementation(libs.kotlinx.date.time)
+            }
+        }
+
+        val desktopMain by getting {
+            dependsOn(commonMain)
+            dependencies {
+                // Compose
+//                implementation(compose.desktop.common)
+                implementation(compose.desktop.currentOs)
             }
         }
 
