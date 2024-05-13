@@ -8,18 +8,12 @@ kotlin {
     applyDefaultHierarchyTemplate()
     androidTarget()
     jvmToolchain(17)
+    jvm("desktop")
+    task("testClasses")
 
-//    jvm()
-
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "data"
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting {
@@ -41,7 +35,6 @@ kotlin {
         }
     }
 
-    task("testClasses")
 }
 
 android {

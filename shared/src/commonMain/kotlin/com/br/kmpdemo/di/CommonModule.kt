@@ -9,7 +9,8 @@ import org.koin.dsl.module
 
 val commonModule = module {
     // Logger
-    single<LoggingManager> { NapierLogger() }
+//     FIXME - use build config here to get debug
+    single<LoggingManager> { NapierLogger(true) }
 
     // Utils
     single<DispatcherProvider> { DispatcherProviderImpl() }

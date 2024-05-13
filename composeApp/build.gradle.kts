@@ -1,4 +1,4 @@
-//import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -17,12 +17,9 @@ multiplatformResources {
 kotlin {
     applyDefaultHierarchyTemplate()
     androidTarget()
-
     jvmToolchain(17)
-
-    // TODO - uncomment to enable desktop
-//    jvm("desktop")
-
+    jvm("desktop")
+    task("testClasses")
 
     listOf(
         iosX64(),
@@ -30,14 +27,12 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "compose"
             export(libs.moko.resources)
         }
     }
 
     sourceSets {
-        // TODO - uncomment to enable desktop
-//        val desktopMain by getting
+        val desktopMain by getting
 
         val commonMain by getting {
             dependencies {
@@ -48,6 +43,7 @@ kotlin {
                 implementation(libs.koin.core)
 
                 // Moko
+//                 TODO - Need to move permissions into expect actual pattern so desktop can build.
                 implementation(libs.moko.permissions)
                 implementation(libs.moko.permissions.compose)
                 api(libs.moko.resources)
@@ -118,7 +114,6 @@ kotlin {
         }
     }
 
-    task("testClasses")
 }
 
 
@@ -168,15 +163,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
 }
 
-// TODO - uncomment to enable desktop
-//compose.desktop {
-//    application {
-//        mainClass = "MainKt"
-//
-//        nativeDistributions {
-//            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-//            packageName = "com.br.kmpdemo"
-//            packageVersion = "1.0.0"
-//        }
-//    }
-//}
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "com.br.kmpdemo"
+            packageVersion = "1.0.0"
+        }
+    }
+}

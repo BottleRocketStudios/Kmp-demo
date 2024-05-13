@@ -16,19 +16,13 @@ multiplatformResources {
 kotlin {
     applyDefaultHierarchyTemplate()
     androidTarget()
-
     jvmToolchain(17)
+    jvm("desktop")
+    task("testClasses")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "shared"
-            export(libs.moko.resources)
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting {
@@ -92,9 +86,11 @@ kotlin {
             implementation(libs.koin.test)
             implementation(libs.moko.resources.test)
         }
+        val desktopMain by getting {
+            dependsOn(commonMain)
+        }
     }
 
-    task("testClasses")
 }
 
 android {
@@ -107,11 +103,12 @@ android {
     }
 
 
+//  TODO  Check to see if this is needed
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
-
+//  TODO  Check to see if this is needed
     // Needed for Preview Pane in IDE
     buildFeatures {
         compose = true
