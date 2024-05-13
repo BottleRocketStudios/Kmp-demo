@@ -18,9 +18,13 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                // Ktor
                 implementation(libs.ktor.serialization.kotlinx.json)
+
+                // Koin
                 implementation(libs.koin.core)
+
+                // Kotlinx
                 implementation(libs.kotlinx.date.time)
             }
         }

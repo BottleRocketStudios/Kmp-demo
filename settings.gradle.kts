@@ -1,3 +1,6 @@
+rootProject.name = "KMP_Demo"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google()
@@ -20,7 +23,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KMP_Demo"
 include(":data")
 include(":domain")
 include(":shared")

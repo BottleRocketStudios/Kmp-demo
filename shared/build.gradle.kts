@@ -27,8 +27,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":domain"))
-                implementation(project(":data"))
+                implementation(projects.domain)
+                implementation(projects.data)
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
                 implementation(libs.precompose.viewmodel)
@@ -61,7 +61,10 @@ kotlin {
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
+                // Ktor
                 implementation(libs.ktor.client.android)
+
+                // Koin
                 implementation(libs.koin.android)
 
                 // Utility

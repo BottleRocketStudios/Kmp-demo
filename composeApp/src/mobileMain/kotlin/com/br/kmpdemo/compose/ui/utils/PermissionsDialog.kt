@@ -18,16 +18,17 @@ import androidx.compose.ui.text.style.TextAlign
 import com.br.kmpdemo.compose.resources.SharedRes
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme.dimens
 import com.br.kmpdemo.compose.resources.theme.bold
-import com.br.kmpdemo.models.PermissionsDialogState
 import dev.icerock.moko.permissions.Permission
 import dev.icerock.moko.permissions.PermissionsController
 import dev.icerock.moko.permissions.compose.BindEffect
 import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.coroutines.launch
 
+
 @Composable
 fun PermissionsDialog(
-    permissionDialogState: PermissionsDialogState,
+    permissionText: String,
+    onDismiss: (Boolean) -> Unit,
     permissionsController: PermissionsController,
     permissionTypes: List<Permission>
 ) {
@@ -36,7 +37,7 @@ fun PermissionsDialog(
     BindEffect(permissionsController)
 
     AlertDialog(
-        onDismissRequest = { permissionDialogState.onDismiss(false) },
+        onDismissRequest = { onDismiss(false) },
         confirmButton = {
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -56,7 +57,7 @@ fun PermissionsDialog(
                                 permissionTypes.forEach { permission ->
                                     permissionsController.providePermission(permission)
                                 }
-                                permissionDialogState.onDismiss(
+                                onDismiss(
                                     permissionsController.isPermissionGranted(
                                         Permission.LOCATION
                                     ) || permissionsController.isPermissionGranted(
@@ -78,7 +79,7 @@ fun PermissionsDialog(
         },
         text = {
             Text(
-                text = permissionDialogState.permissionText,
+                text = permissionText,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )

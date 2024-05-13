@@ -1,4 +1,5 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -15,7 +16,16 @@ multiplatformResources {
 }
 
 kotlin {
-    applyDefaultHierarchyTemplate()
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            // Create a group for code that is common to just Android and iOS
+            group("mobile") {
+                withIos()
+                withAndroidTarget()
+            }
+        }
+    }
     androidTarget()
     jvmToolchain(17)
     jvm("desktop")
@@ -36,16 +46,13 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(project(":domain"))
-                implementation(project(":shared"))
+                implementation(projects.shared)
+                implementation(projects.domain)
 
                 // Koin
                 implementation(libs.koin.core)
 
                 // Moko
-//                 TODO - Need to move permissions into expect actual pattern so desktop can build.
-                implementation(libs.moko.permissions)
-                implementation(libs.moko.permissions.compose)
                 api(libs.moko.resources)
                 api(libs.moko.resources.compose)
 
@@ -55,12 +62,9 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.animation)
                 implementation(compose.material3)
+                implementation(compose.components.uiToolingPreview)
 //                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 //                implementation(compose.components.resources)
-
-                implementation(compose.components.uiToolingPreview)
-
-
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
                 implementation(libs.precompose)
@@ -77,9 +81,16 @@ kotlin {
                 implementation(libs.kotlinx.date.time)
             }
         }
-//        commonTest.dependencies {
-//            implementation(libs.kotlin.test)
-//        }
+
+        val mobileMain by getting {
+            dependsOn(commonMain)
+            dependencies {
+                // Permissions
+                implementation(libs.moko.permissions)
+                implementation(libs.moko.permissions.compose)
+            }
+        }
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -113,7 +124,6 @@ kotlin {
             }
         }
     }
-
 }
 
 
@@ -147,7 +157,6 @@ android {
             isMinifyEnabled = false
         }
     }
-
 
 
     // Needed for Preview Pane in IDE
