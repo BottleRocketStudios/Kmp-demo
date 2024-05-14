@@ -31,18 +31,11 @@ kotlin {
     jvm("desktop")
     task("testClasses")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            export(libs.moko.resources)
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
-
 
         val commonMain by getting {
             dependencies {
@@ -63,8 +56,6 @@ kotlin {
                 implementation(compose.animation)
                 implementation(compose.material3)
                 implementation(compose.components.uiToolingPreview)
-//                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-//                implementation(compose.components.resources)
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
                 implementation(libs.precompose)
@@ -86,7 +77,6 @@ kotlin {
             dependsOn(commonMain)
             dependencies {
                 // Compose
-//                implementation(compose.desktop.common)
                 implementation(compose.desktop.currentOs)
             }
         }
@@ -177,9 +167,11 @@ android {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
 }
-dependencies {
-    debugImplementation(libs.androidx.ui.tooling)
-}
+
+
+//dependencies {
+//    debugImplementation(libs.androidx.ui.tooling)
+//}
 
 compose.desktop {
     application {
