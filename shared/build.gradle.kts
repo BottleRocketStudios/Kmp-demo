@@ -58,6 +58,7 @@ kotlin {
                 implementation(libs.kmp.launchpad.ai)
             }
         }
+
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
@@ -75,6 +76,7 @@ kotlin {
 
             }
         }
+
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -84,11 +86,13 @@ kotlin {
                 implementation(libs.ktor.client.darwin)
             }
         }
+
         commonTest.dependencies {
 //                implementation(kotlin("test"))
             implementation(libs.koin.test)
             implementation(libs.moko.resources.test)
         }
+
         val desktopMain by getting {
             dependsOn(commonMain)
             dependencies {
@@ -96,7 +100,6 @@ kotlin {
             }
         }
     }
-
 }
 
 android {
@@ -106,21 +109,6 @@ android {
         defaultConfig {
             minSdk = min.sdk.get().toInt()
         }
-    }
-
-
-//  TODO  Check to see if this is needed
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
-
-//  TODO  Check to see if this is needed
-    // Needed for Preview Pane in IDE
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
     }
 
 }

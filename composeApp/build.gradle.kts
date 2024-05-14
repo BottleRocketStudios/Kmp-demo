@@ -36,7 +36,6 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
-
         val commonMain by getting {
             dependencies {
                 implementation(projects.shared)
@@ -107,6 +106,7 @@ kotlin {
                 implementation(libs.koin.android)
 
                 // For Android Studio, preview Utils need to be implemented in platform code as they use platform renderers
+                implementation(libs.ui.tooling)
                 implementation(libs.ui.tooling.preview)
 
                 // Google maps
@@ -158,7 +158,7 @@ android {
     }
 
 
-    // Needed for Preview Pane in IDE
+    // Needed for Preview Pane in Android Studio IDE
     buildFeatures {
         compose = true
     }
@@ -167,11 +167,6 @@ android {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
 }
-
-
-//dependencies {
-//    debugImplementation(libs.androidx.ui.tooling)
-//}
 
 compose.desktop {
     application {

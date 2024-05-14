@@ -8,6 +8,6 @@ class KmpApp {
     }
 
     static func main() {
-        MainiosKt.main_ios()
+        MainiosKt.mainIos()
     }
 }
