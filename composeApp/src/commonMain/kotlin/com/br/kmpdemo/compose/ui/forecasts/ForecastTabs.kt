@@ -87,7 +87,7 @@ fun ForecastTabs(forecasts: List<ForecastTabState>) {
     }
 }
 
-@Preview
+@Preview()
 @Composable
 fun ForecastTabsPreview() {
     KmpDemoTheme {

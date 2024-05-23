@@ -157,7 +157,6 @@ android {
         }
     }
 
-
     // Needed for Preview Pane in Android Studio IDE
     buildFeatures {
         compose = true
