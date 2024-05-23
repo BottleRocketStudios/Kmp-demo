@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="appName">KMP Demo</string>
+    <string name="map">MAP</string>
+    <string name="home">Home</string>
+    <string name="test">Test</string>
+    <string name="new_york_city">New York City</string>
+    <string name="addison">Addison</string>
+    <string name="los_angeles">Los Angeles</string>
+    <string name="chicago">Chicago</string>
+    <string name="houston">Houston</string>
+    <string name="philadelphia">Philadelphia</string>
+    <string name="temp_high_low">H:%1s°   L:%2s°</string>
+    <string name="hourly_forecast">Hourly Forecast</string>
+    <string name="weekly_forecast">Weekly Forecast</string>
+    <string name="pref_metric">metric</string>
+    <string name="pref_imperial">imperial</string>
+
+    <!-- Weather Enum Icon Descriptions -->
+    <string name="fog">Fog</string>
+    <string name="rain">Rain</string>
+    <string name="snow">Snow</string>
+    <string name="thunderstorms">Thunderstorms</string>
+    <string name="hail">Hail</string>
+    <string name="lightening">Lightening</string>
+    <string name="clear_skies">Clear Skies</string>
+    <string name="partly_cloudy">Partly Cloudy</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="heavy_rain">Heavy Rain</string>
+    <string name="light_rain">Light Rain</string>
+    <string name="sunny">Sunny</string>
+    <string name="windy">Windy</string>
+
+    <!-- Weather Details Components -->
+    <string name="input_degrees">%s°</string>
+    <string name="input_collapsed_details">%s° | %s</string>
+    <string name="input_percentage">%s%%</string>
+    <string name="air_quality">AIR QUALITY</string>
+    <string name="aqi_1">1-No Health Risk</string>
+    <string name="aqi_2">2-Low Health Risk</string>
+    <string name="aqi_3">3-Moderate Health Risk</string>
+    <string name="aqi_4">4-High Health Risk</string>
+    <string name="aqi_5">5-Very High Health Risk</string>
+    <string name="aqi_6">6-Emergency Health Risk</string>
+    <string name="unknown_aqi">Risk Level Unknown</string>
+    <string name="see_more">See more</string>
+
+    <string name="uv_index_label">UV INDEX</string>
+    <string name="uv_index_low">Low</string>
+    <string name="uv_index_mod">Moderate</string>
+    <string name="uv_index_high">High</string>
+    <string name="uv_index_very_high">Very High</string>
+    <string name="uv_index_extreme">Extreme</string>
+    <string name="unknown_uv">Unknown</string>
+    <string name="uv_index_1">1</string>
+    <string name="uv_index_2">2</string>
+    <string name="uv_index_3">3</string>
+    <string name="uv_index_4">4</string>
+    <string name="uv_index_5">5</string>
+    <string name="uv_index_unknown">--</string>
+
+    <string name="sunrise">SUNRISE</string>
+    <string name="input_sunrise">%s AM</string>
+    <string name="input_sunset">Sunset: %s PM</string>
+
+    <string name="wind">WIND</string>
+    <string name="wind_kmh">km/h</string>
+    <string name="wind_mph">mp/h</string>
+    <string name="direction_n">North</string>
+    <string name="direction_nne">North-Northeast</string>
+    <string name="direction_ne">Northeast</string>
+    <string name="direction_ene">East-Northeast</string>
+    <string name="direction_e">East</string>
+    <string name="direction_ese">East-Southeast</string>
+    <string name="direction_se">Southeast</string>
+    <string name="direction_sse">South-Southeast</string>
+    <string name="direction_s">South</string>
+    <string name="direction_ssw">South-Southwest</string>
+    <string name="direction_sw">Southwest</string>
+    <string name="direction_wsw">West-Southwest</string>
+    <string name="direction_w">West</string>
+    <string name="direction_wnw">West-Northwest</string>
+    <string name="direction_nw">Northwest</string>
+    <string name="direction_nnw">North-Northwest</string>
+    <string name="direction_unknown"> </string>
+
+    <string name="rainfall">RAINFALL</string>
+    <string name="input_rainfall_mm">%s mm</string>
+    <string name="input_rainfall_in">%s in</string>
+    <string name="in_last_hour">in last hour</string>
+    <string name="input_expected_rainfall">%s expected in next 24h</string>
+
+    <string name="feels_like">FEELS LIKE</string>
+    <string name="feels_like_similar">Similar to the actual temperature</string>
+    <string name="feels_like_higher">Higher than the actual temperature</string>
+    <string name="feels_like_lower">Lower than the actual temperature</string>
+    <string name="feels_like_unknown">Unknown Feels Like temperature</string>
+
+    <string name="humidity">HUMIDITY</string>
+    <string name="humidity_dew_description">The dew point is %s right now</string>
+
+    <string name="visibility">VISIBILITY</string>
+    <string name="input_visibility_km">%s km</string>
+    <string name="input_visibility_mph">%s mph</string>
+    <string name="visibility_miles">Clear day visibility average 10 mi</string>
+    <string name="visibility_km">Clear day visibility average 16 km</string>
+
+    <string name="pressure">PRESSURE</string>
+
+    <!-- Content Descriptions -->
+    <string name="home_bg">Home background</string>
+    <string name="weatherIcon">Weather Icon</string>
+    <string name="chevron_right">Next arrow</string>
+    <string name="air_quality_icon">Air quality icon</string>
+    <string name="nav_bar_bg">Navigation bar background</string>
+    <string name="nav_bar_button_bg">Navigation bar button background</string>
+    <string name="nav_bar_button">Navigation bar button</string>
+    <string name="nav_bar_pin_button">Navigation bar location pin button</string>
+    <string name="nav_bar_list_button">Navigation bar list button</string>
+
+    <!-- Errors -->
+    <string name="tempError">--°</string>
+    <string name="number_error">--</string>
+    <string name="highLowTempError">H: --°  L: --°</string>
+    <string name="locationError">Location Unavailable</string>
+    <string name="description_error">Current Weather Unavailable</string>
+    <string name="empty_digits_error">---</string>
+    <string name="percentageError">--%</string>
+    <string name="unknown_number">unknown</string>
+    <string name="empty_string"> </string>
+    <string name="input_collapsed_error">--° | Unknown Weather</string>
+    <string name="forecasts_unavailable">Forecasts Unavailable</string>
+</resources>

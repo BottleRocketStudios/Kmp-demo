@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:composeApp/src/androidMain/kotlin/com/br/kmpdemo/compose/WeatherMapScreen.android.kt
 package com.br.kmpdemo.compose
+========
+package com.br.kmpdemo
+>>>>>>>> refs/heads/feature/ai-chat:shared/src/androidMain/kotlin/com/br/kmpdemo/WeatherMapScreen.android.kt
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
