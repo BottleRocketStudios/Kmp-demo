@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:composeApp/src/androidMain/kotlin/com/br/kmpdemo/compose/WeatherWidget.kt
 package com.br.kmpdemo.compose
-========
-package com.br.kmpdemo.android
->>>>>>>> refs/heads/feature/ai-chat:androidApp/src/androidMain/kotlin/com/br/kmpdemo/android/WeatherWidget.kt
 
 import android.content.Context
 import androidx.compose.runtime.Composable

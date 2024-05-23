@@ -1,7 +1,5 @@
 package com.br.kmpdemo.dtos
 
-import com.br.kmpdemo.network.dtos.Dto
-import com.br.kmpdemo.network.dtos.MinutelyDataPointValuesDto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

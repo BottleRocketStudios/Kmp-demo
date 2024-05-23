@@ -10,8 +10,7 @@ import com.br.kmplaunchpadai.domain.mediator.GeminiMediator.Companion.USER
 import kotlinx.coroutines.flow.map
 
 @Composable
-fun AiChatViewModel.
-        toState() = AiChatState(
+fun AiChatViewModel.toState() = AiChatState(
     isLoading = this.isLoading.collectAsState(),
     errorMessage = errorMessage.collectAsState(),
     messages = messages.map { messages ->

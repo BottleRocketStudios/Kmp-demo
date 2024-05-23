@@ -1,13 +1,7 @@
 package com.br.kmpdemo.utils
 
-import com.br.kmpdemo.compose.ui.forecasts.ForecastState
-import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
-import com.br.kmpdemo.compose.ui.utils.WeatherCodes.getWeatherFromCode
-import com.br.kmpdemo.models.Daily
-import com.br.kmpdemo.models.Hourly
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
-import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
@@ -62,57 +56,15 @@ object WeatherUtils {
     fun String.toReformattedDate(): String? = split("T").getOrNull(0)
 
     /// Gets the day of the week from the DateTime returned from the API
-    fun String.toDayOfWeek(): String? =
-        try {
-            LocalDate.parse(this).dayOfWeek.toString().take(3)
-        } catch (e: Exception) {
-            null
-        }
+//    fun String.toDayOfWeek(): String? =
+//        try {
+//            LocalDate.parse(this).dayOfWeek.toString().take(3)
+//        } catch (e: Exception) {
+//            null
+//        }
 
     /// Returns ONLY the city name from the location string
-    fun String.extractCityName(): String = split(",")[1].trim()
+//    fun String.extractCityName(): String = split(",")[1].trim()
 
-    /// Transforms the API return to a list of ForecastState
-    fun List<Daily?>?.toDailyForecastState(): List<ForecastState> {
-        val dailyForecasts = arrayListOf<ForecastState>()
-        this?.forEach { daily ->
-            with(daily?.dailyValues) {
-                dailyForecasts.add(
-                    ForecastState(
-                        dayTime = daily?.time?.toReformattedDate()?.toDayOfWeek(),
-                        expectedRainAccumulation = this?.rainAccumulationMax,
-                        precipProbability = this?.precipitationProbabilityMax?.toInt(),
-                        temperature = this?.temperatureAvg?.toInt(),
-                        temperatureMax = this?.temperatureMax?.toInt(),
-                        temperatureMin = this?.temperatureMin?.toInt(),
-                        sunriseTime = this?.sunriseTime,
-                        sunsetTime = this?.sunsetTime,
-                        weatherIcon = this?.weatherCodeMin?.getWeatherFromCode()
-                            ?: WeatherEnum.SUNNY,
-                        isNow = daily?.time?.isToday() ?: false
-                    )
-                )
-            }
-        }
-        return dailyForecasts
-    }
 
-    fun List<Hourly?>?.toHourlyForecastState(): List<ForecastState> {
-        val dailyForecasts = arrayListOf<ForecastState>()
-        this?.forEach { hourly ->
-            with(hourly?.hourlyValues) {
-                dailyForecasts.add(
-                    ForecastState(
-                        currentRainAccumulation = this?.rainAccumulation,
-                        dayTime = hourly?.time?.toForecastTimeFormat(),
-                        precipProbability = this?.precipitationProbability?.toInt(),
-                        temperature = this?.temperature?.toInt(),
-                        weatherIcon = this?.weatherCode?.getWeatherFromCode() ?: WeatherEnum.SUNNY,
-                        isNow = hourly?.time?.isThisHour() ?: false
-                    )
-                )
-            }
-        }
-        return dailyForecasts
-    }
 }
