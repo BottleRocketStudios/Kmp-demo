@@ -1,72 +1,72 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.google.secrets)
-    alias(libs.plugins.google.services)
+    alias(libs.plugins.ktLint)
+    alias(libs.plugins.multiplatformResources)
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+multiplatformResources {
+    multiplatformResourcesPackage = "com.br.kmpdemo.resources"
+    multiplatformResourcesClassName = "SharedRes"
 }
 
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
-
+    applyDefaultHierarchyTemplate()
     androidTarget()
     jvmToolchain(17)
+    jvm("desktop")
+    task("testClasses")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "shared"
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(mapOf("path" to ":domain")))
-                // Put your multiplatform dependencies here
-
-                // Jetpack Compose
-                implementation(compose.runtime)
-                implementation(compose.ui)
-                implementation(compose.foundation)
-                implementation(compose.animation)
-                implementation(compose.material3)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
+                implementation(projects.domain)
+                implementation(projects.data)
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
-                api(libs.precompose)
-                api(libs.precompose.viewmodel)
-                api(libs.precompose.koin)
+                implementation(libs.precompose.viewmodel)
+
+                // Moko
+                api(libs.moko.resources)
+                api(libs.moko.resources.compose)
 
                 // KTOR Networking and Serialization
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.koin.core)
+
+                //  https://github.com/cashapp/sqldelight/issues/4357
+                //    This fixes issue in  version of Koin which is pulling older version of Stately
+                implementation(libs.stately.common)
+
+                // Date Time
+                implementation(libs.kotlinx.date.time)
+                implementation(libs.androidx.core.i18n)
+
+                // KMP
+                implementation(libs.kmp.launchpad.domain)
+                implementation(libs.kmp.launchpad.utils)
+                implementation(libs.kmp.launchpad.google.utils)
+                implementation(libs.kmp.launchpad.ai)
             }
         }
+
         val androidMain by getting {
+            dependsOn(commonMain)
             dependencies {
-                implementation(libs.kotlinx.coroutines.core)
+                // Ktor
                 implementation(libs.ktor.client.android)
+
+                // Koin
                 implementation(libs.koin.android)
-                implementation(compose.preview)
-                implementation(compose.uiTooling)
-                implementation(libs.koin.androidx.compose)
 
                 // Utility
                 implementation(libs.google.maps)
@@ -74,29 +74,41 @@ kotlin {
                 implementation(libs.google.places)
                 implementation(libs.play.services.maps)
 
-                // Preview Utils need to be implemented in platform code as they use platform renderers
-                implementation(compose.preview)
-                implementation(compose.uiTooling)
             }
         }
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
         val iosMain by getting {
+            dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.darwin)
             }
         }
-        val commonTest by getting {
-            dependencies {
+
+        commonTest.dependencies {
 //                implementation(kotlin("test"))
-                implementation(libs.koin.test)
+            implementation(libs.koin.test)
+            implementation(libs.moko.resources.test)
+        }
+
+        val desktopMain by getting {
+            dependsOn(commonMain)
+            dependencies {
+                implementation(libs.kotlinx.date.time)
             }
         }
     }
 }
 
 android {
-    namespace = "com.br.kmmdemo"
-    compileSdk = 34
-    defaultConfig {
-        minSdk = 30
+    with(libs.versions) {
+        compileSdk = compile.sdk.get().toInt()
+        namespace = "${application.id.get()}.shared"
+        defaultConfig {
+            minSdk = min.sdk.get().toInt()
+        }
     }
+
 }

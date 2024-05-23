@@ -1,68 +1,103 @@
 [versions]
-agp = "8.1.0"
-koinComposeVersion = "3.4.2"
-coroutineCoreVersion = "1.7.3"
-koinVersion = "3.5.0"
-kotlin = "1.9.10"
-ktorVersion = "2.3.2"
-compose = "1.5.1"
-activity = "1.8.0"
+agp = "8.2.2"
+compose-activity = "1.9.0"
+compose-plugin = "1.6.2"
+core-i18n = "1.0.0-alpha01"
 glance = "1.0.0"
-precompose = "1.5.4"
-uiToolingPreviewAndroid = "1.5.4"
-firebaseBomVerson = "32.3.1"
-googleSecretsVersion = "2.0.1"
-googleServicesVersion = "4.4.0"
-playServicesCoroutinesVersion = "1.7.1"
-playServicesMapVersion = "18.1.0"
-googleMapsVersion = "2.15.0"
-googlePlacesVersion = "3.2.0"
-kspVersion = "1.9.10-1.0.13"
-multidex = "2.0.1"
-playServicesMaps = "18.2.0"
-#core-ktx = "1.12.0"
-#junit = "4.13.2"
-#androidx-test-ext-junit = "1.1.5"
-#espresso-core = "3.5.1"
-#appcompat = "1.6.1"
+google-maps-utils = "4.3.3"
+google-places = "3.4.0"
+google-services = "4.4.1"
+kmp-launchpad-google-utils = "0.1.0"
+kmp-launchpad-compose = "0.1.0"
+kmp-launchpad-domain = "0.1.0"
+kmp-launchpad-utils = "0.1.0"
+kmp-launchpad-ai = "0.1.0"
+#kmp-launchpad-ai = "snapshot"
+koin = "3.5.3"
+kotlin = "1.9.22"
+kotlinx-date-time = "0.5.0"
+ksp = "1.9.22-1.0.17"
+kt-lint-gradle = "12.1.0"
+ktor = "2.3.10"
+moko-resources = "0.23.0"
+moko-permissions = "0.17.0"
+play-services-maps = "18.2.0"
+precompose = "1.5.11"
+stately-common = "2.0.5"
+ui-tooling-preview = "1.6.7"
+
+compile-sdk = "34"
+target-sdk = "34"
+min-sdk = "30"
+version-code = "1"
+version-name = "1.0"
+application-id = "com.br.kmpdemo"
+ui-tooling = "1.6.7"
 
 [libraries]
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinComposeVersion" }
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
-koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinVersion" }
-koin-test = { module = "io.insert-koin:koin-test", version.ref = "koinVersion" }
-ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorVersion" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutineCoreVersion" }
-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
-ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
-ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
-ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
+androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "core-i18n" }
+
+# Glance
 glance = { group = "androidx.glance", name = "glance", version.ref = "glance" }
 glance-appwidget = { group = "androidx.glance", name = "glance-appwidget", version.ref = "glance" }
 glance-material3 = { group = "androidx.glance", name = "glance-material3", version.ref = "glance" }
-firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBomVerson" }
+
+# Google Maps and places
+google-maps = { group = "com.google.maps.android", name = "maps-compose", version.ref = "google-maps-utils" }
+google-maps-utils = { group = "com.google.maps.android", name = "maps-compose-utils", version.ref = "google-maps-utils" }
+google-places = { group = "com.google.android.libraries.places", name = "places", version.ref = "google-places" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "play-services-maps" }
+
+# KMP Launchpad
+kmp-launchpad-compose = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-compose", version.ref = "kmp-launchpad-compose" }
+kmp-launchpad-domain = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-utils-domain", version.ref = "kmp-launchpad-domain" }
+kmp-launchpad-google-utils = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-google-utils", version.ref = "kmp-launchpad-google-utils" }
+kmp-launchpad-utils = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-utils", version.ref = "kmp-launchpad-utils" }
+kmp-launchpad-ai = { group = "com.github.bottlerocketstudios", name = "kmp-launchpad-ai", version.ref = "kmp-launchpad-ai" }
+
+# Koin
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+stately-common = { module = "co.touchlab:stately-common", version.ref = "stately-common" }
+
+# Kotlin
+kotlinGradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-date-time = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-date-time" }
+
+# Ktor
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+# Moko
+moko-resources = { group = "dev.icerock.moko", name = "resources", version.ref = "moko-resources" }
+moko-resources-compose = { group = "dev.icerock.moko", name = "resources-compose", version.ref = "moko-resources" }
+moko-permissions = { group = "dev.icerock.moko", name = "permissions", version.ref = "moko-permissions" }
+moko-permissions-compose = { group = "dev.icerock.moko", name = "permissions-compose", version.ref = "moko-permissions" }
+moko-resources-test = { group = "dev.icerock.moko", name = "resources-test", version.ref = "moko-resources" }
+mokoResourceGenerator = { group = "dev.icerock.moko", name = "resources-generator", version.ref = "moko-resources" }
+
+# Precompose
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
-ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "uiToolingPreviewAndroid" }
-#core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-#junit = { group = "junit", name = "junit", version.ref = "junit" }
-#androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-#espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 
-play-services-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "playServicesCoroutinesVersion" }
-google-maps = { group = "com.google.maps.android", name = "maps-compose", version.ref = "googleMapsVersion" }
-google-maps-utils = { group = "com.google.maps.android", name = "maps-compose-utils", version.ref = "googleMapsVersion" }
-google-places = { group = "com.google.android.libraries.places", name = "places", version.ref = "googlePlacesVersion" }
-play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+# UI Tooling
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "ui-tooling-preview" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose" }
-google-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "googleSecretsVersion" }
-google-services = { id = "com.google.gms.google-services", version.ref = "googleServicesVersion" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+ktLint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "kt-lint-gradle" }
+multiplatformResources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }

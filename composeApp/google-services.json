@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "11785376285",
+    "project_id": "kvvmweather",
+    "storage_bucket": "kvvmweather.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11785376285:android:b4d7426fc35720ffe1acf4",
+        "android_client_info": {
+          "package_name": "com.br.kmpdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdtWXSfAnwaIm4MHZA0NnCxmW7E54kYT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

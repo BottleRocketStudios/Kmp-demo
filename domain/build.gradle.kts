@@ -4,40 +4,28 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
-
+    applyDefaultHierarchyTemplate()
     androidTarget()
     jvmToolchain(17)
+    jvm("desktop")
+    task("testClasses")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "domain"
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
-
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.content.negotiation)
+                // Ktor
                 implementation(libs.ktor.serialization.kotlinx.json)
+
+                // Koin
                 implementation(libs.koin.core)
+
+                // Kotlinx
+                implementation(libs.kotlinx.date.time)
             }
         }
         val commonTest by getting {
@@ -47,12 +35,15 @@ kotlin {
             }
         }
     }
+
 }
 
 android {
-    namespace = "com.br.kmmdemo.domain"
-    compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    defaultConfig {
-        minSdk = (findProperty("android.minSdk") as String).toInt()
+    with(libs.versions) {
+        namespace = "${application.id.get()}.domain"
+        compileSdk = compile.sdk.get().toInt()
+        defaultConfig {
+            minSdk = min.sdk.get().toInt()
+        }
     }
 }
