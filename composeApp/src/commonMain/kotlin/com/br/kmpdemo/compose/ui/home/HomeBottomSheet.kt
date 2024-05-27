@@ -13,6 +13,7 @@ import com.br.kmpdemo.compose.ui.forecasts.HourlyChipList
 import com.br.kmpdemo.compose.ui.forecasts.WeeklyChipList
 import com.br.kmpdemo.compose.ui.shared.GradientCard
 import com.br.kmpdemo.compose.ui.weatherDetails.WeatherDetails
+import com.br.kmpdemo.compose.ui.weatherDetails.toWeatherDetailsState
 import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
@@ -52,7 +53,7 @@ fun HomeBottomSheet(state: HomeState, sheetState: Boolean) {
                             )
                         )
                     )
-                    WeatherDetails(state)
+                    WeatherDetails(state.toWeatherDetailsState())
                 }
             )
         }

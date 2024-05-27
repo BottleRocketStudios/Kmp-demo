@@ -8,7 +8,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.br.kmpdemo.compose.resources.theme.Dimens
-import com.br.kmpdemo.compose.ui.home.HomeState
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.AirQualityWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.feelsLike.FeelsLikeState
@@ -25,7 +24,7 @@ import com.br.kmpdemo.compose.ui.weatherDetails.visibility.VisibilityWidget
 import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindWidget
 
 @Composable
-fun WeatherDetails(state: HomeState) {
+fun WeatherDetails(state: WeatherDetailsState) {
     with(state) {
         Column(
             modifier = Modifier
@@ -37,26 +36,26 @@ fun WeatherDetails(state: HomeState) {
                     end = Dimens.grid_2_5,
                 ),
         ) {
-            AirQualityWidget(airQuality.value ?: AirQualityEnum.UNKNOWN) /// TODO: ASAA-177
+            AirQualityWidget(airQuality ?: AirQualityEnum.UNKNOWN) /// TODO: ASAA-177
 
             WeatherDetailsRow {
-                UvIndexWidget(getUvIndex() ?: UVIndexEnum.UNKNOWN)
-                SunriseSunsetWidget(getSunriseState() ?: SunriseSunsetState())
+                UvIndexWidget(uvIndexWidget ?: UVIndexEnum.UNKNOWN)
+                SunriseSunsetWidget(sunriseSunsetState ?: SunriseSunsetState())
             }
 
             WeatherDetailsRow {
-                WindWidget(state.getWindState(), state.measurementPref.value)
-                RainFallWidget(state.getRainFallState(), state.measurementPref.value)
+                WindWidget(windState, state.measurementPref)
+                RainFallWidget(rainFallState, state.measurementPref)
             }
 
             WeatherDetailsRow {
-                FeelsLikeWidget(getFeelsLike() ?: FeelsLikeState())
-                HumidityWidget(getHumidityInfo() ?: HumidityState())
+                FeelsLikeWidget(feelsLikeState ?: FeelsLikeState())
+                HumidityWidget(humidityState ?: HumidityState())
             }
 
             WeatherDetailsRow {
-                VisibilityWidget(getVisibility(), state.measurementPref.value)
-                BarometricPressureWidget(getPressure() ?: 0.0f)
+                VisibilityWidget(visibility, state.measurementPref)
+                BarometricPressureWidget(barometricPressure ?: 0.0f)
             }
         }
     }
