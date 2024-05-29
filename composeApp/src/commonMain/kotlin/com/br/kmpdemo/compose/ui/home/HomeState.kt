@@ -34,6 +34,7 @@ data class HomeState(
 
     /// Weather Details
     val airQuality: State<AirQualityEnum?> = mutableStateOf(null),
+    val rainFall: State<RainFallState?> = mutableStateOf(null),
 
     // Units
     val measurementPref: State<MeasurementType?> = mutableStateOf(null),

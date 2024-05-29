@@ -1,6 +1,6 @@
 package com.br.kmpdemo.di
 
-import KmpLocationProvider
+import com.br.kmpdemo.KmpLocationProvider
 import com.bottlerocketstudios.launchpad.google.utils.network.service.airquality.AirQualityApiService
 import com.br.kmpdemo.network.ktorClient
 import com.br.kmpdemo.network.service.TomorrowIoService

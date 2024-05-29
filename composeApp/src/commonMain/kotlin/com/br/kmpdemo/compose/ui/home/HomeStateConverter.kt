@@ -7,6 +7,7 @@ import com.br.kmpdemo.compose.ui.forecasts.WeatherEnum
 import com.br.kmpdemo.compose.ui.utils.WeatherCodes.getWeatherFromCode
 import com.br.kmpdemo.compose.ui.utils.WeatherUtils.toForecastTimeFormat
 import com.br.kmpdemo.compose.ui.weatherDetails.airQuality.getAirQualityEnum
+import com.br.kmpdemo.compose.ui.weatherDetails.rainFall.RainFallState
 import com.br.kmpdemo.models.Daily
 import com.br.kmpdemo.models.Hourly
 import com.br.kmpdemo.models.PermissionsDialogState
@@ -16,6 +17,7 @@ import com.br.kmpdemo.utils.date
 import com.br.kmpdemo.utils.isHour
 import com.br.kmpdemo.utils.isToday
 import com.br.kmpdemo.utils.time
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 
 val initForecasts: List<ForecastState> = List(10) { ForecastState(weatherIcon = WeatherEnum.SUNNY) }
@@ -32,6 +34,9 @@ fun HomeViewModel.toState() = HomeState(
 
     // Weather Details
     airQuality = airQualityIndex.map { it?.getAirQualityEnum() }.collectAsState(null),
+    rainFall = combine(currentDaily, currentHourly) { daily, hourly ->
+        RainFallState(daily?.rainAccumulationMax , hourly?.rainAccumulation)
+    }.collectAsState(null),
 
     // Units
     measurementPref = measurementPref.collectAsState(MeasurementType.IMPERIAL),

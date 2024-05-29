@@ -1,6 +1,7 @@
+package com.br.kmpdemo
+
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import com.br.kmpdemo.compose.ui.app.KMPDemoApp
 
 
 fun main() = application {
