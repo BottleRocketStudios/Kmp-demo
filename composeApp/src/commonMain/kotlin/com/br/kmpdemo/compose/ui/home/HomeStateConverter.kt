@@ -37,9 +37,6 @@ fun HomeViewModel.toState() = HomeState(
     hourlyForecasts = hourlyForecasts.map { it.toHourlyForecastState() }
         .collectAsState(initForecasts),
     dailyForecasts = dailyForecasts.map { it.toDailyForecastState() }.collectAsState(initForecasts),
-    realTimeWeather = realTimeWeather.collectAsState(null),
-    currentDaily = currentDaily.collectAsState(null),
-    currentHourly = currentHourly.collectAsState(null),
     location = userLocation.collectAsState(null),
 
     // Weather Details

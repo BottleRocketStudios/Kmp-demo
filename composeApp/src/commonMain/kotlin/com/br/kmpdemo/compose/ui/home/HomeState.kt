@@ -11,20 +11,13 @@ import com.br.kmpdemo.compose.ui.weatherDetails.rainFall.RainFallState
 import com.br.kmpdemo.compose.ui.weatherDetails.sunrise_sunset.SunriseSunsetState
 import com.br.kmpdemo.compose.ui.weatherDetails.uvIndex.UVIndexEnum
 import com.br.kmpdemo.compose.ui.weatherDetails.wind.WindState
-import com.br.kmpdemo.models.DailyValues
-import com.br.kmpdemo.models.HourlyValues
 import com.br.kmpdemo.models.PermissionsDialogState
-import com.br.kmpdemo.models.RealTime
 import com.br.kmpdemo.utils.MeasurementType
 
 data class HomeState(
     /// Forecasts
     val hourlyForecasts: State<List<ForecastState>?>,
     val dailyForecasts: State<List<ForecastState>?>,
-    // TODO - Use UI models here and remove domain from state?
-    val realTimeWeather: State<RealTime?>,
-    val currentDaily: State<DailyValues?>,
-    val currentHourly: State<HourlyValues?>,
     val location: State<String?> = mutableStateOf(null),
 
     /// Weather Details
