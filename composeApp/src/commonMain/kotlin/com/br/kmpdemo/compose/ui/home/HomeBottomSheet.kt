@@ -58,23 +58,23 @@ fun HomeBottomSheet(state: HomeState, isExpanded: Boolean) {
                 ) /// TODO: ASAA-177
 
                 WeatherDetailsRow {
-                    UvIndexWidget(state.getUvIndex() ?: UVIndexEnum.UNKNOWN)
-                    SunriseSunsetWidget(state.getSunriseState() ?: SunriseSunsetState())
+                    UvIndexWidget(state.uvIndexEnum.value ?: UVIndexEnum.UNKNOWN)
+                    SunriseSunsetWidget(state.sunriseSunsetState.value ?: SunriseSunsetState())
                 }
 
                 WeatherDetailsRow {
-                    WindWidget(state.getWindState(), state.measurementPref.value)
-                    RainFallWidget(state.getRainFallState(), state.measurementPref.value)
+                    WindWidget(state.windState.value, state.measurementPref.value)
+                    RainFallWidget(state.rainFallState.value, state.measurementPref.value)
                 }
 
                 WeatherDetailsRow {
-                    FeelsLikeWidget(state.getFeelsLike() ?: FeelsLikeState())
-                    HumidityWidget(state.getHumidityInfo() ?: HumidityState())
+                    FeelsLikeWidget(state.feelsLikeState.value ?: FeelsLikeState())
+                    HumidityWidget(state.humidityState.value ?: HumidityState())
                 }
 
                 WeatherDetailsRow {
-                    VisibilityWidget(state.getVisibility(), state.measurementPref.value)
-                    BarometricPressureWidget(state.getPressure() ?: 0.0f)
+                    VisibilityWidget(state.weatherVisibility.value, state.measurementPref.value)
+                    BarometricPressureWidget(state.biometricPressure.value ?: 0.0f)
                 }
             }
         }
