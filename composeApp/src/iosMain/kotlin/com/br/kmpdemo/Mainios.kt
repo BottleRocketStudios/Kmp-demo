@@ -11,6 +11,7 @@ import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.app.KMPDemoApp
 import com.br.kmpdemo.compose.ui.app.KmpNavBar
 import com.br.kmpdemo.compose.ui.app.kmpDemoAppNavItems
+import com.br.kmpdemo.di.appModule
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.autoreleasepool
@@ -19,6 +20,7 @@ import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.toCValues
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavOptions
+import org.koin.core.context.startKoin
 import platform.Foundation.NSStringFromClass
 import platform.UIKit.UIApplication
 import platform.UIKit.UIApplicationDelegateProtocol
@@ -63,6 +65,11 @@ class SkikoAppDelegate @OverrideInit constructor() : UIResponder(), UIApplicatio
     @Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE")
     @OptIn(ExperimentalForeignApi::class)
     override fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean {
+        startKoin {
+            modules(appModule())
+            allowOverride(false)
+        }
+
         window = UIWindow(frame = UIScreen.mainScreen.bounds).apply {
             rootViewController =  ComposeUIViewController {
                 PreComposeApp {

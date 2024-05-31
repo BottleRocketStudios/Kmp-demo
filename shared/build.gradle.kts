@@ -1,17 +1,11 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.ktLint)
-    alias(libs.plugins.multiplatformResources)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
 }
 
-multiplatformResources {
-    multiplatformResourcesPackage = "com.br.kmpdemo.resources"
-    multiplatformResourcesClassName = "SharedRes"
-}
 
 kotlin {
     applyDefaultHierarchyTemplate()
@@ -32,10 +26,6 @@ kotlin {
 
                 // PreCompose - https://github.com/Tlaster/PreCompose
                 implementation(libs.precompose.viewmodel)
-
-                // Moko
-                api(libs.moko.resources)
-                api(libs.moko.resources.compose)
 
                 // KTOR Networking and Serialization
                 implementation(libs.ktor.client.core)
@@ -88,9 +78,7 @@ kotlin {
         }
 
         commonTest.dependencies {
-//                implementation(kotlin("test"))
             implementation(libs.koin.test)
-            implementation(libs.moko.resources.test)
         }
 
         val desktopMain by getting {
@@ -110,5 +98,4 @@ android {
             minSdk = min.sdk.get().toInt()
         }
     }
-
 }

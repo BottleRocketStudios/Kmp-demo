@@ -1,10 +1,10 @@
 import SwiftUI
-import shared
+import ComposeApp
 
 @main
 class KmpApp {
     init() {
-        HelperKt.doInitKoin()
+//         HelperKt.doInitKoin()
     }
 
     static func main() {
