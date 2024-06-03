@@ -1,10 +1,10 @@
 package com.br.kmpdemo.viewmodels
 
-import KmpLocationProvider
-import LastKnownLocation
-import MeasurementPreference
-import UserLocation
 import com.bottlerocketstudios.launchpad.google.utils.network.service.airquality.AirQualityApiService
+import com.br.kmpdemo.KmpLocationProvider
+import com.br.kmpdemo.LastKnownLocation
+import com.br.kmpdemo.MeasurementPreference
+import com.br.kmpdemo.UserLocation
 import com.br.kmpdemo.models.Daily
 import com.br.kmpdemo.models.DailyValues
 import com.br.kmpdemo.models.Forecast
@@ -30,6 +30,7 @@ class HomeViewModel : BaseViewModel() {
     private val hourlyResponse = MutableStateFlow<Forecast?>(null)
     private val dailyResponse = MutableStateFlow<Forecast?>(null)
     val realTimeWeather = MutableStateFlow<RealTime?>(null)
+    val airQualityIndex = MutableStateFlow<Int?>(null)
     //endregion
 
     /**region UI */
@@ -43,20 +44,17 @@ class HomeViewModel : BaseViewModel() {
         it?.time?.isHour() ?: false
     }?.hourlyValues }
 
-    // AQI
-    val airQualityIndex = MutableStateFlow<Int?>(null)
-
     // Metric/Imperial
     val measurementPref = MutableStateFlow(MeasurementPreference.preference)
 
     //  Location
-    val userLocation = MutableStateFlow("")
+    val userLocation = LastKnownLocation.userLocation.map { it?.cityName ?: "" }
     val shouldShowPermissionsDialog = MutableStateFlow(true)
     //endregion
 
     /**region Network calls */
     private fun getDailyForecasts(location: String) =
-       launchIO {
+        launchIO {
             weatherRepo.getDailyForecast(location = location, units = measurementPref.value.type)
                 .onSuccess { dailyResponse.value = it }
                 .onFailure { log.e("[getDailyForecasts]", "Failure: ${it.message}") }
@@ -106,7 +104,6 @@ class HomeViewModel : BaseViewModel() {
                     getDailyForecasts(location.toCoordinates())
                     getHourlyForecasts(location.toCoordinates())
                     getRealTimeForecasts(location.toCoordinates())
-                    userLocation.value = location.cityName
                     getAirQualityDetails(location)
                 }
             }

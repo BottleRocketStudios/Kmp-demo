@@ -1,6 +1,6 @@
 package com.br.kmpdemo.compose
 
-import MeasurementPreference
+import com.br.kmpdemo.MeasurementPreference
 import android.app.Application
 import com.br.kmpdemo.di.appModule
 import org.koin.android.ext.koin.androidContext

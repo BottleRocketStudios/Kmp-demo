@@ -1,6 +1,6 @@
 package com.br.kmpdemo.compose
 
-import KmpLocationProvider
+import com.br.kmpdemo.KmpLocationProvider
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState

@@ -31,10 +31,23 @@ kotlin {
     jvm("desktop")
     task("testClasses")
 
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
 
+//    iosX64()
+//    iosArm64()
+//    iosSimulatorArm64()
+
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+        }
+    }
+
+    
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -163,7 +176,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
 }
 
