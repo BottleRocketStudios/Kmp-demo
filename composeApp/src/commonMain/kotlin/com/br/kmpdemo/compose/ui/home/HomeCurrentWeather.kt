@@ -35,7 +35,7 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 // Current Temp
                 AnimatedVisibility(visible = !isExpanded) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(getTemperature()?.let {
+                        Text(temperature.value?.let {
                             stringResource(SharedRes.strings.input_degrees, it)
                         } ?: stringResource(SharedRes.strings.tempError),
                             color = Colors.onPrimary,
@@ -43,7 +43,7 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                             textAlign = TextAlign.Center,
                         )
                         // Weather Description
-                        Text(stringResource(getWeatherDescription()?.weather
+                        Text(stringResource(weatherDescriptionEnum.value ?.weather
                             ?: SharedRes.strings.description_error),
                             style = MaterialTheme.typography.titleMedium,
                             color = Colors.onPrimary.copy(alpha = 0.5F),
@@ -53,8 +53,8 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 }
                 // Location, temp, and description when sheet is expanded
                 AnimatedVisibility(visible = isExpanded) {
-                    Text(getTemperature()?.let { temp ->
-                        getWeatherDescription()?.weather?.let { desc ->
+                    Text(temperature.value?.let { temp ->
+                        weatherDescriptionEnum.value?.weather?.let { desc ->
                             stringResource(
                                 SharedRes.strings.input_collapsed_details,
                                 temp,
@@ -70,8 +70,8 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 }
                 // Temp high and Low
                 AnimatedVisibility(visible = !isExpanded) {
-                    Text(getTemperatureHi()?.let { max ->
-                        getTemperatureLow()?.let { min ->
+                    Text(temperatureHi.value?.let { max ->
+                        temperatureLow.value?.let { min ->
                             stringResource(SharedRes.strings.temp_high_low, max, min)
                         }
                     } ?: stringResource(SharedRes.strings.highLowTempError),

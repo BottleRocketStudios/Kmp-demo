@@ -73,11 +73,11 @@ fun RainFallPreview() {
     KmpDemoTheme {
         Row {
             RainFallWidget(
-                MockData.getMockHomeState().getRainFallState(),
+                MockData.getMockHomeState().rainFallState.value,
                 MeasurementType.IMPERIAL
             )
             RainFallWidget(
-                MockData.getMockHomeState(isError = true).getRainFallState(),
+                MockData.getMockHomeState(isError = true).rainFallState.value,
                 MeasurementType.IMPERIAL
             )
         }
@@ -90,11 +90,11 @@ fun VisibilityPreview() {
     KmpDemoTheme {
         Row {
             VisibilityWidget(
-                MockData.getMockHomeState().getVisibility(),
+                MockData.getMockHomeState().weatherVisibility.value,
                 MeasurementType.METRIC
             )
             VisibilityWidget(
-                MockData.getMockHomeState(isError = true).getVisibility(),
+                MockData.getMockHomeState(isError = true).weatherVisibility.value,
                 MeasurementType.METRIC
             )
         }
@@ -107,15 +107,45 @@ fun SunriseSunsetPreview() {
     KmpDemoTheme {
         Column {
             Row {
-                SunriseSunsetWidget(SunriseSunsetState(localTime = "13:00", sunriseTime = "4:58", sunsetTime = "17:35"))
-                SunriseSunsetWidget(SunriseSunsetState(localTime = "14:20", sunriseTime = "5:25", sunsetTime = "18:02"))
+                SunriseSunsetWidget(
+                    SunriseSunsetState(
+                        localTime = "13:00",
+                        sunriseTime = "4:58",
+                        sunsetTime = "17:35"
+                    )
+                )
+                SunriseSunsetWidget(
+                    SunriseSunsetState(
+                        localTime = "14:20",
+                        sunriseTime = "5:25",
+                        sunsetTime = "18:02"
+                    )
+                )
             }
             Row {
-                SunriseSunsetWidget(SunriseSunsetState(localTime = "14:45", sunriseTime = "6:14", sunsetTime = "18:15"))
-                SunriseSunsetWidget(SunriseSunsetState(localTime = "20:23", sunriseTime = "7:23", sunsetTime = "19:04"))
+                SunriseSunsetWidget(
+                    SunriseSunsetState(
+                        localTime = "14:45",
+                        sunriseTime = "6:14",
+                        sunsetTime = "18:15"
+                    )
+                )
+                SunriseSunsetWidget(
+                    SunriseSunsetState(
+                        localTime = "20:23",
+                        sunriseTime = "7:23",
+                        sunsetTime = "19:04"
+                    )
+                )
             }
             Row {
-                SunriseSunsetWidget(SunriseSunsetState(localTime = null, sunriseTime = null, sunsetTime = null))
+                SunriseSunsetWidget(
+                    SunriseSunsetState(
+                        localTime = null,
+                        sunriseTime = null,
+                        sunsetTime = null
+                    )
+                )
             }
         }
 
@@ -151,11 +181,11 @@ fun WindPreview() {
         Column {
             Row {
                 WindWidget(
-                    MockData.getMockHomeState(isError = true).getWindState(),
+                    MockData.getMockHomeState(isError = true).windState.value,
                     MeasurementType.IMPERIAL
                 )
                 WindWidget(
-                    MockData.getMockHomeState().getWindState(),
+                    MockData.getMockHomeState().windState.value,
                     MeasurementType.IMPERIAL
                 )
             }
