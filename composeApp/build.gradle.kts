@@ -7,7 +7,8 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.multiplatformResources)
-    alias(libs.plugins.ksp)
+//    alias(libs.plugins.ksp)
+//     TODO - Check to see if we still need KSP???
 }
 
 multiplatformResources {
@@ -72,6 +73,9 @@ kotlin {
 
                 // KotlinX
                 implementation(libs.kotlinx.date.time)
+
+                // Serialization
+                implementation(libs.ktor.serialization.kotlinx.json)
             }
         }
 
