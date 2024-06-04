@@ -20,6 +20,7 @@ import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.toCValues
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavOptions
+import moe.tlaster.precompose.navigation.rememberNavigator
 import org.koin.core.context.startKoin
 import platform.Foundation.NSStringFromClass
 import platform.UIKit.UIApplication
@@ -73,28 +74,23 @@ class SkikoAppDelegate @OverrideInit constructor() : UIResponder(), UIApplicatio
         window = UIWindow(frame = UIScreen.mainScreen.bounds).apply {
             rootViewController =  ComposeUIViewController {
                 PreComposeApp {
+                    val navigator = rememberNavigator()
                     KmpDemoTheme {
-                        NavigationWrapper(
+                        KMPDemoApp(
                             widthSize = getWindowWidthSizeClass(),
+                            navigator = navigator,
                             devicePosture = DevicePosture.NormalPosture,
-                            navigationItems = kmpDemoAppNavItems,
-                        ) { navigator, _ ->
-                            KMPDemoApp(
-                                widthSize = getWindowWidthSizeClass(),
-                                navigator = navigator,
-                                devicePosture = DevicePosture.NormalPosture,
-                                bottomBar = {
-                                    KmpNavBar(
-                                        onAddClick = {
-                                            navigator?.navigate(
-                                                route = NavRoutes.AICHAT,
-                                                options = NavOptions(launchSingleTop = true)
-                                            )
-                                        }
-                                    )
-                                }
-                            )
-                        }
+                            bottomBar = {
+                                KmpNavBar(
+                                    onAddClick = {
+                                        navigator.navigate(
+                                            route = NavRoutes.AICHAT,
+                                            options = NavOptions(launchSingleTop = true)
+                                        )
+                                    }
+                                )
+                            }
+                        )
                     }
                 }
             }

@@ -17,6 +17,7 @@ import com.br.kmpdemo.compose.ui.app.kmpDemoAppNavItems
 import kotlinx.coroutines.flow.StateFlow
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavOptions
+import moe.tlaster.precompose.navigation.rememberNavigator
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -30,28 +31,23 @@ class MainActivity : FragmentActivity(), KoinComponent {
         locationProvider.init()
         setContent {
             PreComposeApp {
+                val navigator = rememberNavigator()
                 KmpDemoTheme {
-                    NavigationWrapper(
-                        widthSize = getWindowWidthSize(this@MainActivity),
+                    KMPDemoApp(
+                        widthSize = getWindowWidthSize(this),
+                        navigator = navigator,
                         devicePosture = devicePostureFlow.collectAsState().value,
-                        navigationItems = kmpDemoAppNavItems,
-                    ) { navigator, _ ->
-                        KMPDemoApp(
-                            widthSize = getWindowWidthSize(this),
-                            navigator = navigator,
-                            devicePosture = devicePostureFlow.collectAsState().value,
-                            bottomBar = {
-                                KmpNavBar(
-                                    onAddClick = {
-                                        navigator?.navigate(
-                                            route = NavRoutes.AICHAT,
-                                            options = NavOptions(launchSingleTop = true)
-                                        )
-                                    }
-                                )
-                            }
-                        )
-                    }
+                        bottomBar = {
+                            KmpNavBar(
+                                onAddClick = {
+                                    navigator.navigate(
+                                        route = NavRoutes.AICHAT,
+                                        options = NavOptions(launchSingleTop = true)
+                                    )
+                                }
+                            )
+                        }
+                    )
                 }
             }
         }
