@@ -1,16 +1,13 @@
 package com.br.kmpdemo
 
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.ComposeUIViewController
-import com.bottlerocketstudios.launchpad.compose.navigation.NavigationWrapper
+import androidx.navigation.compose.rememberNavController
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
 import com.br.kmpdemo.compose.nav.NavRoutes
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.app.KMPDemoApp
 import com.br.kmpdemo.compose.ui.app.KmpNavBar
-import com.br.kmpdemo.compose.ui.app.kmpDemoAppNavItems
 import com.br.kmpdemo.di.appModule
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
@@ -18,9 +15,6 @@ import kotlinx.cinterop.autoreleasepool
 import kotlinx.cinterop.cstr
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.toCValues
-import moe.tlaster.precompose.PreComposeApp
-import moe.tlaster.precompose.navigation.NavOptions
-import moe.tlaster.precompose.navigation.rememberNavigator
 import org.koin.core.context.startKoin
 import platform.Foundation.NSStringFromClass
 import platform.UIKit.UIApplication
@@ -73,27 +67,25 @@ class SkikoAppDelegate @OverrideInit constructor() : UIResponder(), UIApplicatio
 
         window = UIWindow(frame = UIScreen.mainScreen.bounds).apply {
             rootViewController =  ComposeUIViewController {
-                PreComposeApp {
-                    val navigator = rememberNavigator()
-                    KmpDemoTheme {
-                        KMPDemoApp(
-                            widthSize = getWindowWidthSizeClass(),
-                            navigator = navigator,
-                            devicePosture = DevicePosture.NormalPosture,
-                            bottomBar = {
-                                KmpNavBar(
-                                    onAddClick = {
-                                        navigator.navigate(
-                                            route = NavRoutes.AICHAT,
-                                            options = NavOptions(launchSingleTop = true)
-                                        )
+                val navController = rememberNavController()
+                KmpDemoTheme {
+                    KMPDemoApp(
+                        widthSize = getWindowWidthSizeClass(),
+                        navController = navController,
+                        devicePosture = DevicePosture.NormalPosture,
+                        bottomBar = {
+                            KmpNavBar(
+                                onAddClick = {
+                                    navController.navigate(NavRoutes.AICHAT) {
+                                        launchSingleTop = true
                                     }
-                                )
-                            }
-                        )
-                    }
+                                }
+                            )
+                        }
+                    )
                 }
             }
+
             makeKeyAndVisible()
         }
         return true

@@ -10,6 +10,8 @@ application-id = "com.br.kmpdemo"
 agp = "8.2.2"
 compose-activity = "1.9.0"
 compose-plugin = "1.6.2"
+compose-viewmodel = "2.8.0"
+compose-navigation = "2.7.0-alpha07"
 core-i18n = "1.0.0-alpha01"
 glance = "1.0.0"
 google-maps-utils = "4.3.3"
@@ -29,14 +31,17 @@ ktor = "2.3.10"
 moko-resources = "0.23.0"
 moko-permissions = "0.17.0"
 play-services-maps = "18.2.0"
-precompose = "1.5.11"
 stately-common = "2.0.5"
 ui-tooling-preview = "1.6.7"
 ui-tooling = "1.6.7"
 
 [libraries]
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "core-i18n" }
+
+# Compose
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
+compose-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-viewmodel" }
+compose-navigation = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref = "compose-navigation" }
 
 # Glance
 glance = { group = "androidx.glance", name = "glance", version.ref = "glance" }
@@ -72,6 +77,8 @@ ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "k
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-java = { module = "io.ktor:ktor-client-java", version.ref = "ktor" }
+
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 # Moko
@@ -81,11 +88,6 @@ moko-permissions = { group = "dev.icerock.moko", name = "permissions", version.r
 moko-permissions-compose = { group = "dev.icerock.moko", name = "permissions-compose", version.ref = "moko-permissions" }
 moko-resources-test = { group = "dev.icerock.moko", name = "resources-test", version.ref = "moko-resources" }
 mokoResourceGenerator = { group = "dev.icerock.moko", name = "resources-generator", version.ref = "moko-resources" }
-
-# Precompose
-precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
-precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
-precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
 
 # UI Tooling
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }

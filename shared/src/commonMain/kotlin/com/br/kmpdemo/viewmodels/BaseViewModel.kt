@@ -1,13 +1,13 @@
 package com.br.kmpdemo.viewmodels
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.bottlerocketstudios.launchpad.utils.coroutine.DispatcherProvider
 import com.bottlerocketstudios.launchpadutilsdomain.logger.Loggable
 import com.bottlerocketstudios.launchpadutilsdomain.logger.LoggingManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import moe.tlaster.precompose.viewmodel.ViewModel
-import moe.tlaster.precompose.viewmodel.viewModelScope
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

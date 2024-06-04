@@ -1,17 +1,15 @@
 package com.br.kmpdemo.compose.ui.aichat
 
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import com.br.kmpdemo.compose.nav.NavRoutes
 import com.br.kmpdemo.viewmodels.AiChatViewModel
-import moe.tlaster.precompose.navigation.Navigator
-import moe.tlaster.precompose.navigation.RouteBuilder
-import moe.tlaster.precompose.navigation.transition.NavTransition
-import moe.tlaster.precompose.viewmodel.viewModel
 
-fun RouteBuilder.aiChatComposable(navigator: Navigator) {
-    scene(route = NavRoutes.AICHAT, navTransition = NavTransition()) {
-        val viewModel = viewModel(AiChatViewModel::class) {
-            AiChatViewModel()
-        }
+fun NavGraphBuilder.aiChatComposable(navigator: NavController) {
+    composable(route = NavRoutes.AICHAT) {
+        val viewModel = viewModel { AiChatViewModel() }
 
         val state = viewModel.toState()
 

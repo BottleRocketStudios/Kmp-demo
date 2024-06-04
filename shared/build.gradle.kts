@@ -24,8 +24,8 @@ kotlin {
                 implementation(projects.domain)
                 implementation(projects.data)
 
-                // PreCompose - https://github.com/Tlaster/PreCompose
-                implementation(libs.precompose.viewmodel)
+                //  Compose Viewmodel
+                implementation(libs.compose.viewmodel)
 
                 // KTOR Networking and Serialization
                 implementation(libs.ktor.client.core)
@@ -84,6 +84,8 @@ kotlin {
         val desktopMain by getting {
             dependsOn(commonMain)
             dependencies {
+                // Ktor
+                implementation(libs.ktor.client.java)
                 implementation(libs.kotlinx.date.time)
             }
         }

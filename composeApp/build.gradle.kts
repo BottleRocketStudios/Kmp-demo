@@ -31,12 +31,6 @@ kotlin {
     jvm("desktop")
     task("testClasses")
 
-
-//    iosX64()
-//    iosArm64()
-//    iosSimulatorArm64()
-
-
     listOf(
         iosX64(),
         iosArm64(),
@@ -47,7 +41,6 @@ kotlin {
         }
     }
 
-    
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -68,11 +61,8 @@ kotlin {
                 implementation(compose.animation)
                 implementation(compose.material3)
                 implementation(compose.components.uiToolingPreview)
-
-                // PreCompose - https://github.com/Tlaster/PreCompose
-                implementation(libs.precompose)
-                implementation(libs.precompose.viewmodel)
-                implementation(libs.precompose.koin)
+                implementation(libs.compose.viewmodel)
+                implementation(libs.compose.navigation)
 
                 // Launchpad
                 implementation(libs.kmp.launchpad.compose)
