@@ -1,17 +1,15 @@
 package com.br.kmpdemo.compose.ui.home
 
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import com.br.kmpdemo.compose.nav.NavRoutes
 import com.br.kmpdemo.viewmodels.HomeViewModel
-import moe.tlaster.precompose.navigation.Navigator
-import moe.tlaster.precompose.navigation.RouteBuilder
-import moe.tlaster.precompose.navigation.transition.NavTransition
-import moe.tlaster.precompose.viewmodel.viewModel
 
-fun RouteBuilder.homeComposable(navigator: Navigator) {
-    scene(route = NavRoutes.HOME, navTransition = NavTransition()) {
-        val homeViewModel = viewModel(HomeViewModel::class) {
-            HomeViewModel()
-        }
+fun NavGraphBuilder.homeComposable(navigator: NavController) {
+    composable(route = NavRoutes.HOME) {
+        val homeViewModel = viewModel { HomeViewModel() }
 
         val state: HomeState = homeViewModel.toState()
 

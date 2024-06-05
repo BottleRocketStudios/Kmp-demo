@@ -7,7 +7,8 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.multiplatformResources)
-    alias(libs.plugins.ksp)
+//    alias(libs.plugins.ksp)
+//     TODO - Check to see if we still need KSP???
 }
 
 multiplatformResources {
@@ -31,12 +32,6 @@ kotlin {
     jvm("desktop")
     task("testClasses")
 
-
-//    iosX64()
-//    iosArm64()
-//    iosSimulatorArm64()
-
-
     listOf(
         iosX64(),
         iosArm64(),
@@ -47,7 +42,6 @@ kotlin {
         }
     }
 
-    
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -68,11 +62,8 @@ kotlin {
                 implementation(compose.animation)
                 implementation(compose.material3)
                 implementation(compose.components.uiToolingPreview)
-
-                // PreCompose - https://github.com/Tlaster/PreCompose
-                implementation(libs.precompose)
-                implementation(libs.precompose.viewmodel)
-                implementation(libs.precompose.koin)
+                implementation(libs.compose.viewmodel)
+                implementation(libs.compose.navigation)
 
                 // Launchpad
                 implementation(libs.kmp.launchpad.compose)
@@ -82,6 +73,9 @@ kotlin {
 
                 // KotlinX
                 implementation(libs.kotlinx.date.time)
+
+                // Serialization
+                implementation(libs.ktor.serialization.kotlinx.json)
             }
         }
 

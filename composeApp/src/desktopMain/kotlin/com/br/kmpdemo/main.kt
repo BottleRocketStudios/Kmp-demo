@@ -1,17 +1,16 @@
+import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import androidx.compose.ui.window.singleWindowApplication
-import com.bottlerocketstudios.launchpad.compose.navigation.NavigationWrapper
+import androidx.navigation.compose.rememberNavController
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
 import com.br.kmpdemo.compose.nav.NavRoutes
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.app.KMPDemoApp
 import com.br.kmpdemo.compose.ui.app.KmpNavBar
-import com.br.kmpdemo.compose.ui.app.kmpDemoAppNavItems
-import moe.tlaster.precompose.PreComposeApp
-import moe.tlaster.precompose.navigation.NavOptions
+import com.br.kmpdemo.di.appModule
+import org.koin.core.context.startKoin
 
 
 // TODO - Consider moving this into LaunchPad Compose
@@ -23,38 +22,40 @@ fun WindowState.getWindowWidthSizeClass() =
         else -> WindowWidthSizeClass.Medium
     }
 
-fun main() = application {
-    val windowState = rememberWindowState()
+fun main() {
+    startKoin {
+        modules(appModule())
+        allowOverride(false)
+    }
 
-    singleWindowApplication(
-        title = "Kmp Weather",
-        state = windowState,
-    ) {
-        PreComposeApp {
+    application {
+        val windowState = rememberWindowState()
+
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = "Kmp Weather",
+            state = windowState,
+            alwaysOnTop = true,
+            focusable = true,
+            visible = true,
+        ) {
+            val navController = rememberNavController()
             KmpDemoTheme {
-                NavigationWrapper(
+                KMPDemoApp(
                     widthSize = windowState.getWindowWidthSizeClass(),
+                    navController = navController,
                     devicePosture = DevicePosture.NormalPosture,
-                    navigationItems = kmpDemoAppNavItems,
-                ) { navigator, _ ->
-                    KMPDemoApp(
-                        widthSize = windowState.getWindowWidthSizeClass(),
-                        navigator = navigator,
-                        devicePosture = DevicePosture.NormalPosture,
-                        bottomBar = {
-                            KmpNavBar(
-                                onAddClick = {
-                                    navigator?.navigate(
-                                        route = NavRoutes.AICHAT,
-                                        options = NavOptions(launchSingleTop = true)
-                                    )
+                    bottomBar = {
+                        KmpNavBar(
+                            onAddClick = {
+                                navController.navigate(NavRoutes.AICHAT) {
+                                    launchSingleTop = true
                                 }
-                            )
-                        }
-                    )
-                }
+                            }
+                        )
+                    }
+                )
             }
         }
-
     }
 }
