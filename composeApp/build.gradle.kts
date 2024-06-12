@@ -10,8 +10,8 @@ plugins {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "com.br.kmpdemo.compose.resources"
-    multiplatformResourcesClassName = "SharedRes"
+    resourcesPackage.set("com.br.kmpdemo.compose.resources")
+    resourcesClassName.set("SharedRes")
 }
 
 kotlin {

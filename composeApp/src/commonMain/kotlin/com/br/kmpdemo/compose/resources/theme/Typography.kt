@@ -16,7 +16,7 @@ import dev.icerock.moko.resources.compose.fontFamilyResource
 fun getKmpTypography() = Typography(
     // Default/Regular/LargeTitle
     displayLarge = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 34.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -25,7 +25,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Headline
     headlineSmall = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 17.sp,
         fontWeight = FontWeight.SemiBold,
         fontStyle = FontStyle.Normal,
@@ -34,7 +34,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Title1
     titleLarge = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 28.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -43,7 +43,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Title2
     titleMedium = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 22.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -52,7 +52,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Title3
     titleSmall = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 20.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -61,7 +61,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Body
     bodyLarge = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 17.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -70,7 +70,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Callout
     bodyMedium = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 16.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -79,7 +79,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Subheadline
     bodySmall = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 15.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -88,7 +88,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Footnote
     labelLarge = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 13.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -97,7 +97,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Caption
     labelMedium = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
@@ -105,7 +105,7 @@ fun getKmpTypography() = Typography(
     ),
     // Default/Regular/Caption2
     labelSmall = TextStyle(
-        fontFamily = fontFamilyResource(SharedRes.fonts.Montserrat.regular),
+        fontFamily = fontFamilyResource(SharedRes.fonts.montserrat_regular),
         fontSize = 11.sp,
         fontWeight = FontWeight.Normal,
         fontStyle = FontStyle.Normal,
