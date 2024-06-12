@@ -12,10 +12,9 @@ package com.br.kmpdemo.network
  *      Use [REALTIME_FORECAST] to access current weather data for WeatherWidget
  **/
 object NetworkRoutes {
-    const val BASE_URL = "https://api.tomorrow.io/v4/weather"
-    const val BASE_HOST = "api.tomorrow.io/v4/weather"
-    const val FORECAST_URL = "/forecast"
-    const val REALTIME_URL = "/realtime"
+    const val BASE_HOST = "api.tomorrow.io"
+    const val FORECAST_URL = "/v4/weather/forecast"
+    const val REALTIME_URL = "/v4/weather/realtime"
     const val KEY = "64JPsK8f3qpZkvaqAlToKoi0HMIv3ydf"
     const val DAILY_FORECAST = "1d"
     const val HOURLY_FORECAST = "1h"

@@ -1,7 +1,6 @@
 package com.br.kmpdemo
 import com.br.kmpdemo.utils.Constants.IS_METRIC
 import com.br.kmpdemo.utils.MeasurementType
-import org.koin.core.component.KoinComponent
 import platform.Foundation.NSUserDefaults
 
 
@@ -16,8 +15,3 @@ actual object MeasurementPreference {
         }
 }
 
-actual class KmpLocationProvider: KoinComponent {
-    actual suspend fun getUsersLocation() {
-        // TODO: Implement using CLLocationManager
-    }
-}
