@@ -123,9 +123,11 @@ kotlin {
                 implementation(libs.google.maps.utils)
 
                 // Glance
-                implementation(libs.glance)
-                implementation(libs.glance.appwidget)
-                implementation(libs.glance.material3)
+                implementation(libs.androidx.glance)
+                implementation(libs.androidx.glance.appwidget)
+                implementation(libs.androidx.glance.material3)
+                implementation(libs.androidx.glance.preview)
+                implementation(libs.androidx.glance.appwidget.preview)
 
                 // MainActivity - setContent
                 implementation(libs.activity.compose)
