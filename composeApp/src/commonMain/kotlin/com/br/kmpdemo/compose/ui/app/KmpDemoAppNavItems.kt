@@ -12,25 +12,25 @@ val kmpDemoAppNavItems = listOf(
         label = { Text("Home") },
         onClick = {},
     ),
-    NavigationItem(
-        route = NavRoutes.MAP,
-        selectedIcon = {},
-        unselectedIcon = {},
-        label = { Text("Location") },
-        onClick = {},
-    ),
-    NavigationItem(
-        route = NavRoutes.ADD,
-        selectedIcon = {},
-        unselectedIcon = {},
-        label = { Text("Add") },
-        onClick = {},
-    ),
-    NavigationItem(
-        route = NavRoutes.LIST,
-        selectedIcon = {},
-        unselectedIcon = {},
-        label = { Text("List") },
-        onClick = {},
-    )
+//    NavigationItem(
+//        route = NavRoutes.MAP,
+//        selectedIcon = {},
+//        unselectedIcon = {},
+//        label = { Text("Location") },
+//        onClick = {},
+//    ),
+//    NavigationItem(
+//        route = NavRoutes.ADD,
+//        selectedIcon = {},
+//        unselectedIcon = {},
+//        label = { Text("Add") },
+//        onClick = {},
+//    ),
+//    NavigationItem(
+//        route = NavRoutes.LIST,
+//        selectedIcon = {},
+//        unselectedIcon = {},
+//        label = { Text("List") },
+//        onClick = {},
+//    )
 )

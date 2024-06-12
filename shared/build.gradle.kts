@@ -8,7 +8,15 @@ plugins {
 
 
 kotlin {
-    applyDefaultHierarchyTemplate()
+    applyDefaultHierarchyTemplate {
+        common {
+            // Create a group for code that is common to just Android and iOS
+            group("mobile") {
+                withIos()
+                withAndroidTarget()
+            }
+        }
+    }
     androidTarget()
     jvmToolchain(17)
     jvm("desktop")
@@ -49,6 +57,15 @@ kotlin {
             }
         }
 
+        val mobileMain by getting {
+            dependsOn(commonMain)
+            dependencies {
+                // Geo
+                implementation(libs.moko.geo)
+                implementation(libs.moko.geo.compose)
+            }
+        }
+
         val androidMain by getting {
             dependsOn(commonMain)
             dependencies {
@@ -74,6 +91,7 @@ kotlin {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.darwin)
+                implementation(libs.moko.geo)
             }
         }
 

@@ -61,7 +61,7 @@ class SkikoAppDelegate @OverrideInit constructor() : UIResponder(), UIApplicatio
     @OptIn(ExperimentalForeignApi::class)
     override fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean {
         startKoin {
-            modules(appModule())
+            modules(appModule() + iosModule)
             allowOverride(false)
         }
 

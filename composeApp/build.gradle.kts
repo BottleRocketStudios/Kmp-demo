@@ -7,8 +7,6 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.multiplatformResources)
-//    alias(libs.plugins.ksp)
-//     TODO - Check to see if we still need KSP???
 }
 
 multiplatformResources {
@@ -93,6 +91,10 @@ kotlin {
                 // Permissions
                 implementation(libs.moko.permissions)
                 implementation(libs.moko.permissions.compose)
+
+                // Geo
+                implementation(libs.moko.geo)
+                implementation(libs.moko.geo.compose)
             }
         }
 

@@ -1,9 +1,10 @@
 package com.br.kmpdemo.viewmodels
 
+import androidx.lifecycle.viewModelScope
 import com.bottlerocketstudios.launchpad.google.utils.network.service.airquality.AirQualityApiService
-import com.br.kmpdemo.KmpLocationProvider
 import com.br.kmpdemo.LastKnownLocation
 import com.br.kmpdemo.MeasurementPreference
+import com.br.kmpdemo.MokoLocationProvider
 import com.br.kmpdemo.UserLocation
 import com.br.kmpdemo.models.Daily
 import com.br.kmpdemo.models.DailyValues
@@ -16,13 +17,15 @@ import com.br.kmpdemo.utils.isHour
 import com.br.kmpdemo.utils.isToday
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 
 class HomeViewModel : BaseViewModel() {
     //region DI
     private val weatherRepo: WeatherRepository by inject()
-    private val locationProvider: KmpLocationProvider by inject()
+    private val locationProvider: MokoLocationProvider by inject()
     private val airQualityApiService: AirQualityApiService by inject()
     //endregion
 
@@ -92,19 +95,27 @@ class HomeViewModel : BaseViewModel() {
     fun onDismissLocationPermissionDialog(permissionGranted: Boolean = false) {
         if (permissionGranted) {
             shouldShowPermissionsDialog.value = false
-            onLocationPermissionsGranted()
+            getLocation()
         }
     }
 
-    private fun onLocationPermissionsGranted() {
+    private fun getLocation() {
+        // Needs to run on main thread
+        viewModelScope.launch {
+            locationProvider.startTracking()
+            LastKnownLocation.userLocation.value = locationProvider.getLocationFlow().first()
+            locationProvider.stopTracking()
+        }
+    }
+
+    init {
         launchIO {
-            locationProvider.getUsersLocation()
             LastKnownLocation.userLocation.collect { location ->
                 location?.let {
-                    getDailyForecasts(location.toCoordinates())
-                    getHourlyForecasts(location.toCoordinates())
-                    getRealTimeForecasts(location.toCoordinates())
-                    getAirQualityDetails(location)
+                    getDailyForecasts(it.toCoordinates())
+                    getHourlyForecasts(it.toCoordinates())
+                    getRealTimeForecasts(it.toCoordinates())
+                    getAirQualityDetails(it)
                 }
             }
         }
