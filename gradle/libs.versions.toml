@@ -9,7 +9,7 @@ application-id = "com.br.kmpdemo"
 
 agp = "8.2.2"
 compose-activity = "1.9.0"
-compose-plugin = "1.6.2"
+compose-plugin = "1.6.10"
 compose-viewmodel = "2.8.0"
 compose-navigation = "2.8.0-alpha02"
 core-i18n = "1.0.0-alpha01"
@@ -23,7 +23,7 @@ kmp-launchpad-domain = "0.1.0"
 kmp-launchpad-utils = "0.1.0"
 kmp-launchpad-ai = "0.1.0"
 koin = "3.5.3"
-kotlin = "1.9.22"
+kotlin = "2.0.0"
 kotlinx-date-time = "0.5.0"
 ksp = "1.9.22-1.0.17"
 kt-lint-gradle = "12.1.0"
@@ -100,6 +100,7 @@ ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

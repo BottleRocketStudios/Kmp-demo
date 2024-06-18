@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.multiplatformResources)
 }
 
@@ -78,7 +79,6 @@ kotlin {
         }
 
         val desktopMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 // Compose
                 implementation(compose.desktop.currentOs)
@@ -86,7 +86,6 @@ kotlin {
         }
 
         val mobileMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 // Permissions
                 implementation(libs.moko.permissions)
@@ -102,14 +101,12 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by getting {
-            dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
 
         val androidMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 // Koin
                 implementation(libs.koin.android)
