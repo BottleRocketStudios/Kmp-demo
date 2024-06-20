@@ -8,7 +8,6 @@ import com.br.kmpdemo.utils.Constants.IS_METRIC
 import com.br.kmpdemo.utils.Constants.MEASUREMENT_PREFS
 import com.br.kmpdemo.utils.MeasurementType
 
-
 actual object MeasurementPreference {
     private lateinit var preferences: SharedPreferences
 
@@ -17,7 +16,7 @@ actual object MeasurementPreference {
     }
 
     actual var preference: MeasurementType
-        get() = if (preferences.getBoolean(IS_METRIC, false)) MeasurementType.IMPERIAL else MeasurementType.METRIC
+        get() = if (preferences.getBoolean(IS_METRIC, false)) MeasurementType.METRIC else MeasurementType.IMPERIAL
         set(value) {
             preferences.edit().putBoolean(IS_METRIC, value == MeasurementType.METRIC).apply()
         }
@@ -26,7 +25,7 @@ actual object MeasurementPreference {
 fun MokoLocationProvider.bind(
     lifecycle: Lifecycle,
     context: Context,
-    fragmentManager: FragmentManager
+    fragmentManager: FragmentManager,
 ) {
     locationTracker.bind(lifecycle, context, fragmentManager)
 }

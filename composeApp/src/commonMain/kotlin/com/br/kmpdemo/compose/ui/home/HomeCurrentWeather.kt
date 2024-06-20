@@ -16,10 +16,15 @@ import com.br.kmpdemo.compose.resources.theme.Dimens
 import com.br.kmpdemo.compose.resources.theme.bold
 import com.br.kmpdemo.compose.resources.theme.light
 import com.br.kmpdemo.compose.resources.theme.size
+import com.br.kmpdemo.utils.WeatherUtils.asDisplayUnit
+import com.br.kmpdemo.utils.WeatherUtils.roundToDisplayDouble
 import dev.icerock.moko.resources.compose.stringResource
 
 @Composable
-fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
+fun HomeCurrentWeather(
+    state: HomeState,
+    isExpanded: Boolean,
+) {
     with(state) {
         Column(
             modifier = Modifier.padding(Dimens.grid_6),
@@ -27,7 +32,7 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
             content = {
                 // Location Name
                 Text(
-                    location.value ?: stringResource(SharedRes.strings.locationError),
+                    text = location.value ?: stringResource(SharedRes.strings.locationError),
                     style = MaterialTheme.typography.titleLarge,
                     color = Colors.onPrimary,
                     textAlign = TextAlign.Center,
@@ -35,16 +40,25 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 // Current Temp
                 AnimatedVisibility(visible = !isExpanded) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(temperature.value?.let {
-                            stringResource(SharedRes.strings.input_degrees, it)
-                        } ?: stringResource(SharedRes.strings.tempError),
+                        Text(
+                            text = temperature.value?.let { temp ->
+                                    stringResource(
+                                        SharedRes.strings.input_degrees_with_unit,
+                                        temp.roundToDisplayDouble(),
+                                        state.measurementPref.value.asDisplayUnit(),
+                                    )
+                                } ?: stringResource(SharedRes.strings.tempError),
                             color = Colors.onPrimary,
                             style = MaterialTheme.typography.displayLarge.size(84.sp).light(),
                             textAlign = TextAlign.Center,
                         )
+
                         // Weather Description
-                        Text(stringResource(weatherDescriptionEnum.value ?.weather
-                            ?: SharedRes.strings.description_error),
+                        Text(
+                            text = stringResource(
+                                weatherDescriptionEnum.value?.weather
+                                    ?: SharedRes.strings.description_error
+                            ),
                             style = MaterialTheme.typography.titleMedium,
                             color = Colors.onPrimary.copy(alpha = 0.5F),
                             textAlign = TextAlign.Center,
@@ -53,15 +67,16 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 }
                 // Location, temp, and description when sheet is expanded
                 AnimatedVisibility(visible = isExpanded) {
-                    Text(temperature.value?.let { temp ->
-                        weatherDescriptionEnum.value?.weather?.let { desc ->
-                            stringResource(
-                                SharedRes.strings.input_collapsed_details,
-                                temp,
-                                stringResource(desc),
-                            )
-                        }
-                    } ?: stringResource(SharedRes.strings.input_collapsed_error),
+                    Text(
+                        text = temperature.value?.let { temp ->
+                            weatherDescriptionEnum.value?.weather?.let { desc ->
+                                stringResource(
+                                    SharedRes.strings.input_collapsed_details,
+                                        temp,
+                                        stringResource(desc),
+                                    )
+                                }
+                            } ?: stringResource(SharedRes.strings.input_collapsed_error),
                         modifier = Modifier.padding(top = Dimens.grid_1_5),
                         style = MaterialTheme.typography.titleMedium,
                         color = Colors.onPrimary.copy(alpha = 0.5F),
@@ -70,17 +85,18 @@ fun HomeCurrentWeather(state: HomeState, isExpanded: Boolean) {
                 }
                 // Temp high and Low
                 AnimatedVisibility(visible = !isExpanded) {
-                    Text(temperatureHi.value?.let { max ->
-                        temperatureLow.value?.let { min ->
-                            stringResource(SharedRes.strings.temp_high_low, max, min)
-                        }
-                    } ?: stringResource(SharedRes.strings.highLowTempError),
+                    Text(
+                        text = temperatureHi.value?.let { max ->
+                            temperatureLow.value?.let { min ->
+                                stringResource(SharedRes.strings.temp_high_low, max, min)
+                            }
+                            } ?: stringResource(SharedRes.strings.highLowTempError),
                         style = MaterialTheme.typography.titleMedium.bold(),
                         color = Colors.onPrimary,
                         textAlign = TextAlign.Center,
                     )
                 }
-            }
+            },
         )
     }
 }
