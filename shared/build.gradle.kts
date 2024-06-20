@@ -58,7 +58,6 @@ kotlin {
         }
 
         val mobileMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 // Geo
                 implementation(libs.moko.geo)
@@ -67,7 +66,6 @@ kotlin {
         }
 
         val androidMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 // Ktor
                 implementation(libs.ktor.client.android)
@@ -88,7 +86,6 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.darwin)
                 implementation(libs.moko.geo)
@@ -100,7 +97,6 @@ kotlin {
         }
 
         val desktopMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 // Ktor
                 implementation(libs.ktor.client.java)
