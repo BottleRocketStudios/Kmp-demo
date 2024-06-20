@@ -37,6 +37,7 @@
 
     <!-- Weather Details Components -->
     <string name="input_degrees">%s°</string>
+    <string name="input_degrees_with_unit">%1s°%2s</string>
     <string name="input_collapsed_details">%s° | %s</string>
     <string name="input_percentage">%s%%</string>
     <string name="air_quality">AIR QUALITY</string>

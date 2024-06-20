@@ -4,15 +4,19 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import kotlin.math.roundToInt
 
 object WeatherUtils {
-    /// Use this function to translate the API return to a Float for the Barometric Pressure widget
+    // Use this function to translate the API return to a Float for the Barometric Pressure widget
     fun Double?.getPressureFloat(): Float? = this?.let {
         val normalizedValue = ((it - 27.0) / 5.0).toFloat()
         return normalizedValue.coerceIn(0.0F, 1.0F)
     }
 
-    /// Use the next to functions to find the forecast for today or this hour
+    // Extension function on Double to round the number to a single decimal place for display purposes.
+    fun Double.roundToDisplayDouble() = (this * 10).roundToInt() / 10.0
+
+    // Use the next to functions to find the forecast for today or this hour
     fun String.isToday() = toReformattedDate() == Clock.System.now()
             .toLocalDateTime(TimeZone.currentSystemDefault())
             .toString()
@@ -23,7 +27,7 @@ object WeatherUtils {
             .toString()
             .toForecastTimeFormat()
 
-    /// Reformats the UTC DateTime to the correct display format for forecasts
+    // Reformats the UTC DateTime to the correct display format for forecasts
     fun String.toForecastTimeFormat(): String? =
         split("T").getOrNull(1)?.split(":")?.let { (hour, _, _) ->
             val formattedHour =
@@ -32,7 +36,7 @@ object WeatherUtils {
             return "$formattedHour $meridiem"
         }
 
-    /// Reformats the UTC DateTime to the user's time zone
+    // Reformats the UTC DateTime to the user's time zone
     fun String?.convertUtcTimeForSunriseSunset(): String =
         this?.let {
             val localDateTime = Instant.parse(this).toLocalDateTime(TimeZone.currentSystemDefault())
@@ -45,17 +49,20 @@ object WeatherUtils {
             return "$hour:$formattedMinute"
         } ?: ""
 
-    /// Reformats hour to 12-Hour format
+    // Reformats hour to 12-Hour format
     private fun Int.reformatHour() = when (this) {
         0 -> "12"
         in 1..12 -> this
         else -> (this - 12).toString()
     }
 
-    /// Gets the date only from the DateTime returned from the API
+    // Gets the date only from the DateTime returned from the API
     fun String.toReformattedDate(): String? = split("T").getOrNull(0)
 
-    /// Gets the day of the week from the DateTime returned from the API
+    // Extension function on the MeasurementType enum to get the display unit string.
+    fun MeasurementType?.asDisplayUnit() = if (this == MeasurementType.METRIC) "C" else "F"
+
+    // Gets the day of the week from the DateTime returned from the API
 //    fun String.toDayOfWeek(): String? =
 //        try {
 //            LocalDate.parse(this).dayOfWeek.toString().take(3)
@@ -63,8 +70,6 @@ object WeatherUtils {
 //            null
 //        }
 
-    /// Returns ONLY the city name from the location string
+    // Returns ONLY the city name from the location string
 //    fun String.extractCityName(): String = split(",")[1].trim()
-
-
 }
