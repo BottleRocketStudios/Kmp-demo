@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.multiplatformResources)
+    alias(libs.plugins.screenshot)
 }
 
 multiplatformResources {
@@ -78,6 +79,12 @@ kotlin {
             }
         }
 
+        val screenshotTest by creating {
+            dependencies {
+                implementation(libs.ui.tooling)
+            }
+        }
+
         val desktopMain by getting {
             dependencies {
                 // Compose
@@ -101,9 +108,9 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by getting {
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+//            iosX64Main.dependsOn(this)
+//            iosArm64Main.dependsOn(this)
+//            iosSimulatorArm64Main.dependsOn(this)
         }
 
         val androidMain by getting {
@@ -173,6 +180,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
     }
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 }
 
 compose.desktop {

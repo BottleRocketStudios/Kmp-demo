@@ -7,19 +7,20 @@ version-code = "1"
 version-name = "1.0"
 application-id = "com.br.kmpdemo"
 
-agp = "8.2.2"
+agp = "8.5.0"
 compose-activity = "1.9.0"
 compose-plugin = "1.6.10"
 compose-viewmodel = "2.8.0"
 compose-navigation = "2.8.0-alpha02"
 core-i18n = "1.0.0-alpha01"
-androidx-glance = "1.0.0"
-androidx-glance-preview = "1.1.0-rc01"
+androidx-glance = "1.1.0"
+androidx-glance-preview = "1.1.0"
 google-maps-utils = "4.3.3"
 google-places = "3.5.0"
 google-services = "4.4.2"
 kmp-launchpad-google-utils = "0.1.0"
-kmp-launchpad-compose = "0.1.0"
+#kmp-launchpad-compose = "0.5.0"
+kmp-launchpad-compose = "snapshot"
 kmp-launchpad-domain = "0.1.0"
 kmp-launchpad-utils = "0.1.0"
 kmp-launchpad-ai = "0.1.0"
@@ -33,9 +34,10 @@ moko-resources = "0.24.0"
 moko-permissions = "0.17.0"
 moko-geo = "0.6.0"
 play-services-maps = "18.2.0"
+screenshot = "0.0.1-alpha01"
 stately-common = "2.0.5"
-ui-tooling-preview = "1.6.7"
-ui-tooling = "1.6.7"
+ui-tooling-preview = "1.6.8"
+ui-tooling = "1.6.8"
 
 [libraries]
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "core-i18n" }
@@ -101,7 +103,7 @@ ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
+androidLibrary = { id = "com.android.library",  version.ref = "agp" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
@@ -111,3 +113,4 @@ kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versio
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktLint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "kt-lint-gradle" }
 multiplatformResources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }
+screenshot = { id = "com.android.compose.screenshot", version.ref = "screenshot"}
