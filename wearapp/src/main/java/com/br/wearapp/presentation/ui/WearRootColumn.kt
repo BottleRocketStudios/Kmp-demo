@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.tooling.preview.devices.WearDevices
+import com.br.wearapp.presentation.theme.KMP_DemoTheme
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.layout.ScalingLazyColumn
 import com.google.android.horologist.compose.layout.ScalingLazyColumnState
@@ -30,9 +31,11 @@ fun WearRootColumn(
 @Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
 @Composable
 fun WearRootColumnPreview() {
-    WearRootColumn(
-        modifier = Modifier,
-        contentItems = listOf(HomeScreen()),
-        listState = rememberResponsiveColumnState()
-    )
+    KMP_DemoTheme {
+        WearRootColumn(
+            modifier = Modifier,
+            contentItems = listOf(HomeScreen()),
+            listState = rememberResponsiveColumnState()
+        )
+    }
 }

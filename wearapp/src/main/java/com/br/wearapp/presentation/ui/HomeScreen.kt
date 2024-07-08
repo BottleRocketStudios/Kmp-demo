@@ -1,5 +1,6 @@
 package com.br.wearapp.presentation.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,19 +14,18 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.tooling.preview.devices.WearDevices
 import com.br.wearapp.R
-import com.google.android.horologist.compose.layout.AppScaffold
-import com.google.android.horologist.compose.layout.ScreenScaffold
+import com.br.wearapp.presentation.theme.KMP_DemoTheme
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Box(
-        modifier = modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier = modifier.fillMaxSize().background(MaterialTheme.colors.surface),
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colors.primary,
+            color = MaterialTheme.colors.onSurface,
             text = stringResource(R.string.hello_world, "Android")
         )
     }
@@ -34,19 +34,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
 @Composable
 fun HomeScreenSmallPreview() {
-    AppScaffold {
-        ScreenScaffold {
-            HomeScreen()
-        }
+    KMP_DemoTheme {
+        HomeScreen()
     }
 }
 
 @Preview(device = WearDevices.LARGE_ROUND, showSystemUi = true)
 @Composable
 fun HomeScreenLargePreview() {
-    AppScaffold {
-        ScreenScaffold {
-            HomeScreen()
-        }
+    KMP_DemoTheme {
+        HomeScreen()
     }
 }
