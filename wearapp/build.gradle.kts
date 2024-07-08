@@ -32,6 +32,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -40,7 +41,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+        kotlinCompilerExtensionVersion = libs.versions.wear.compose.compiler.get()
     }
     packaging {
         resources {
@@ -50,7 +51,7 @@ android {
 }
 
 dependencies {
-
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
     implementation(libs.play.services.wearable)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -60,8 +61,12 @@ dependencies {
     implementation(libs.androidx.wear.tooling.preview)
     implementation(libs.activity.compose)
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.horologist.composables)
+    implementation(libs.horologist.compose.layout)
+    implementation(libs.horologist.compose.material)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation(platform(libs.androidx.compose.bom))
 }
