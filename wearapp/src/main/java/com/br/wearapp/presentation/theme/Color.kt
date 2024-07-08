@@ -21,19 +21,6 @@ val lightBlue = Color(0xFF40CBD8)
 val outline = Color(0xFF6C4ACE)
 val outlineVariant = Color(0xFF5747A5)
 
-//// Gradient Colors ////
-val lightPurple = Color(0xFF5936B4)
-val darkPurple = Color(0xFF362A84)
-val sliderBlue = Color(0xFF3858B2)
-val sliderPink = Color(0xFFAA59E2)
-val sliderPurple = Color(0xFFE64495)
-val eclipsePurpleLight = Color(0xFF8A72CA)
-val eclipsePurple = Color(0xFF5936B4)
-val sunriseWhite = Color(0xFF8AA1CB)
-val sunriseBlue = Color(0xFF07275B)
-val indicatorDarkPurple = Color(0xFF592d85)
-val indicatorLightPurple = Color(0xFF8e57e2)
-
 val WearAppColorPalette: Colors = Colors(
     primary = purple,
     onPrimary = white,
