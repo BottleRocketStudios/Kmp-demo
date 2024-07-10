@@ -2,7 +2,7 @@ package com.br.kmpdemo
 
 import androidx.compose.ui.window.ComposeUIViewController
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
-import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
+import com.bottlerocketstudios.launchpad.compose.util.getWindowWidthSizeClass
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.app.KMPDemoApp
 import com.br.kmpdemo.di.appModule
@@ -35,16 +35,7 @@ fun mainIos() {
     }
 }
 
-@OptIn(ExperimentalForeignApi::class)
-fun UIWindow.getWindowWidthSizeClass() =
-    when (bounds.size) {
-        in 840..Int.MAX_VALUE -> WindowWidthSizeClass.Expanded
-        in 600..840 -> WindowWidthSizeClass.Medium
-        in Int.MIN_VALUE..600 -> WindowWidthSizeClass.Compact
-        else -> WindowWidthSizeClass.Medium
-    }
 
-@OptIn(BetaInteropApi::class)
 class SkikoAppDelegate @OverrideInit constructor() : UIResponder(), UIApplicationDelegateProtocol {
     companion object : UIResponderMeta(), UIApplicationDelegateProtocolMeta
 

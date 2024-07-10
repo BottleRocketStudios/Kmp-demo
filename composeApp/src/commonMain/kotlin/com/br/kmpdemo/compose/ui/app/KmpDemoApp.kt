@@ -1,8 +1,5 @@
 package com.br.kmpdemo.compose.ui.app
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
@@ -22,43 +19,10 @@ import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.NavigationItem
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
 import com.br.kmpdemo.compose.nav.NavRoutes
-import com.br.kmpdemo.compose.nav.Routes
 import com.br.kmpdemo.compose.nav.mainNavGraph
 import com.br.kmpdemo.compose.ui.MainWindowControlsImplementation
 import com.br.kmpdemo.viewmodels.MainActivityViewModel
 
-@Composable
-fun KMPDemoAppOld(
-    widthSize: WindowWidthSizeClass,
-    navController: NavHostController,
-    devicePosture: DevicePosture,
-    bottomBar: @Composable () -> Unit,
-) {
-    val activityViewModel = viewModel { MainActivityViewModel() }
-    val windowControls by lazy { MainWindowControlsImplementation(activityViewModel) }
-
-    Scaffold(
-        topBar = {},
-        bottomBar = {
-//            TODO - don't show this if keyboard
-            if (!windowControls.hideNavBar) bottomBar()
-        },
-    ) { it: PaddingValues ->
-        NavHost(
-            navController = navController,
-            startDestination = NavRoutes.HOME,
-            modifier = Modifier.padding(it)
-        ) {
-            mainNavGraph(
-                navigator = navController,
-                windowControls = windowControls,
-                widthSizeClass = widthSize,
-                devicePosture = devicePosture
-            )
-        }
-    }
-
-}
 
 val navItems = listOf(
     NavigationItem(
@@ -105,6 +69,5 @@ fun KMPDemoApp(
                 )
             }
         }
-
     }
 }
