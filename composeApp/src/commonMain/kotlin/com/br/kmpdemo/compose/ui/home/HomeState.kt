@@ -39,6 +39,6 @@ data class HomeState(
     val measurementPref: State<MeasurementType?> = mutableStateOf(null),
 
     // Permissions
-    val shouldShowPermissionsDialog: State<Boolean> = mutableStateOf(true),
+    val shouldShowPermissionsDialog: State<Boolean> = mutableStateOf(false),
     val locationPermissionsDialog: PermissionsDialogState,
 )

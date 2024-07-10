@@ -1,13 +1,10 @@
 package com.br.kmpdemo
 
 import androidx.compose.ui.window.ComposeUIViewController
-import androidx.navigation.compose.rememberNavController
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.DevicePosture
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
-import com.br.kmpdemo.compose.nav.NavRoutes
 import com.br.kmpdemo.compose.resources.theme.KmpDemoTheme
 import com.br.kmpdemo.compose.ui.app.KMPDemoApp
-import com.br.kmpdemo.compose.ui.app.KmpNavBar
 import com.br.kmpdemo.di.appModule
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
@@ -67,21 +64,10 @@ class SkikoAppDelegate @OverrideInit constructor() : UIResponder(), UIApplicatio
 
         window = UIWindow(frame = UIScreen.mainScreen.bounds).apply {
             rootViewController =  ComposeUIViewController {
-                val navController = rememberNavController()
                 KmpDemoTheme {
                     KMPDemoApp(
                         widthSize = getWindowWidthSizeClass(),
-                        navController = navController,
                         devicePosture = DevicePosture.NormalPosture,
-                        bottomBar = {
-                            KmpNavBar(
-                                onAddClick = {
-                                    navController.navigate(NavRoutes.AICHAT) {
-                                        launchSingleTop = true
-                                    }
-                                }
-                            )
-                        }
                     )
                 }
             }

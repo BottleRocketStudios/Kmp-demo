@@ -17,6 +17,8 @@ class WeatherRepoImplementation : WeatherRepository, KoinComponent {
 //            .getForecastByCity(city)
 //            .map { it.toForecastModel() }
 
+//     TODO - add caching to reduce hits to API
+
     override suspend fun getDailyForecast(location: String, units: String): Result<Forecast?> =
         tomorrowIoService
             .getDailyForecast(location, units)

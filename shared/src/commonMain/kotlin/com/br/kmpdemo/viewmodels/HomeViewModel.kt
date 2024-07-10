@@ -52,7 +52,7 @@ class HomeViewModel : BaseViewModel() {
 
     //  Location
     val userLocation = LastKnownLocation.userLocation.map { it?.cityName ?: "" }
-    val shouldShowPermissionsDialog = MutableStateFlow(true)
+    val shouldShowPermissionsDialog = MutableStateFlow(false)
     //endregion
 
     /**region Network calls */

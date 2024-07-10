@@ -2,6 +2,7 @@ package com.br.kmpdemo.network
 
 import com.br.kmpdemo.network.service.TomorrowIoService
 import io.ktor.client.HttpClient
+import io.ktor.client.plugins.cache.HttpCache
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.URLProtocol
@@ -10,6 +11,8 @@ import kotlinx.serialization.json.Json
 
 fun ktorClient(): HttpClient = HttpClient {
     expectSuccess = true
+
+    install(HttpCache)
 
     install(ContentNegotiation) {
         json(Json {
