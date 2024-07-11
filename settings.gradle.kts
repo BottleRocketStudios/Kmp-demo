@@ -11,6 +11,7 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
+//        mavenLocal()
         maven {
             url = uri("https://maven.pkg.github.com/BottleRocketStudios/kmp-demo")
             credentials {

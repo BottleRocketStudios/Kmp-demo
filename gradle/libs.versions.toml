@@ -13,14 +13,13 @@ compose-plugin = "1.6.10"
 compose-viewmodel = "2.8.0"
 compose-navigation = "2.8.0-alpha02"
 core-i18n = "1.0.0-alpha01"
-androidx-glance = "1.0.0"
-androidx-glance-preview = "1.1.0-rc01"
+androidx-glance = "1.1.0"
+androidx-glance-preview = "1.1.0"
 google-maps-utils = "4.3.3"
 google-places = "3.5.0"
 google-services = "4.4.2"
 kmp-launchpad-google-utils = "0.1.0"
-#kmp-launchpad-compose = "0.5.0"
-kmp-launchpad-compose = "snapshot"
+kmp-launchpad-compose = "0.5.0"
 kmp-launchpad-domain = "0.1.0"
 kmp-launchpad-utils = "0.1.0"
 kmp-launchpad-ai = "0.1.0"
@@ -35,8 +34,8 @@ moko-permissions = "0.17.0"
 moko-geo = "0.6.0"
 play-services-maps = "18.2.0"
 stately-common = "2.0.5"
-ui-tooling-preview = "1.6.7"
-ui-tooling = "1.6.7"
+ui-tooling-preview = "1.6.8"
+ui-tooling = "1.6.8"
 
 [libraries]
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "core-i18n" }
@@ -69,7 +68,6 @@ kmp-launchpad-ai = { group = "com.github.bottlerocketstudios", name = "kmp-launc
 # Koin
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
-#koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 stately-common = { module = "co.touchlab:stately-common", version.ref = "stately-common" }
 
