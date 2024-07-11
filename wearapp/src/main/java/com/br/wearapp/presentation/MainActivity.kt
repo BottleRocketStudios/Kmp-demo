@@ -9,7 +9,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.wear.tooling.preview.devices.WearDevices
 import com.br.wearapp.presentation.theme.KMP_DemoTheme
 import com.br.wearapp.presentation.ui.WearApp
-import com.br.wearapp.presentation.util.getScreenList
+import com.br.wearapp.presentation.utils.getScreenList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

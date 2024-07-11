@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.tooling.preview.devices.WearDevices
+import com.br.wearapp.presentation.mocks.MockData
 import com.br.wearapp.presentation.theme.KMP_DemoTheme
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.layout.ScalingLazyColumn
@@ -34,7 +35,7 @@ fun WearRootColumnPreview() {
     KMP_DemoTheme {
         WearRootColumn(
             modifier = Modifier,
-            contentItems = listOf(HomeScreen()),
+            contentItems = listOf(CurrentTemp(state = MockData.getMockCurrentTempState())),
             listState = rememberResponsiveColumnState()
         )
     }

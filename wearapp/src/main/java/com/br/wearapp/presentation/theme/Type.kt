@@ -7,6 +7,11 @@ import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.Typography
 
 val WearAppTypography = Typography(
+    display1 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 36.sp,
+    ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
