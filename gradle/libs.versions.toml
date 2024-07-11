@@ -37,6 +37,17 @@ stately-common = "2.0.5"
 ui-tooling-preview = "1.6.8"
 ui-tooling = "1.6.8"
 
+# Wear lib versions
+play-services-wearable = "18.2.0"
+compose-bom = "2024.06.00"
+compose-material = "1.3.1"
+compose-foundation = "1.3.1"
+wear-tooling-preview = "1.0.0"
+core-splashscreen = "1.0.1"
+wear-compose-compiler = "1.5.12"
+horologist = "0.5.26"
+desugar_jdk = "2.0.4"
+
 [libraries]
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "core-i18n" }
 
@@ -97,6 +108,21 @@ mokoResourceGenerator = { group = "dev.icerock.moko", name = "resources-generato
 # UI Tooling
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "ui-tooling-preview" }
+
+# Wear Libs
+play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "play-services-wearable" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-material = { group = "androidx.wear.compose", name = "compose-material", version.ref = "compose-material" }
+androidx-compose-foundation = { group = "androidx.wear.compose", name = "compose-foundation", version.ref = "compose-foundation" }
+androidx-wear-tooling-preview = { group = "androidx.wear", name = "wear-tooling-preview", version.ref = "wear-tooling-preview" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
+horologist-composables = { module = "com.google.android.horologist:horologist-composables", version.ref = "horologist" }
+horologist-compose-layout = { module = "com.google.android.horologist:horologist-compose-layout", version.ref = "horologist" }
+horologist-compose-material = { module = "com.google.android.horologist:horologist-compose-material", version.ref = "horologist" }
+desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar_jdk" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

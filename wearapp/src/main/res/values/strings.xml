@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WearApp</string>
+    <string name="tempError">--°</string>
+    <string name="input_degrees_with_unit">%1s°%2s</string>
+</resources>
