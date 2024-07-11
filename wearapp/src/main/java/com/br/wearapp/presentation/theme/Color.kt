@@ -23,8 +23,10 @@ val outlineVariant = Color(0xFF5747A5)
 
 val WearAppColorPalette: Colors = Colors(
     primary = purple,
-    onPrimary = white,
+    primaryVariant = purple,
     secondary = darkBlue,
+    secondaryVariant = darkBlue,
+    onPrimary = white,
     onSecondary = bluishGrey_60_Opacity,
     background = palePurple,
     onBackground = white,

@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.wear.tooling.preview.devices.WearDevices
+import com.br.wearapp.presentation.theme.KMP_DemoTheme
 import com.br.wearapp.presentation.ui.WearApp
 import com.br.wearapp.presentation.util.getScreenList
 
@@ -16,7 +17,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setTheme(android.R.style.Theme_DeviceDefault)
         setContent {
-            WearApp(getScreenList())
+            KMP_DemoTheme {
+                WearApp(getScreenList())
+            }
         }
     }
 }
@@ -24,5 +27,7 @@ class MainActivity : ComponentActivity() {
 @Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
 @Composable
 fun AppPreview() {
-    WearApp(getScreenList())
+    KMP_DemoTheme {
+        WearApp(getScreenList())
+    }
 }
