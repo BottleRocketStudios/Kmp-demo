@@ -1,0 +1,114 @@
+
+You are going to create composable preview functions that exercise different possible states of a Jetpack Compose UI screen.
+Set showSystemUI as true
+
+If some of the data is in list form:
+ - create a preview with an empty list
+ - create a preview with at least 3 items in the list
+ - items in the list should vary from the others.
+ - there should be enough items in the list to exercise all the UI permutations.
+
+ Include messaging for errors.
+ Include messaging for non standard states, such as; no items found
+
+Here are any data classes used to pass information to the UI:
+
+data class SettingsScreenState(
+    val isDarkMode: State<Boolean>,
+    val useCelsius: State<Boolean>,
+    val homeZipCodeText: State<String>,
+    val homeZipCodeErrorText: State<String>,
+    val onDarkModeChanged: (Boolean) -> Unit,
+    val onUseCelsiusChanged: (Boolean) -> Unit,
+    val onHomeZipCodeChanged: (String) -> Unit,
+    val onSaveClicked: () -> Unit
+)
+
+Here is the UI code itself:
+
+@Composable
+fun SettingsScreen(state: SettingsScreenState) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(Dimens.grid_1_5),
+        verticalArrangement = Arrangement.spacedBy(Dimens.grid_1_5)
+    ) {
+        Card(
+            elevation = CardDefaults.cardElevation(defaultElevation = Dimens.grid_0_5)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(Dimens.grid_1_5)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = Dimens.grid_0_5),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Dark Mode",
+                        modifier = Modifier.weight(1f)
+                    )
+                    Switch(
+                        checked = state.isDarkMode.value,
+                        onCheckedChange = state.onDarkModeChanged
+                    )
+                }
+                Divider()
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = Dimens.grid_0_5),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Use Celsius",
+                        modifier = Modifier.weight(1f)
+                    )
+                    Switch(
+                        checked = state.useCelsius.value,
+                        onCheckedChange = state.onUseCelsiusChanged
+                    )
+                }
+            }
+        }
+        Card(
+            elevation = CardDefaults.cardElevation(defaultElevation = Dimens.grid_0_5)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(Dimens.grid_1_5)
+            ) {
+                OutlinedTextField(
+                    value = state.homeZipCodeText.value,
+                    onValueChange = state.onHomeZipCodeChanged,
+                    label = { Text("Home Zip Code") },
+                    modifier = Modifier.fillMaxWidth(),
+                    isError = state.homeZipCodeErrorText.value.isNotEmpty()
+                )
+                if (state.homeZipCodeErrorText.value.isNotEmpty()) {
+                    Text(
+                        text = state.homeZipCodeErrorText.value,
+                        color = MaterialTheme.colorScheme.error,
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier.padding(start = Dimens.grid_1)
+                    )
+                }
+            }
+        }
+        Button(
+            onClick = state.onSaveClicked,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
+            Text("Save")
+        }
+    }
+}
+
+Wrap the preview code in KmpDemoTheme {}.
+Now write the preview functions for the above code:
+

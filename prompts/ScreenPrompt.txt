@@ -1,0 +1,98 @@
+You are going to be writing a Jetpack Compose UI function, specifically for a Kotlin Multiplatform project.
+It will not need scaffolding or navigation.
+Use standard components and a consistent design.
+Use the material color scheme.
+
+It will have a single state object as a parameter.
+This state class will be managed by a viewmodel. That will be coded later, not by this prompt.
+You will also create the state data class, unless I provide it for you.
+
+The state data class will contain values for the UI elements wrapped in androidx.compose.runtime.State
+The state class will also contain error strings to display any validation issues.  These error values will also be wrapped in androidx.compose.runtime.State
+The state class will have lambdas that will accept changes
+
+
+
+The following is an example of a state class for a login screen:
+
+data class LoginState(
+    val userNameText: State<String>,
+    val passwdText: State<String>,
+    val loginErrorText: State<String>,
+    val loadingIndicator: State<Boolean>,
+    val onUserNameChanged: (String) -> Unit,
+    val onPasswordChanged: (String) -> Unit,
+    val isLoginButtonEnabled: State<Boolean>,
+    val onLoginClicked: () -> Unit,
+)
+
+
+The following is an example of the LoginScreen that uses this state
+
+@Composable
+fun LoginScreen(state: LoginState) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Dimens.grid_1_5),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(
+                    all = Dimens.grid_1_5,
+                ),
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Flare,
+            contentDescription = stringResource(ComposeRes.strings.logo_name),
+            tint = IgniteUITheme.colors.primary,
+            modifier = Modifier.size(120.dp),
+        )
+        OutlinedTextField(
+            value = state.userNameText.value,
+            singleLine = true,
+            onValueChange = state.onUserNameChanged,
+            label = { Text(text = stringResource(ComposeRes.strings.auth_username)) },
+        )
+        OutlinedTextField(
+            value = state.passwdText.value,
+            singleLine = true,
+            visualTransformation = PasswordVisualTransformation(mask = PASSWD_MASK_CHAR),
+            onValueChange = state.onPasswdChanged,
+            label = { Text(text = stringResource(ComposeRes.strings.auth_passwd)) },
+        )
+        Button(
+            onClick = state.actionLogin,
+            enabled = state.isLoginButtonEnabled.value,
+        ) {
+            Text(text = stringResource(ComposeRes.strings.cta_login))
+        }
+
+        if (state.loadingIndicator.value) {
+            CircularProgressIndicator()
+        } else if (state.loginErrorText.value.isNotEmpty()) {
+            // Error
+            Text(
+                text = state.loginErrorText.value,
+                style = getIgniteTypography().bodyMedium,
+                color = IgniteUITheme.colors.error,
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = Dimens.grid_7),
+            )
+        }
+    }
+}
+
+
+
+I want you to create a SettingsScreen function based off the example patterns.  Use consistent naming conventions.
+The Settings Screen will have a dark mode toggle, celsius toggle, home zip code.
+The toggles will be on one card, the entry field on another card. The save button at bottom.
+Do not use icons to label the fields.
+
+For this screen, use string literals not string resources.  This is the one way you can diverge from the example code.
+
+
+Now create SettingsScreen function and the state data class:
+
